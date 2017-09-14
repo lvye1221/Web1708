@@ -42,14 +42,32 @@ function aaa()
 	var a = num1.value;
 	var b = num2.value;
 
+	a = parseFloat(a);
+	b = parseFloat(b);
+
+	var c = a+b;
+
+	// toFixed 代表保留几位小数（四舍五入的方式）
+	//   (2)   代表保留2位小数
+	c = c.toFixed(2)
+
+	document.write(c);
+
+	// 【练习】 （parseFloat）
+	//    实现 a + b 的计算器
+	//        16:26 对答案
+
+
 	//  num1.value
 	//  num1  是id名为 num1 的元素
 	//  .     的
 	//  value value代表输入框的值
 
-	document.write(a);
-	document.write("<br>");
-	document.write(b);
+	// document.write(typeof(a))
+
+	// document.write(a+b);
+	// document.write("<br>");
+	// document.write(b);
 	// 【练习】 点击按钮，输出第一个文本框的内容！
 	//         15: 25 对答案
 }
