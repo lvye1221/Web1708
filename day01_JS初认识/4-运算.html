@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+
+
+  <script>
+ // 定义1个变量 ==> 计算机申请一块空间
+
+//  申请了1个空间，输出的结果是 undefined
+//     里面的内容是不确定的
+// 【建议】 定义变量就要赋值，这是个好的习惯
+/*
+var a = 0;
+// 可以申请多个空间
+var b = 5;
+
+// 逗号分隔，代表同时定义2个变量
+// var a, b;
+var a = 0, b = 5;
+
+document.write(a);
+*/
+
+/*
+var a = 5;
+var b = 2;
+
+// + 加法运算
+document.write( a + b );
+document.write( a - b );
+document.write( a * b );
+
+// 除法 /
+document.write( a / b );
+
+// 求余 %
+//    5 / 3  余数 2
+//    16 / 3  余数 1
+//    5 / 2  余数 1
+document.write( a % b );
+
+document.write("<br>--------<br>");
+// 2的3次方  ==> 2*2*2
+//   ^  shift + 6
+//  ^  绝对不是乘方
+document.write(2^3);
+
+// 【练习】 +、-、*、/、%   
+//		14:33 对答案
+*/
+
+
+
+//var a = 10;
+
+// = 代表赋值运算符: 
+//     作用 将=右边的值 赋值给左边的【空间】变量
+//a = 50;
+
+// 出错，左边不是变量，不能修改它的值！出错！
+//   js 的特点，如果当前行代码出错，下面的代码都不会执行。自动停止运行
+//   解释型语言的特点： 一行行往下走，出错就停止
+// 10 = 50
+// 10 = a;
+
+var a = 50;
+var b = a;
+
+b = 100;
+
+// 50  应该是50吧
+// 100
+document.write(a);
+
+
+
+  </script>
+
+ </body>
+</html>

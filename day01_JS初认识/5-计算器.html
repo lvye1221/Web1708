@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+ <!--  【练习】 实现上面网页：（2个输入框+ 按钮）
+  			14:56 对答案 -->
+
+<!--  id="num1" 代表给此文本框起个名字 叫 num1 -->
+<input type="text" id="num1" />
++
+<input type="text" id="num2"/>
+
+<!-- button 类型是按钮
+	value 就是按钮中的文字
+
+<button> XXX </button>
+
+onclick="aaa()" 代表点击按钮，就执行 功能 aaa 中的内容
+-->
+<input 
+	type="button" 
+	value="计算" 
+	onclick="aaa()"
+	/>
+
+
+<script>
+
+
+// 定义了功能 aaa，名字可以改，满足命名规则即可
+function aaa()
+{
+	// 点击按钮 就会执行此功能的代码
+	// document.write("哈哈");
+	var a = num1.value;
+	var b = num2.value;
+
+	//  num1.value
+	//  num1  是id名为 num1 的元素
+	//  .     的
+	//  value value代表输入框的值
+
+	document.write(a);
+	document.write("<br>");
+	document.write(b);
+	// 【练习】 点击按钮，输出第一个文本框的内容！
+	//         15: 25 对答案
+}
+
+// 【练习】 点击按钮，输出1句话
+//              15:08 对答案
+</script>
+
+ </body>
+</html>
