@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+
+var x = 5;
+
+//  有2个或2个以上的运算符， 需要考虑执行顺序
+//  因为 <=   < 优先级别一样，所以  从左到右执行
+
+//   1 <= x   true
+//    true < 5 ==>   1 < 5
+
+//  true ==> 1
+//  false ==> 0
+//document.write( 1 <= x < 5 );
+// 表示范围 记得使用 && 符号
+document.write(1 <= x  && x < 5);
+
+// 优先级别
+//    单目运算符  > 双目运算符
+// a++                a+b
+//  !                 a+b    =>   !a + b 
+
+// 【终极解决办法】 加小括号！
+//  (a * b) + 1
+
+  </script>
+ </body>
+</html>
