@@ -226,10 +226,6 @@ f(n) = f(n-1) + f(n-2)
 
 
 
-
-
-
-
 ## 函数高级-封装 ##
 
 【案例】产生 [min, max] 间的随机数
@@ -239,6 +235,59 @@ min + parseInt((max-min+1)* Math.random())
 
 
 【案例】console.log日志、document.write输出的封装
+
+
+
+
+## IIFE ##
+
+IIFE就是immediately-invoked function expression，即时调用函数表达式?  IIFE wikiPIdia
+如果一个函数，在定义的时候，我们就想直接调用它，就是一个IIFE。
+
+我们试图在定义函数的后面，直接写圆括号：
+```
+function fun(){
+	alert("哈哈")
+}();
+
+```
+
+控制台报错，这是因为函数是一个函数体，并不是表达式，只有表达式能够用()来执行。
+
+所以就要把function fun(){}“降级”， 从函数体降级为表达式。方法有很多：
+```
++function fun(){
+	alert("哈哈")
+}();
+
+```
+
+```
+-function fun(){
+	alert("哈哈")
+}();
+```
+
+更通常的：
+```
+(function fun(){
+	alert("哈哈")
+})();
+
+```
+
+用这种方法定义的函数，名字是无效的，其他的地方想调用这个函数
+	fun("嘻嘻");
+就会报错。
+
+所以IIFE里面的函数，都是匿名函数：
+```
+(function(){
+	alert("哈哈");
+})();
+
+
+上面就是一个标准的IIFE。
 
 
 
