@@ -216,6 +216,45 @@ https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects
 字符串的属性和方法
 https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/String
 
+### 字符串查找 ###
+
+```
+
+var s1 = "1ab23***abc123";
+
+// 查找 s1 中是否包含 ab
+
+// 返回：从前往后 找，第一个找到的下标
+// var r = s1.indexOf("ab");
+
+// 返回：从后往前 找，第一个找到的下标
+var r = s1.lastIndexOf("ab");
+
+// 如果找不到，返回 -1，否则返回相应的下标
+
+alert(r);
+
+```
+
+### 字符串替换 (了解正则表达式) ###
+
+```
+
+var s1 = "abc";
+
+// 把 b 替换成 #
+
+var s2 = s1.replace("b", "#");
+
+
+alert(s1);
+alert(s2);
+```
+
+### 字符串分割 ###
+
+### 字符串截取 ###
+
 
 
 
