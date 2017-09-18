@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+ <script>
+
+// 输出100-200之间所有的素数
+//  素数, 也称为质数： 只能被1与自身整除的数字。
+///      13 1,13
+//  
+//  思路：
+//     1. 判断1个数字n 是不是素数
+//          （1） 从 2..n-1 循环，只要有1个能够整除，那么 n就不是素数
+//			（2） 只要有1个  ==> 要算算有多少个能整除
+//     2. 100个也是类似的，直接加个循环即可
+
+
+// 练习： 判断1个数字n 是不是素数
+//         16:12 对对  ==>  【16: 18】 对对
+
+/*
+	// 定义count，用于计算有多少个能整除的，初始值为0，代表1个都没有
+	//    计数器
+	var count = 0;
+
+	var n = 2;
+
+	for (var a = 2; a <= n-1; a++)
+	{
+		// 如果 n 整除 a
+		if (n % a == 0)
+		{
+			count++;
+		}
+	}
+
+	if (count >= 1)
+	{
+		document.write( n + "不是素数");
+	}
+	else 
+	{
+		document.write( n + "是素数");
+	}
+  
+
+// 思路： 如果余数等于0，就不是素数
+*/
+
+// 100个也是类似的，直接加个循环即可
+
+for (var b = 100; b <= 200; b++)
+{
+
+	// 定义count，用于计算有多少个能整除的，初始值为0，代表1个都没有
+	//    计数器
+	var count = 0;
+
+	var n = b;
+
+	for (var a = 2; a <= n-1; a++)
+	{
+		// 如果 n 整除 a
+		if (n % a == 0)
+		{
+			count++;
+		}
+	}
+
+	if (count >= 1)
+	{
+		// document.write( n + "不是素数");
+	}
+	else 
+	{
+		document.write( n + ", ");
+	}
+	// document.write( "<br>");
+}
+
+// 【练习】 理解 100以内所有素数的代码。
+//              16:40 对对
+
+</script>
+ </body>
+</html>

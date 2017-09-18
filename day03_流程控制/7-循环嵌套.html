@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+ <script>
+
+/*
+// 两层循环
+for (var a = 1; a <= 10; a++)
+{
+	//document.write("*******************<br>")
+
+	for (var b = 1; b <= 10; b++)
+	{
+		document.write("*")
+	}
+	document.write("<br>")
+}
+
+// 练习： 输出 10*10 的【矩形形状】
+//           15:15 对答案
+
+
+练习： 输出如下图形
+	*
+	**　
+	***
+	****
+	*****
+
+提示： 每行的星星数目等于行号
+	15:25 对答案
+
+*/
+
+// a: 行号：   1..5
+for (var a = 1; a <= 5; a++)
+{
+	// 每行的星星数目等于行号，那么是不是循环a次
+	for (var b = 1; b <= a; b++)
+	{
+		document.write("*");
+	}
+	// 每一行结束 用 <br> 换行
+	document.write("<br>");
+}
+
+
+// 休息20分钟，15:50 继续
+
+ </script>
+
+
+ </body>
+</html>
