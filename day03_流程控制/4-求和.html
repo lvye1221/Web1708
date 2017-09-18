@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <script>
+
+// 暴力输出的形式
+//    console.log 是在 开发者工具 中 console 栏目下，输出内容
+// console.log("呵呵")
+
+//  练习： 求出 1+2+3 + .. + 100 的和  （要求：（1） 在线调试， （2）暴力输出）
+//            11:42 对答案
+
+// 定义空间sum，用于存储所有偶数之和
+/*
+var sum = 0;
+
+var a = 0;
+
+while (a <= 100)
+{
+	console.log(a, sum);
+
+	// 在原本sum的基础上，加上偶数，再赋值给 sum
+	sum = sum + a;
+	
+	a += 2;
+}
+// 在循环的结尾输出 总和
+document.write(sum);
+*/
+
+//    a         sum 
+//    0			 0
+//    2          2
+//    4          6
+//    ..
+//    100        2+4+6 +.. + 100
+
+
+
+var sum = 0;
+
+var a = 1;
+
+while (a <= 100)
+{
+	console.log(a, sum);
+
+	// 在原本sum的基础上，加上偶数，再赋值给 sum
+	sum = sum + a;
+	
+	a ++;
+}
+document.write(sum);
+
+  </script>
+ </body>
+</html>

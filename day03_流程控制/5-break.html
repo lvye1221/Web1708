@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+
+  <script>
+/*
+var a = 1;
+
+while (a <= 5)
+{
+	// 当天是星期四，中奖了，辞职不干了
+	if (a == 4)
+	{
+		// break的作用是 终止循环，直接结束
+		break;
+	}
+
+	console.log("星期" + a + "，工作内容： hello world")
+
+	a++
+}
+
+*/
+
+
+var a = 1;
+
+while (a <= 5)
+{
+	// 当天是星期二，生病了，请假一天
+	if (a == 2)
+	{
+		// 为了避免continue 跳过a++, 所以，在这里多增加1天
+		a++;
+
+		// continue 的作用是 从当前代码开始 结束 【本次】循环，进入下一次循环
+		continue;
+	}
+
+	console.log("星期" + a + "，工作内容： hello world")
+
+	a++
+}
+  </script>
+
+ </body>
+</html>

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <script>
+
+// 循环： 用于解决重复性工作的
+
+/*
+// 定义空间 a，它的值为 1
+var a = 1;
+
+// 当 ... 时
+// 当 a 的值 小于等于 10
+while (a <= 10000)
+{
+	document.write( "*" );
+
+	// 让a的值自增1
+	a++;
+}
+
+// 写循环结构的格式
+
+var a = 1;   // 1. 循环的初始值
+
+while (a <= 10)  // 2. 循环的终止条件
+{
+	document.write(a); // 3. 循环执行的代码（可以是很多条）
+
+	a++;  // 4. 循环的变化量
+}
+
+*/
+//  练习：
+//     请输出 1 到 10000 中所有的数字。
+//         10:00 对答案
+
+/*
+var a = 1;
+
+while (a <= 10000)
+{
+	document.write(a);
+	document.write(", ");
+
+	a++;
+}
+*/
+/*
+var a = 1;
+
+while (a <= 10)
+{
+	document.write("<img src='1.jpg' />")
+
+	a++;
+}
+*/
+//  练习：  自己找一张图片，重复输出 1000次
+//      10:20 对答案
+
+//  流程： 输出，代码被重复执行了10遍
+//      a        条件a <= 10
+//      1		     true          执行代码  
+//      2			 true			执行代码
+//      3			 true			执行代码
+//      ...
+//      9			 true			执行代码
+//      10			 true			执行代码
+//      11			 false			不执行代码了，循环结束
+
+
+var a = 1;
+
+// a = a + 10
+
+//  += 是1个运算符，称为复合运算符
+//   功能： 将 a的值 + 10 再赋值给 a
+//   整体的值：  运算后a的值
+// a += 10;
+
+// *=, /= %= 
+
+a = a % 2; 
+//  a %= 2;
+
+document.write (a);
+
+
+  </script>
+
+
+ </body>
+</html>

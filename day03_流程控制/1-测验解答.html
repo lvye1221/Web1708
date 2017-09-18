@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+
+体重：
+ <input type="text" id="tz"/>
+
+身高：
+ <input type="text" id="sg"/>
+  
+ <input type="button" value="计算" onclick="js()"/>
+
+  <!-- 这里写js程序 -->
+  <script>
+
+function js() {
+	var a1 = tz.value;
+	var a2 = sg.value; // 身高
+
+	a1 = parseFloat(a1);
+	a2 = parseFloat(a2);
+
+	var r = a1 / (a2 * a2);
+
+	r = 20
+
+	if (r < 18.5)
+	{
+		document.write("过轻")
+	}
+	else if (r < 25)
+	{
+		document.write("正常")
+	}
+	else if (r < 21)
+	{
+		document.write("过重")
+	}
+	else if (r < 32)
+	{
+		document.write("肥胖")
+	}
+	else
+	{
+		document.write("非常肥胖")
+	}
+}
+
+  </script>
+
+
+ </body>
+</html>
