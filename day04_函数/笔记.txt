@@ -1,0 +1,29 @@
+
+
+function func()
+
+
+function func(a, b, c)
+
+
+return "值"
+
+
+// 调用
+
+func()
+func(1, 2, 3)
+
+var a = func()
+document.write( func() )
+
+
+var a = func(1,2,3)
+document.write( func(1,2,3) )
+
+
+写函数的作用：
+
+1. 重复利用代码
+2. 便于管理、代码更清晰
+3. 控制代码的执行时机     调用时才执行

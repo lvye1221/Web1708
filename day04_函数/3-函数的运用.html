@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+
+// 【练习】 完善 fan 函数，包括 盖饭的情况。
+//              11:30 对对
+
+// 带饭： 传入钱 和 饭的类别（面条 或 盖饭） 面条： 80一碗，炸酱面 盖饭： 120一碗，鱼香肉丝
+// 要求： 用 return 返回买的菜
+
+//  money  钱
+//  type 类别
+function fan(money, type)
+{
+	if (type == "面条")
+	{
+		 if (money >= 80)
+		 {
+			 return "炸酱面";
+		 } 
+		 else 
+		 {
+			return "钱不够，你自己去买吧！"
+		 }
+	}
+	else if (type == "盖饭")
+	{
+		 if (money >= 120)
+		 {
+			 return "鱼香肉丝";
+		 } 
+		 else 
+		 {
+			return "钱不够，你自己去买吧！"
+		 }
+	}
+
+}
+
+document.write(money);
+
+  </script>
+ </body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <script>
+
+/*
+document.write(a);
+
+var a = 1;
+//  undefined
+*/
+
+
+// 函数： 工具（最简单的开始）： 没有向工具输入，没有通过工具输出
+
+/*
+//  1. 定义功能
+// function 关键字 代表定义功能（函数）
+// func 功能的名字, 满足标识符的条件即可，可以修改的 
+			1. 必须是数字、字母、下划线、$ 组成 
+			2. 不能重名
+			3. 不能以数字开头
+	()   不能省略
+	{}   代表功能中的代码，相当于封装到了当前功能中
+
+//
+func()
+
+//  打印 如来神掌！
+
+
+// 原因： 定义功能 是在所有语句之前 执行的，系统规定的
+function func()
+{
+	console.log("如来神掌！");
+}
+
+
+
+// 2. 使用功能
+//   格式： 功能名()
+// func()
+// func()
+
+// 弹出一个输入框： prompt 就是1个函数，只不过这个是系统写的，我们直接使用
+// prompt()
+
+//  练习： 写1个功能，并调用！
+//             9:55 对对
+*/
+
+
+
+/*
+函数的第2种情况： 带输入的
+
+
+(a) 代表 【调用者】传递给函数的 信息，自动存储到空间a（自动分配的）中
+
+function func(a)
+{
+	document.write(a)
+}
+
+// 调用时，将数据 传递给功能 func
+func(100)
+func(90)
+*/
+
+
+/*
+函数的第2种情况： 带输入的, 有多个输入
+
+
+(a, b) 代表 【调用者】传递给函数的 信息，自动存储到空间a, b（自动分配的）中
+
+function func(a, b)
+{
+	// a: "哈哈"       b: 90
+	// a + b ===>  "哈哈" + 90  ===> "哈哈90"
+	document.write(a + b)
+}
+
+// 调用时，将数据 传递给功能 func
+//   传递数据的规定是： 100 ==> a  90 ===> b    一一对应的
+func("哈哈", 90)
+
+// 【练习】 计算两数字之和输出， 要求使用函数，并且带2个参数！
+//              10:28 对对
+function add(a, b)
+{
+	var c = a + b
+	document.write(c);
+}
+
+add(3, 5)
+
+*/
+
+
+
+/*
+
+函数的输出
+
+
+*/
+
+function func()
+{
+	// return 代表返回。整个函数立即终止，后面的代码全部忽略不计
+	return 5;
+
+	document.write("亲，我不会执行的！");
+}
+
+//  5,3   逗号 其实也是一个运算符： 功能： 从左到右执行
+//                               值： 最后执行的那个的值
+
+
+// func() 代表调用功能，它的【整体的值】是  return 后面【表达式的值】
+// document.write(  func()  )
+
+var a = func();
+
+document.write( a );
+
+
+  </script>
+
+ </body>
+</html>
