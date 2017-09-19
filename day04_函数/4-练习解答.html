@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+
+  // 编写函数，求一个正数的n次方
+  //    正数的n次方   ==> 正数 * 正数 * 正数 * ... * 正数   n次
+ 
+/*
+function func(a, n)
+{
+	var sum = 1;
+
+	for (var i = 1; i <= n; i++)  // 循环n次
+	{
+		sum = sum * a;
+	}
+
+	return sum;   // 返回结果
+}
+
+document.write( func(-2, 3) );
+
+  
+ 
+var x = -1, n = 3 
+
+// 说明： 传入正数，求出对应的n次方，否则 返回-1
+function num1(x, n)
+{
+	if (x > 0)
+	{
+		return Math.pow(x, n);
+	}
+	else
+	{
+		// document.write("请输入正数！");
+		return -1;
+	}	
+}
+
+document.write( num1(x, n) );
+
+
+
+function func(a, n)
+{
+	return( Math.pow(a,n) )
+}
+
+func(2, 3)
+
+// 2^3 + 3^2
+var a = func(2,3) + func(3,2)
+
+document.write(a)
+
+*/
+
+/*
+
+// 【练习】 编写函数，求4个数的平均值，要求使用返回值
+//                14:42 对对  【做完截图发群里】
+
+function avg(a, b, c, d)
+{
+	var r = (a + b + c + d) / 4;
+
+	return r;
+}
+
+// 测试： 
+document.write(  avg(4,3,2,1) );
+//*/
+
+/*
+求1个数的阶乘：
+	叹号表示阶乘，如4! = 1 * 2 * 3 * 4
+
+function jiecheng(a)
+{
+	var sum = 1;
+
+	for (var i = 1; i <= a; i++)
+	{
+		sum = sum * i;
+	}
+
+	return sum;
+}
+
+// 3.0414093201713376e+64 ==>  3.04 * 10^64
+//   30000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+// pi --> 3.1415926
+document.write( jiecheng(50) );
+
+
+
+参考水仙花 如果一个数恰好等于它的因数之和，则称该数为“完美数”。 例如： 第1个完全数是6，它有因数1、2、3、6，除去它本身6外，其余3个数相加，1+2+3=6。第2个完全数是28，它有因数1、2、4、7、14、28，除去它本身28外，其余5个数相加，1+2+4+7+14=28。 试寻找1~10000之间的所有完美数。
+
+1. 写1个函数 mysum 用于求1个数的 因数之和（除去本身外的）
+2. 循环 调用 mysum 来判断结果是否相等即可
+
+
+for (var i = 1; i <= 10000; i++ )
+{
+	if (i == mysum(i))
+	{
+		document.write(i + ",");
+	}
+}
+
+
+
+
+function mysum(n)
+{
+	var sum = 0;
+
+	for (var i = 1; i < n; i++)
+	{
+		if (n % i == 0)
+		{
+			sum += i;
+		}
+	}
+
+	return sum
+}
+//*/
+
+  </script>
+  
+ </body>
+</html>

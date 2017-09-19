@@ -1,6 +1,9 @@
 
 
 function func()
+{
+	封装的代码
+}
 
 
 function func(a, b, c)
@@ -15,6 +18,7 @@ func()
 func(1, 2, 3)
 
 var a = func()
+document.write( a )
 document.write( func() )
 
 
@@ -27,3 +31,8 @@ document.write( func(1,2,3) )
 1. 重复利用代码
 2. 便于管理、代码更清晰
 3. 控制代码的执行时机     调用时才执行
+
+
+
+练习： 编写函数，求一个正数的n次方，要求函数使用到返回值
+	14:13 对对

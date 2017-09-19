@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+
+<script>
+
+/*
+function func(a)
+{
+	// 写在函数中的，定义的变量，是只能在函数中使用的。
+	//   称为 【局部变量】
+	var b = 100
+}
+
+// b is not defined 出错了
+document.write(b);
+//*/
+
+/*
+var b = 100
+
+function func(a)
+{
+	b = 200
+}
+
+// 100 
+document.write(b);
+
+func()
+*/
+
+
+/*
+// 定义在函数外的变量，称为 全局变量
+var b = 100
+
+function func(a)
+{
+	b = 200
+}
+
+func(1)
+
+// 200 
+document.write(b);
+
+
+
+
+var b = 100
+
+function func(a)
+{
+	var b = 200
+}
+
+func()
+
+// 100
+document.write(b);
+
+*/
+
+
+var a = 1;
+
+function func()
+{	
+	a++;
+}
+
+func();
+func();
+
+// 2
+document.write(a);
+
+</script>
+  
+ </body>
+</html>
