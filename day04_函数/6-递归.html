@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <script>
+  /*
+//  求5的阶乘:   n的阶乘 1*2*..*n
+//     !  代表阶乘
+//     n!   ==     (n-1)! * n
+
+// 定义了函数jc，作用是 求 n的阶乘
+//  1. 假设  函数已经定义了
+function jc(n)
+{
+	// 3. 终止条件
+	if (n == 1)
+	{
+		return 1;
+	}
+
+	// 2. 分解： 将当前任务 分解成 上一个任务 + 自己的
+	return jc(n-1) * n
+}
+
+document.write( jc(5) )
+
+// 练习： 用递归来 求5的阶乘
+//              16:13 对对
+
+
+//  求和 ：  1+2+..+n
+
+
+// 分治算法：  1个大问题  ==> 小问题
+
+// 1. 定义功能sum，作用是 求 1+2+..+n 的和
+function sum(n)
+{
+	if (n==1)
+	{
+		return 1;
+	}
+
+	// 2. 分解任务   sum(n) ==  sum(n-1) + n
+	return (n)+sum(n-1);
+}
+
+document.write(sum(100))
+*/
+
+/*
+菲波那切数列： 当前的数字 == 上一个数 + 上上一个数
+1，1， 2， 3， 5， 8， 13， 21， 34， 55
+
+写一个函数，求 位置为n 的菲波那切数列中的数字
+
+（用循环可以做，但是比较麻烦。晚自习尝试下）
+
+
+// 1. 定义功能 fib， 作用是 求位置n的那个斐波那契数字
+function fib(n)
+{
+	if (n == 1 || n == 2)
+	{
+		return 1;
+	}
+
+	return fib(n-1) + fib(n-2);
+}
+
+document.write( fib(7) );
+
+*/
+  </script>
+
+
+ </body>
+</html>
