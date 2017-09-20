@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <script>
+/*
+题目1：
+求1! + 2! + 3! + 4! + …… + 10!的和
+叹号表示阶乘，如4! = 1 * 2 * 3 * 4
+
+思路：  
+	1. 求1个数的阶乘
+	2. 求和（循环来求）
+*/
+/*
+var sum = 0;
+for (var i = 1; i <= 10; i++)
+{
+	// jc(i)  ==> 代表 调用jc函数，将i传递给函数。整体的值就相当于是 i的阶乘
+	sum += jc(i);
+}
+document.write( jc(4) );
+//*/
+
+// jc 函数是用于求 n 的阶乘！
+function jc(n)
+{
+	// 思路： 1..n 循环，累乘
+	var sum = 1;
+
+	for (var i = 1; i <= n; i++)
+	{
+		sum *= i;
+	}
+
+	//return 代表函数返回的结果
+	return sum;
+}
+
+
+
+/*
+求一个三位数，该三位数等与其每位数字的阶乘之和。
+
+思路：
+	1. 求出三位数中的每位数字
+		123 ==> 123 / 100 = 1.23  ==>(取整)  1
+		123 ==> 123 % 100 = 23 / 10 = 2.3 ==>(取整)  2
+		123 ==> 123 % 10 = 3
+
+	2. 求出 3个数字的阶乘之和
+
+	3. 100 ~ 999 循环遍历 判断，如果满足条件，那么输出
+
+
+for (var i = 100; i <= 999; i++)
+{
+	//  f1(i)  代表调用函数 f1，传递的值是 i，相当于求 i的三位数字的阶乘之和
+	if (i == f1(i) )
+	{
+		document.write(i + ",");
+	}
+}
+
+
+// f1： 求三位数字中的每位数字【的阶乘之和】
+function f1(n)
+{
+	var a1 = n % 10;  // 个位
+	var a2 = parseInt((n % 100) / 10) // 十位
+	var a3 = parseInt((n / 100)) // 百位
+
+	// jc(a1) 代表调用函数  jc，值是a1的阶乘
+	var sum = jc(a1) + jc(a2) + jc(a3);
+
+	return sum;
+}
+//*/
+
+/*
+编写一个函数rev用于将一个整数前后倒置。
+例如rev(12345)将返回54321，rev(123)将返回321
+整数位数不限制，多少位都行。
+
+  n					str
+12345			 
+1234				 5
+123					 54
+12					 543
+1					 5432
+0					 54321
+
+思路：
+	1. 定义1个变量 str, 刚开始是空的 ""
+
+	2. str = str + 个位数   ()
+
+	3. 舍弃个位数了   n = parseInt(n / 10)
+
+	4. 重复 2 ~ 3 步  【终止条件是 n == 0】
+
+
+
+var s = parseInt( rev(78078676) )
+document.write( s );
+
+function rev(n)
+{
+	var str = ""  
+
+	do
+	{
+		//  n % 10  等于 n 的个位数
+		str = str + (n % 10);
+		n = parseInt(n / 10)
+	}
+	while (n != 0);
+
+	return str
+}
+//*/
+
+
+/*
+
+题目4：
+如果整数A 的全部约数（包括1，不包括A 本身）之和等于B，且整数B 的全部约数
+（包括1，不包括B 本身）之和等于A，则称整数A和B是一对亲密数。
+求3000 以内的全部亲密数。
+
+思路：
+	1. 定义1个函数 ys, 作用是 求 参数n 的全部约数（包括1，不包括n本身）之和
+			求约数：  1..n-1 循环
+
+	2. 1..3000 循环，循环变量i， 求出循环变量i的 约数之和 b  
+				判断  b的约数之和c ==？ 循环变量i
+					是： 循环变量i 与 b 才是亲密数
+//*/
+
+for (var i = 1; i <= 3000; i++)
+{
+	// ys(i) 代表 i的约数之和
+	var b = ys(i);
+
+	// // ys(i) 代表 b的约数之和
+	if (ys(b) == i && b != i)
+	{
+		document.write(i + ", " + b + " 是一对！<br>");
+	}
+}
+
+// 函数 ys, 作用是 求 参数n 的全部约数（包括1，不包括n本身）之和
+function ys(n)
+{
+	var sum = 0;
+	for (var i = 1; i <= n-1; i++)
+	{
+		if (n % i == 0)
+		{
+			sum += i
+		}
+	}
+	return sum
+}
+
+
+  </script>
+
+ </body>
+</html>
