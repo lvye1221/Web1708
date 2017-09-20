@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+
+// var a = []
+
+// 通过 typeof 来查看变量的 类型
+//    字符串： string
+//    数字： number
+//    数组： object  【对象】
+// console.log( typeof(a) )
+
+// 对象： 1个物体，1个整体
+//        特点：  很多东西组成的物体，是1个整体
+//  【注意】 只有 对象才能使用 . 运算符，代表 的 意思
+
+//   a     .     length
+// a对象  的      长度
+//  a.length
+
+// document.write
+// Math.pow
+// js 语言，基于对象的语言。 万物皆对象
+
+// var a = 100
+
+// window. 系统默认的对象，可以省略不写
+// document.write( window.a )
+
+/*
+// 数组是对象，数组开辟空间是无限的
+var a = [1, 2, 3]
+
+// 复制数组，并没有将数组的空间复制一份，而是只是指向了数组的空间
+//      【浅复制】
+var b = a
+
+b[0] = 200
+
+document.write( a[0] )
+
+// 问： 我要把a的空间复制一份？  【深复制】
+//  思路： 重新开辟数组的空间，并且 循环遍历 来复制a中所有元素的值
+
+var b = [];
+for (var i = 0; i < a.length; i++)
+{
+	b[i] = a[i]
+}
+
+a[2] = 500
+
+for (var i = 0; i < b.length; i++)
+{
+	console.log(b[i]);
+}
+
+
+
+
+// 编写函数 func, 把1到1000之间所有的被3的数字存到数组
+//        1到1000之间 存在至少1个以上能被3整除的数字
+//     函数不能返回 2个或者2个以上的值
+
+// 【结论】 传递给函数的数组，内容可以在函数内部修改！
+
+function func( b )
+{
+	b[70000] = 100
+}
+
+var a = []
+
+func(a)
+
+// 70001
+document.write(a.length)
+*/
+
+// 【练习】编写函数 func, 把1到1000之间所有的被3的数字存到数组
+//           15:02 对对 
+
+var a = []
+
+func(a)
+
+for (var i = 0; i < a.length; i++)
+{
+	document.write(a[i] + ",")
+}
+
+
+function func( b )
+{
+	for (var i = 1; i <= 1000; i++)
+	{
+		if (i % 3 == 0)
+		{
+			// b 是数组对象
+			// . 的
+			// push 系统提供的函数，作用： 将数据压入到 数组中
+			b.push(i)
+		}
+	}
+}
+
+
+  </script>
+ </body>
+</html>

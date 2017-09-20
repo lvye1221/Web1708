@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+<script>
+/*
+var a = 1;
+var b = 1;
+var c = 1;
+
+// 我想定义26个变量呢？
+// abcdefghijklmnopqrstuvwxyz
+
+// 我想定义27个变量呢？
+var a1 = 1
+var a2 = 1
+var a3 = 1
+..
+var a27 = 1
+*/
+/*
+// 定义了数组 a，里面可以存储非常多的元素
+//  []  代表定义了数组
+var a = [];
+
+// 将 100 赋值给 数组中 编号为 1 的元素
+// a[0] 代表访问 下标为 0 的元素。 是1个整体，中间不能加空格
+// a[0] = 100
+
+a[7640000] = 20000
+
+// [] 中间是可以写【表达式】的
+var i = 7640000
+// document.write( a[i] );
+
+document.write( a[i-1+1] );
+*/
+
+/*
+// 定义数组 a，连续的编号 0,1,2...  
+var a = [];
+
+// a[0] 是数组中的第1个元素，因为下标是从 0 开始计数的
+a[0] = 100
+a[1] = 100
+a[2] = 100
+a[10] = 100
+a[100] = 100
+a[11] = 100
+
+// 0,1,2, ..., 10 ===> 11个
+//  a.length 数组的长度： 里面有多少个元素
+document.write(  a.length  );
+
+// 【练习】 定义1个数组，添加3个元素，输出数组的长度。
+//                  11:28 对对
+*/
+
+/*
+// 2 代表数组中的第一个元素
+// var a = [2];
+// [] 中以逗号分隔的列表是 数组中的元素
+var a = [1,2,3,4,5,6,7,8,9];
+
+// 求数组中所有元素的和
+var sum = 0;
+
+// 数组的遍历
+// 【注意】 循环变量 i 是从0开始的， i < a.length 不要写 <=
+for (var i = 0; i < a.length; i++)
+{
+	sum += a[i]
+}
+
+document.write( sum );
+
+// 【练习】 求数组a中所有元素之和
+//                11:44 对对
+
+*/
+
+
+// 定义数组a，用于存储所有长沙人的工资
+var a = [];
+
+// 修改数组a的长度为 7640000, 因为长沙的人口数是 764万
+a.length = 7640000;
+
+// 给每位长沙人定义工资
+for (var i = 0; i < a.length; i++)
+{
+	a[i] = i
+}
+
+// 1. 先求总共的钱
+var sum = 0;
+
+for (var i = 0; i < a.length; i++)
+{
+	sum += a[i];
+}
+
+// 2. 求平均工资
+document.write("平均工资：" + (sum/a.length) );
+</script>
+
+ </body>
+</html>

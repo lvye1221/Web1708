@@ -266,7 +266,7 @@ alert(s2);
 比如repeat("★",6) 返回"★★★★★★"
 
 ---------
-第2题
+第2题 (选做)
 在控制台输出图形
 ```
     *
@@ -289,13 +289,13 @@ alert(s2);
 语句直接写在程序中，不需要用户输入
 
 ---------
-第5题
+第5题(选做)
 编写函数rightchange(char,n) 实现字符串char循环右移n位。
 比如rightchange("abcdefg",2) 返回"fgabcde"
 
 
 ---------
-第6题
+第6题(选做， 有难度！)
 编写函数maxr(char) 返回字符串char中最长的连续重复字母
 比如maxr("mmmiijjjjkkkkkkssptr") 返回"kkkkkk"
 

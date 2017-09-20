@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <script>
+/*
+function indexOf(a, b)
+{
+	if (b == undefined)
+	{
+		b = 0
+	}
+
+	console.log(a)
+	console.log(b)
+}
+
+indexOf("我", 5)
+*/
+
+// a.concat("1", "2", "3", "4")
+
+/*
+function concat()
+{
+	// arguments 是代表传递给当前函数的 参数【数组】。系统自动提供的
+	console.log( arguments )
+}
+
+concat(1, "2", "3", 4, 5)
+*/
+
+// 3. 计算N个数字的和（百度找资料）
+
+// 写1个函数 求n个数字之和（n不确定）
+
+
+document.write(  sum(1, 2, 3, 4, 5, 1,231,312,4,1312,312,3123,1231,23,12,312) )
+
+function sum()
+{
+	console.log(  typeof( arguments )  )
+
+	var s = 0
+
+	// arguments 是数组， arguments.length 就是长度
+	for (var i = 0; i < arguments.length; i++)
+	{
+		s += arguments[i]
+	}
+
+	return s;
+}
+
+  </script>
+
+ </body>
+</html>

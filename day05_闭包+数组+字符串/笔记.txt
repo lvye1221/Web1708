@@ -3,3 +3,39 @@
 各地花10分钟，统计下昨天练习问题
 
 9:10 对对昨天的练习答案
+
+为什么要写函数？
+1. 重复利用代码
+2. 便于管理，代码更清晰
+3. 控制代码的执行时机
+
+使用函数
+parseFloat("10.2")   转换为小数
+parseInt("10.2")   转换为整数
+document.write()
+console.log()
+prompt()  弹出输入框（系统）
+Math.pow(2,3)
+alert();  弹框（系统）
+
+要求：
+不能只是满足于使用别人写的函数，我们自己也要学会自己写函数
+
+
+数组：
+	var a = []
+
+	a.length
+
+	for (var i = 0; i < a.length; i++)
+
+	a[1] 都是1个元素，是1个空间，是1个变量，其中的值是可以修改的
+
+基本数据类型：
+	数字 NaN  Infinite
+	字符串
+	undefined
+	
+复合数据类型
+	数组： 存一串 数字、字符串、undefined
+		var a = [1, "我", undefined, NaN, 100]

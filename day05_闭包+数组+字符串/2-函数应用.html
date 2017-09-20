@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+  // alert("123");
+
+/*
+function aaa() 
+{
+	var a = 100
+}
+
+alert(a)
+
+
+
+var a = 100;
+function func() 
+{
+	a = 200
+}
+func() 
+document.write(a)
+// 200 
+*/
+
+
+function func(a) 
+{
+	var a = 100;
+	a = 200
+}
+func() 
+// document.write(a)
+//   func(a)  整体的值 等于 函数内部 return 后面表达式的值。因为没有return语句，所以结果没有，那么就是 undefined 
+document.write( func(a) )
+
+// 休息20分钟， 11:00 继续
+  </script>
+ </body>
+</html>
