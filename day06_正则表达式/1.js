@@ -145,17 +145,23 @@ rightchange("abcdefg",3)   ==> efgabcd
 rightchange("abcdefg",8)   ==> gabcdef
 
 
-思路：
-	1. 取出最后1个字符 c
 
-	2. 将c拼接到 新字符串  str+=c
+思路：
+	移动1个字符的问题    +   循环n次
+
+	1. 取出最后1个字符c    char.charAt( char.length-1 )
+
+	2. 将c拼接到 新字符串  str += char.charAt( char.length-1 )
 
 	3. 将新字符串 再拼接 原本字符串的前面1截   str+= char.substr(0, char.length-1)
 
 	重复 1~3  n 次
+
+
+【10:45】 继续
 */
 
-document.write(  rightchange("abcdefg", 8)  )
+// document.write(  rightchange("abcdefg", 8)  )
 
 function rightchange(char, n)
 {
@@ -176,4 +182,199 @@ function rightchange(char, n)
 	}
 
 	return char
+}
+
+
+
+/*
+// 第7题 有10个学生的成绩存在数组中，请统计大于等于平均成绩的人数。 成绩直接以数组形式写在程序中，不需要用户输入。
+
+
+思路：
+	1. 定义1个数组，其中10个元素，分别代表学生的成绩
+	2. 求出平均数
+	3. 遍历数组，判断其中的元素的值，是否大于等于平均数。
+				如果满足条件，那么输出
+*/
+/*
+var a = [1,2,3,4,5,6,7,8,9,10]
+
+var sum = 0;
+for (var i = 0; i < a.length; i++)
+{
+	sum += a[i]
+}
+var avg = sum / a.length; // 平均数
+
+var count = 0;
+for (var i = 0; i < a.length; i++)
+{
+	if (a[i] >= avg)
+	{
+		document.write(a[i] + ", ");
+		// 有1个就自增1，相当于是1个计数器
+		count++;
+	}
+}
+
+document.write("总数：" + count);
+
+//*/
+
+/*
+第8题 有10个学生的成绩存在数组中，请统计最高分，最低分，并将最高分和最低分学生的下标输出到控制台
+
+
+思路：
+	1. 定义1个数组，其中10个元素，分别代表学生的成绩
+	2. 求出最高分和最低分
+		(1) 定义两个变量 min, max 初始值都为 a[0]
+		(2) 遍历数组，依次比较，更新 min max
+	3. 求下标
+		遍历数组，依次与 min 和 max 比较，如果 数组中的元素与 min 或 max 相等，那么就可以知道当前元素的下标
+*/
+
+
+/*
+var a = [1,2,15,4,15,6,7,8,9,10]
+
+var min = a[0];
+var max = a[0];
+for (var i = 0; i < a.length; i++)
+{
+	if (min > a[i])
+	{
+		min = a[i]
+	}
+
+	if (max < a[i])
+	{
+		max = a[i]
+	}
+}
+// 循环结束之后，min肯定是数组中的最小值，max肯定是数组中的最大值
+
+
+
+for (var i = 0; i < a.length; i++)
+{
+	if (min == a[i])
+	{
+		console.log("最小值的下标是：" + i)
+	}
+
+	if (max == a[i])
+	{
+		console.log("最大值的下标是：" + i)
+	}
+}
+
+//*/
+
+/*
+// 第9题 勾股定理：直角三角形中，两个直角边的平方和，等于斜边平方和。寻找三边的长度都不大于100，并且三边边长都是整数的可能，在控制台输出。
+
+思路：
+	1. 定义三个变量  a, b, c 分别代表三条边
+
+	2. 3个循环， 分别从 1~100  循环
+
+	3. 最内层循环中 判断  a^2 + b^2 == c^2
+
+
+	3 4 5
+    4 3 5
+关于重复数字的问题解决思路：
+	规定 a <= b
+
+for (var a = 1; a <= 100; a++)
+{
+	for (var b = 1; b <= 100; b++)
+	{	
+		for (var c = 1; c <= 100; c++)
+		{
+			if (a*a + b*b == c*c && a <= b)
+			{
+				console.log(a, b, c)
+			}
+		}
+
+	}
+}
+*/
+
+/*
+第10题 这题非常难，别跳楼 编写函数maxsame(char1,char2) 返回字符串char1和char2的最大相同子串 比如maxsame("abcdefghijklmn","mndefghlm") 返回"defgh"
+
+ACM
+*/
+
+/*
+ 第11题 将"i love javascript cai guai"的每个单词的第一个字母，变为大写。
+
+ 思路：
+	1. 将字符串拆分成数组
+	2. 遍历数组，
+			将 数组中的首字符 转换为大写字母 + 后面那一截的字符串 ==> 新的单词 ==> 放到数组中
+
+	3. 将数组还原成 字符串即可
+
+
+var str = "i love javascript cai guai"
+
+var a = str.split(" ")
+
+for (var i = 0; i < a.length; i++)
+{
+	a[i] = a[i].charAt(0).toUpperCase() + a[i].substr(1)
+}
+
+console.log(  a.join(" ")  )
+*/
+
+
+/*
+编写函数maxr(char) 返回字符串char中最长的连续重复字母 比如maxr("mmmiijjjjkkkkkkssptr") 返回"kkkkkk"
+
+思路：
+	1. 遍历所有字符
+
+	2. 如果当前字符 与 上1个字符相同    ==> 计数器加1
+	   如果当前字符 与 上1个字符不相同  ==> 统计计数器的数值    与 之前最长的那个计数器比较
+			如果之前的大   忽略不计
+			如果之前的小   更新 最长计数器，并且更新最长字符
+
+	3. 循环结束，输出 最长计数器 个 最长字符
+	
+*/
+var str = "mmmiijjjjkkkkkkssptr"; 
+
+var maxCount = 0;  // 最大计数器
+var maxChar = "";  // 最多的那个字符
+
+var count = 1;
+var char = str[0];  // 上1个字符
+
+for (var i = 1; i < str.length; i++)
+{
+	if (str[i] == char)
+	{
+		count++;
+	}
+	else
+	{
+		if (maxCount < count)
+		{
+			maxCount = count;
+			maxChar = char
+		}
+
+		count = 1; // 重新开始计数 
+		char = str[i]; // 重新匹配
+	}
+}
+
+for (var i = 1; i <= maxCount; i++)
+{
+	document.write(maxChar)
 }
