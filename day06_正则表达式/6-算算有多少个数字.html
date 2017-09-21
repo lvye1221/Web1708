@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <script>
+
+
+var str = "a129bc123a123213,12,13"
+
+document.write(  str.match(/\d+/g).length )
+
+
+// abc123 ==> 3
+
+/*
+var str = "a129bc123a123213"
+
+
+
+
+
+// 思路：
+//      1. 遍历所有字符
+//      2. 如果当前字符 是数字字符
+//                    上1个也是数字字符     忽略不计   
+//                    上1个不是数字字符     计数器加1
+
+//         如果当前字符 不是数字字符     忽略不计
+
+var count = 0
+for (var i = 1; i < str.length; i++)
+{
+	if ( isNum(str[i]) )
+	{
+		if ( !isNum(str[i-1]) )
+		{
+			count++
+		}
+	}
+}
+
+document.write(count)
+
+
+
+var count = 0;
+for (var i = 0; i < str.length; i++)
+{
+	if (isNum(str[i]))
+	{
+		count++;
+	}
+}
+
+document.write(count)
+
+//  isNum  判断1个字符是数字字符 还是 其他字符？
+function isNum( c )
+{
+	var code = c.charCodeAt(0);
+
+	// 数字字符 ASCII编码范围是 【48,57】
+	//          UTF-8           【48,57】 
+	if ( code >= 48 && code <= 57)
+	{
+		return true;
+	}
+
+	return false;
+}
+*/
+  </script>
+
+
+ </body>
+</html>

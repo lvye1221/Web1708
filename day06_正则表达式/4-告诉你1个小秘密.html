@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+	<h1> 告诉你1个小秘密 </h1>
+	
+	<input type="text" id="msg" />
+	
+	<input type="button" value="加密" onclick="jiami()" />
+	<input type="button" value="解密" onclick="jiemi()" />
+
+
+<script>
+
+
+function jiemi()
+{
+	var str2 = ""
+
+	var str = msg.value
+
+	// 97,98,99,
+	//  根据逗号分隔，得到编码数组
+	var a = str.split(",")
+
+	for (var i = 0; i < a.length-1; i++)
+	{
+		// 每个编码转换成对应的字符
+		str2 += String.fromCharCode( a[i] )
+	}
+
+	msg.value = str2
+}
+
+
+
+function jiami()
+{
+	var str2 = ""
+
+	var str = msg.value
+
+	for (var i = 0; i < str.length; i++)
+	{
+		str2 +=   str.charCodeAt(i) + ",";
+	}
+
+	msg.value = str2
+}
+
+</script>
+
+ </body>
+</html>

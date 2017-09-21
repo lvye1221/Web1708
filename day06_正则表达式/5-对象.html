@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+
+  <script>
+
+
+//  字符串 是不允许用点的
+//    系统默认帮我们做了很多事情：
+//   1. 帮我们将字符串转换成了 字符串对象
+//   2. 调用字符串对象中 的方法
+//   3. 销毁这个对象
+
+// document.write(  "我爱你".charAt(0)  )
+
+/*
+// new 代表创建新的对象
+// String  代表字符串对象
+//  因为字符串用得比较多，所以，默认系统会自动创建字符串对象
+var str = new String("我爱你")
+
+document.write(  str.charAt(0)  )
+*/
+
+
+/*
+// 下面这种写法，是创建数组对象的简写方式
+// var a = [];
+
+// 创建数组对象
+var a = new Array()
+
+// Object
+document.write(typeof a);
+*/
+
+
+// 创建对象的简写方式
+// var a = {}
+
+// 创建1个对象
+// var a = new Object();
+
+// object
+// document.write(typeof a);
+
+// 存储生活中的信息
+//     数字      number
+//     字符	     string
+//     一串串    array
+//     一堆堆    object
+
+//           姓名、身高、体重  ==> 整体  ==> 对象
+/*
+var a = {
+	name: "小明", 
+	height: 178, 
+	weight: 70
+}
+
+
+var a = {}
+
+// . 代表 的
+//  属性     值
+a.name = "小明"
+a.height = 178
+a.weight = 70
+
+
+
+// 对于对象，不能整体输出，只能1个个输出
+document.write(a.name + ", " + a.height + ", " + a.weight)
+
+
+var a = {
+	// 属性名: 属性值
+	name: "小明", 
+	height: 178, 
+	weight: 70
+}
+
+// a["name"]  相当于  a.name
+document.write( a["name"] )
+
+
+// 遍历对象，i是属性名  ==》 快速遍历
+for (var i in a)
+{
+	// i 是属性名
+	// a[i] 是属性值
+	console.log(i, a[i])
+}
+
+
+
+var a = [1, 2, 3]
+
+// 遍历数组的第2种方法
+for (var i in a)
+{
+	console.log(i, a[i]);
+}
+
+休息20分钟： 15:50 继续
+*/
+
+  </script>
+
+ </body>
+</html>
