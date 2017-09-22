@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+
+<script>
+
+// Math  对象（数学方面）系统提供的
+// random 函数： 产生1个随机数， 
+//        产生的是 0~1 之间的随机数
+// Math.random()					0~1
+// Math.random()*5					0~5 的小数
+// parseInt(Math.random()*5)		0~5 的整数
+// parseInt(Math.random()*5) + 2	2~7 的整数
+// document.write(   parseInt( Math.random() * 5 )  + 2 )
+
+
+// document.write( myRandom(1000,1002)  )
+
+// 产生4位数的随机验证码
+// 思路：
+//      1. 4个随机数（97~122）
+//      2. 将数字转换成字符 拼接
+
+var str = ""
+
+for (var i = 0; i < 4; i++)
+{
+	var a = myRandom(97, 123)
+
+	// 将a转换成对应的字符
+	str += String.fromCharCode(a)
+}
+
+document.write(str)
+
+
+// 功能： 产生 min ~ max 之间(不包括max)的随机整数
+function myRandom(min, max)
+{
+	// 算出差值
+	var deta = max - min
+
+	return parseInt(Math.random() * deta) + min
+}
+
+
+</script>
+
+ </body>
+</html>

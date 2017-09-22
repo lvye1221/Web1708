@@ -26,14 +26,21 @@
   <script>
 
 // 练习： 实现用户名与手机号码的同时验证
-//             10:15 继续
+//             10:15 继续   10:20 分继续
 
 // 注册
+
+// 休息20分钟。 11:00 继续
+
+//  邮箱
+//  密码
+//  地址
+
 function reg()
 {
 	if ( !testUser() )
 	{
-		document.write("请输入正常的用户名");
+		document.write("请输入正确的用户名");
 
 		// 对于函数的终止，使用 return
 		return ;
@@ -41,7 +48,7 @@ function reg()
 
 	if ( !testPhone() )
 	{
-		document.write("请输入正常的手机号码");
+		document.write("请输入正确的手机号码");
 
 		return ;
 	}

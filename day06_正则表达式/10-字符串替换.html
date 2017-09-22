@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+
+<h1> 敏感词处理 </h1>
+
+<!-- textarea 文本域 -->
+<textarea id="text1"></textarea>
+
+<input type="button" value="处理" onclick="func()"  />
+  
+<textarea id="text2"></textarea>
+
+<script>
+
+// 思路： 检测到敏感词，就替换成 ***
+//     检测到敏感词         用正则表达式匹配
+//  【练习】  11:55 对对
+function func()
+{
+	// 匹配到所有敏感词  (ndy, 你大爷的, nnd )
+
+	//                  () 代表是1个整体，  | 代表或者的意思
+	// 正则表达式        (ndy|你大爷的|nnd)
+
+	var str1 = text1.value;  // 取出输入字符串
+
+	/* 第2个斜杠的后面 \
+		g 代表 全局匹配
+		i 代表 忽略大小写
+		*/
+	var reg1 = /(ndy|你大爷的{0,1}|nnd|猪)/gi; // 定义匹配的正则表达式
+
+	// replace 是【字符串对象】的 方法，作用是用于替换
+	//    reg1  要替换的内容（如果是正则表达式的话，替换的内容）
+	//    ***   是替换后的内容
+	// 将结果输出到 文本域2 中
+	text2.value = str1.replace(reg1, "*")
+}
+
+</script>
+
+
+ </body>
+</html>

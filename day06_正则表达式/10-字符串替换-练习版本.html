@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+
+<h1> 敏感词处理 </h1>
+
+<!-- textarea 文本域 -->
+<textarea id="text1"></textarea>
+
+<input type="button" value="处理" onclick="func()"  />
+  
+<textarea id="text2"></textarea>
+
+<script>
+
+// 思路： 检测到敏感词，就替换成 ***
+//     检测到敏感词         用正则表达式匹配
+
+function func()
+{
+	document.write( text1.value )
+}
+
+</script>
+
+
+ </body>
+</html>
