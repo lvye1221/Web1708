@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+
+<script>
+// 闭包
+
+/*
+function m1()
+{
+	var a = 10
+
+	function m2()
+	{
+		console.log("m2")
+	}
+}
+
+// 因为m2是定义在函数m1内部的，所以它只能在 m1 中使用。超出范围就找不到了
+m2()
+
+
+function m1()
+{
+	var a = 10
+
+	function m2()
+	{
+		console.log("m2")
+	}
+
+	return m2
+}
+
+// 因为函数m1()的返回值 是 m2 函数
+var a = m1()
+
+a()
+
+//*/
+
+function m1()
+{
+	var a = 10
+
+	function m2()
+	{
+		// 函数m2使用了 父函数中的变量 a，那么变量a的空间就不会销毁（释放）
+		//  子函数使用了父函数的空间，称为闭包。
+		a++
+
+		console.log(a)
+	}
+
+	// 返回这个函数 m2
+	return m2;
+}
+
+// 将m1函数的返回值 赋值给 f1, 这里相当于 f1 等于 m2
+var f1 = m1()
+
+// 输出11
+f1()
+// 输出多少？
+//       11   如浪  a=10
+//       12   徐佳  执行了2遍
+// 输出12
+f1()
+
+// 休息20分钟： 15:30 ~ 16:30 考核
+
+
+</script>  
+
+ </body>
+</html>

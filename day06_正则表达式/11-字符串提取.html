@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <script>
+/*
+// 需求： 提取其中的价格数字 599.98
+
+//    思路：  
+//               价格：599    .  98   元
+// 匹配的规则    价格：\d+   \.  \d+  元
+//    + 代表1个以上的
+//   \d+ 代表至少是1个以上的数字
+
+var str = "价格：599.98元"
+var num = 3
+
+//  正则表达式中  ()  代表分组，包在一起的就是一组
+//     如果你要匹配 (  那么你需要转义， \(
+var reg = /价格：(\d+\.(\d+))(元)/
+
+// match 是 【字符串对象】中的系统函数
+//     功能： 匹配规则，并且以【数组】的形式返回规则中所有分组的内容
+var a = str.match(reg)
+
+//  a[1] 是鞋子的单价
+document.write( a[1] * num )
+
+// 练习： 提取字符串中的价格   14:35 对对
+
+// <h3>文字</h3>  ==> 180 
+// translate:rotate(180deg)   ==> 180
+
+//  格式:规则  ==> 正则表达式   ===> 匹配
+
+*/
+
+var reg = /\d/
+
+// var reg = new RegExp("\\d")
+
+
+
+  </script>
+
+ </body>
+</html>
