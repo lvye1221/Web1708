@@ -2,14 +2,14 @@
 
 # 大纲 #
 
-1. DOM简介
-2. 节点关系
-3. 节点的属性
+1. DOM(文档对象模型)
+2. 节点操作
+3. 事件监听
 
 
 # 课堂内容 #
 
-## DOM（文档对象模型） ##
+## DOM(文档对象模型) ##
 
 Document Object Model 文档对象模型
 
@@ -21,93 +21,91 @@ DOM ： Document Object Model文档对象模型，所有的HTML标签都是对象，非常方便得到、
 节点 <div> <span>     (DOM 中)
 ```
 
-
-### 节点种类 ###
-元素节点  nodeType ==1 
-属性节点  nodeType ==2 
-文本节点  nodeType ==3
-
-
 ### 获取节点 ###
 
-1. id
-    getElementById
+驼峰命名法介绍
 
-2. 获取相同名称的节点列表 name
-    getElementsByName
-	某些低版本浏览器会有兼容性问题
+document.getElementById
 
-3. 获取相同class属性的节点列表 class 
-    getElementsByClassName
-	IE8以下不能用
+
+### 节点操作（预习） ###
+	
+创建元素,添加元素，删除元素，替换元素，克隆元素	
+
+createElement appendChild insertBefore removeChild replaceChild cloneNode
+
+参考了解
+https://developer.mozilla.org/zh-CN/docs/Web/API/Document/createElement
+
+
+## 更改HTML属性 ##
+
+HTML标签有很多属性，比如src、href、title等等。
+JS可以更改HTML的任何属性，方法是两种：点语法 和 setAttribute()、getAttribute()。
+
+【案例】 网页换肤
+
+
+更改元素中的图片
+
+### 操作元素样式 ###
+
+通过点语法.style能够得到所有样式的封装  注意，只能得到行内样式，所有写在css内嵌的、外联的，一律不能得到。需要我们后面学习的知识，得到计算后样式。
+
+## 事件监听 ##
+
+JavaScript制作交互效果，离不开事件。所谓的事件，就是用户的某个行为，能够触发一个函数的执行
+
+
+今天我们只学习DOM标准中的0级的事件绑定方法：
 
 ```
-
-// 解决 IE 下不同获取同一 className 的办法
-
-// 思路
-// 1. 首先获取网页上所有的节点
-// 2. 筛选节点中 class == className 的节点
-// 3. 用数组存储满足条件的节点，并返回
-function m1(a) {
-
-	var allNode = document.getElementsByTagName("*");
-
-	var arr = [];
-
-	for (var i = 0; i < allNode.length; i++) {
-		// 每一个节点有个内部的属性 className
-		// 代表当前节点的 class 的值
-
-		// node.onclick
-		// node.style
-		// node.class // ==> 因为 class 是个关键字，
-		// 获取节点的 class 的值， className
-
-		if (allNode[i].className == a) {
-			arr.push(allNode[i]);
-		}
+	// 得到这个box
+	var oDiv = document.getElementById("box");
+	
+	//事件
+	oDiv.onclick = function(){
+		alert("你好，点我干嘛，我烦着呢！！");
 	}
 
-	return arr;
+```
 
-}
+也可以：
 
 ```
 
-4. tagname
-    getElementsByTagName
+	oDiv.onclick = fun;
 	
+	function fun(){
+		alert("你好，点我干嘛，我烦着呢！！");
+	}
 
-```
-    <h1>DOM结构</h1>
-    <ul id="list">
-        <li><a href="http://www.baidu.com" class="baidu" id="baidu">百度</a></li>
-    </ul>
-    <table id="dataList">
-        <tbody>
-            <tr>
-                <td>Data11</td>
-                <td>Data12</td>
-            </tr>
-            <tr>
-                <td>Data21</td>
-                <td>Data22</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <form>
-        <input type="text" name="username" id="username">
-        <input type="text" name="password" id="password">
-    </form>
 
 ```
 
+所以现在你就人格升华了，原来我们想要一个函数执行，必须调用这个函数，比如fun();
+但是现在你知道了，一个函数可以当做一个事件的处理函数，当这个事件发生的时候，函数也能执行了。
 
-## 案例 ##
+```
 
-### 单击输出按钮的内容 ###
+onclick 		单击
+onmouseover	鼠标进入
+onmouseout		鼠标离开
+ondblclick		双击
+onfocus			得到焦点
+onblur			失去焦点
+onmousedown		鼠标按下
+onmouseup			鼠标按键抬起
+
+onload 		当页面完全加载成功
+window.onload 表示页面中的所有的代码都已经加载完毕了。
+
+```
+
+
+### 案例 ###
+
+#### 单击输出按钮的内容 ####
 
 ```
 // 为什么没有写在文档加载之后，为什么 allBtn 不为空
@@ -124,6 +122,7 @@ allBtn[i].xxx = i;
 ```
 
 
+【提醒】通过 闭包函数 来实现
 
 通过绑定函数的的方法，来获取点击按钮的下标
 ```
@@ -137,9 +136,6 @@ bind(allBtn[i], i);
 ```
 
 
-
-
-
 ```
 	<button>按钮1</button>
 	<button>按钮2</button>
@@ -149,7 +145,7 @@ bind(allBtn[i], i);
 	<button>按钮6</button>
 ```
 
-### tab标签切换 ###
+#### tab标签切换 ####
 
 ```
 #tab span{display:inline-block;padding:5px 15px;background-color:#ddd;margin:0 3px;border:1px solid #ddd;border-bottom:none;}
@@ -165,10 +161,9 @@ bind(allBtn[i], i);
 
 ```
 
-### 简易日历 ###
+#### 简易日历 ####
 
 单击某个按钮，显示数组中对应的信息
-
 
 ```
 <style type="text/css">
@@ -234,32 +229,7 @@ body { background: #f6f9fc; font-family: arial; }
 
 
 
-## 节点之间的关系 ##
-
-子节点: childNodes
-
-父节点: parentNode
-
-兄弟节点:
-    nextSibling
-	previousSibling
-
-
-
-```
-		// 百度元素的上一个【元素】节点
-		// 不支持 IE8及以下
-		// baidu.previousElementSibling.style.color = "red";
-
-		// 【解决】IE 兼容的问题
-		// 只要当前节点不是元素节点，那么一直往上找
-		while (google.nodeType != 1) {
-			google = google.previousSibling;
-		}
-```
-
-
-### 隔行变色 ###
+#### 隔行变色 ####
 
 ```
 <style>
@@ -280,7 +250,7 @@ body { background: #f6f9fc; font-family: arial; }
 
 
 
-### 父节点的应用 ###
+#### 父节点的应用 ####
 
 ```
 <style>
@@ -300,7 +270,7 @@ body { background: #f6f9fc; font-family: arial; }
 ```
 
 
-### 手风琴 ###
+#### 手风琴 ####
 
 
 ```
@@ -331,6 +301,22 @@ body { background: #f6f9fc; font-family: arial; }
 
 
 # 作业 #
+
+
+1） 鼠标碰到“十天内免登陆”就会有黄框出现；离开就消失。
+
+2） 简单轮播图，老师帮你布局，自己写程序
+
+3） 字号的变化：
+
+![](hw3.png)
+
+
+
+
+
+## 选做 ##
+
 
 1. 全选和反选checked
 
@@ -389,14 +375,10 @@ body { background: #f6f9fc; font-family: arial; }
 
 2. 手风琴
 
-
 3. 简易日历
 
 4. 鼠标碰到“十天内免登陆”就会有黄框出现；离开就消失
 
 
-
-
-[扩展]表格的即时编辑
 
 
