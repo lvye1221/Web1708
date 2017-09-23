@@ -259,7 +259,12 @@ QQ:
 ```
 获取<p class='demo'>hello ucai</p>内部文案
 ```
-6. 将div#demo.demo转化成<div id="demo" class="demo"></div>
+6. 
+
+```
+将div#demo.demo转化成<div id="demo" class="demo"></div>
+```
+
 7. 检测是否是2到4位汉字
 8. 检测昵称是否是有汉字字母数字下划线组成，6-8位
 	

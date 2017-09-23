@@ -13,9 +13,7 @@
 
 Document Object Model 文档对象模型
 
-DOM， 每一个标签 -> 对象
-
-三个名称都是指同一个内容，只是说法不一样而已
+DOM ： Document Object Model文档对象模型，所有的HTML标签都是对象，非常方便得到、操作。不是操作字符串，而是操作对象。
 
 ```
 标签 <span> <div>     (css 中)
