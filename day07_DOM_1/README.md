@@ -9,6 +9,10 @@
 
 # 课堂内容 #
 
+
+## 补充 ##
+Markdown 与 简书
+
 ## DOM(文档对象模型) ##
 
 Document Object Model 文档对象模型
@@ -28,6 +32,8 @@ DOM ： Document Object Model文档对象模型，所有的HTML标签都是对象，非常方便得到、
 document.getElementById
 
 
+
+
 ### 节点操作（预习） ###
 	
 创建元素,添加元素，删除元素，替换元素，克隆元素	
@@ -43,14 +49,77 @@ https://developer.mozilla.org/zh-CN/docs/Web/API/Document/createElement
 HTML标签有很多属性，比如src、href、title等等。
 JS可以更改HTML的任何属性，方法是两种：点语法 和 setAttribute()、getAttribute()。
 
-【案例】 网页换肤
+#### 【案例】 网页换肤 ####
+
+css 样式表在 css 文件夹
+```
+<link id="link" href="css/css1.css" rel="stylesheet" type="text/css" />
 
 
-更改元素中的图片
+<dl id="message">
+	<form>
+		<dt>
+			<strong>可以换肤的提交框：</strong>
+			<input type="button" value="皮肤1" data-css="css1" />
+			<input type="button" value="皮肤2" data-css="css2" />
+		</dt>
+		<dd>输入姓名：<input class="text" type="text" /></dd>
+		<dd>输入密码：<input class="text" type="password" /></dd>
+		<dd>请您留言：<textarea></textarea></dd>
+		<dd class="center"><input class="btn" type="submit" value="提交" /></dd>
+	</form>
+</dl>
+
+```
+
+#### 更改元素中的图片 ####
 
 ### 操作元素样式 ###
 
 通过点语法.style能够得到所有样式的封装  注意，只能得到行内样式，所有写在css内嵌的、外联的，一律不能得到。需要我们后面学习的知识，得到计算后样式。
+
+
+
+
+### 进度条 ###
+
+```
+<style>
+	#progress{
+		position: relative;
+		margin: auto;
+		top: 200px;
+		display: block;
+		width: 200px;
+		height: 20px;
+		border-style: dotted;
+		border-width: thin;
+		border-color: darkgreen;
+	}
+	#filldiv{
+		position:absolute;
+		top: 0px;
+		left: 0px;
+		width: 0px;
+		height: 20px;
+		background: blue;
+	}
+	#percent{
+		position: absolute;
+		top: 0px;
+		left: 200px;
+		
+	}
+</style>
+
+
+<div id="progress">
+	<div id="filldiv"></div>
+	<span id="percent">0</span>
+</div>
+
+```
+
 
 ## 事件监听 ##
 
@@ -227,26 +296,6 @@ body { background: #f6f9fc; font-family: arial; }
 </div>
 ```
 
-
-
-#### 隔行变色 ####
-
-```
-<style>
-.red{background:red;}
-</style>
-
-
-<ul id="ul01">
-	<li>A</li>
-    <li>B</li>
-    <li>C</li>
-    <li>D</li>
-    <li>E</li>
-    <li>F</li>
-</ul>
-
-```
 
 
 
