@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+
+<!-- 矩形选择：  Alt+鼠标框选  （前提要关闭自动换行 ）-->
+<input type="button" value="按钮1"  id="btn1"/>
+<input type="button" value="按钮2"  id="btn2"/>
+<input type="button" value="按钮3"  id="btn3"/>
+<input type="button" value="按钮4"  id="btn4"/>
+<input type="button" value="按钮5"  id="btn5"/>
+<input type="button" value="按钮6"  id="btn6"/>
+
+<script>
+
+for (var i = 1; i <= 6; i++)
+{
+	var btnId = "btn" + i;
+
+	// "btn" + i   ===> btn1, btn2, ... btn6
+	var oBtn = document.getElementById(btnId);
+	
+	oBtn.onclick = (function (a) {
+		return function() {
+			console.log(a)
+		}
+	})(i)
+}
+
+
+
+// 考虑： 为什么不管点什么按钮，都输出7. 【如何解决？】
+/*
+	点击函数的执行  是在 【循环结束之后】，
+		因为循环速度执行特别快，所以你点击按钮肯定是在循环之后的。
+		所以，i最终都变成7了
+
+	解决办法：
+		再循环进行时，保存 i 的值。 怎么保存？
+
+如浪， 加个判断？
+*/
+
+</script>
+
+
+ </body>
+</html>

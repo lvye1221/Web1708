@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <img src="images/1.jpg" id="pic1"/>
+
+<input type="text" id="text1" />
+
+
+<script>
+
+// 【休息20分钟， 15:50 继续】
+
+var oImg = document.getElementById("pic1")
+
+oImg.onmousedown = function() {
+	console.log("鼠标左键按下了");
+}
+oImg.onmouseup = function() {
+	console.log("鼠标左键抬起了");
+}
+
+oImg.onmouseover = function() {
+	console.log("鼠标移入了");
+}
+
+oImg.onmouseout = function() {
+	console.log("鼠标移出了");
+}
+
+// 所以，最终，在你点击按钮之前， oImg.onclick 是 匿名函数2
+
+//     鼠标左键单击事件   onclick
+//     鼠标移入的事件     onmouseover         
+
+/*
+
+// 点击了 2   
+//    因为  oImg.onclick 修改成 匿名函数1
+oImg.onclick = function() {
+	console.log("点击了 1 ")
+}
+
+//    因为  oImg.onclick 修改成 匿名函数2
+oImg.onclick = function() {
+	console.log("点击了 2 ")
+}
+
+【练习】 采用 对象.onclick 的方式来实现按钮的点击效果
+			15:08 对对
+
+
+
+
+function m1()
+{
+	console.log("m1")
+}
+
+// 将函数m1 赋值给 a
+var a = m1;
+
+oImg.onclick = m1;
+
+// 调用函数，相当于调用m1
+a()
+
+
+
+// 定义变量a，它的值是 1个函数（没有名字，匿名函数）
+var a = function() {
+	console.log("匿名函数")
+}
+
+oImg.onclick = function() {
+	console.log("点击了函数")
+	
+}
+
+a()
+*/
+
+</script>
+
+ </body>
+</html>

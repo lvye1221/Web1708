@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <!-- xxx 自己增加的1个属性，没有特殊意义 -->
+  <div id="div1" xxx="100" style="width:100px;height:100px;background:red;background-color:yellow"></div>
+
+
+<script>
+
+var oDiv = document.getElementById("div1");
+
+// undefined   
+//   因为 xxx 不是【系统的属性】，是我们自己增加的，
+//   所以  不能通过 . 的方式来进行获取
+//  console.log(oDiv.xxx)
+
+//  对于自定义的属性，必须通过 【节点对象】.getAttribute 方法得到
+//         功能强大： 系统的，自己的定义的，都可以访问得到
+
+//   getAttribute 得到属性
+// console.log( oDiv.getAttribute("id")  )
+
+
+//   setAttribute 设置属性
+oDiv.setAttribute("xxx", "700")
+
+
+// oDiv.style  代表当前元素的 样式 【对象】
+//           .background  样式对象中的 背景颜色
+// oDiv.style.background = "green"
+
+// 因为 js 中命名的规则： 字母、数字、下划线、$
+//   所以： background-color 是错误的命名，因为存在 - 符号
+//  【解决办法】 转换成 驼峰命名法
+
+// oDiv.style.backgroundColor = "green"
+
+// oDiv.style.width = "500px"
+
+
+
+</script>
+
+ </body>
+</html>

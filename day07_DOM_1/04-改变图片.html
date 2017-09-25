@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+
+  <img id="pic1" src="images/2.jpg"  />
+
+
+<script>
+
+// o 代表 object 说明它是1个对象
+var oImg = document.getElementById("pic1")
+
+// oImg.src  代表 oImg 对象中的 src 属性值，也就是 img src="其中的值"
+// oImg.id   代表 oImg 对象中的 id 属性值，也就是 img id="其中的值"
+
+// DOM节点其中的属性  其实就是 HTML节点元素的属性
+// console.log( oImg.src )
+
+// 可以修改 DOM对象，来改变 HTML元素 中的属性值
+//   例如下面修改了 img 其中的图片
+      oImg.src = "images/1.jpg"
+
+// 不可以
+//     【注意】 replace 不会改变原来的值
+//      结论： 如果要修改原来的值，必须手动重新赋值才行
+oImg.src = oImg.src.replace(oImg.src, "images/1.jpg")
+
+
+</script>
+
+
+
+ </body>
+</html>

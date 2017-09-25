@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+
+<script>
+
+// oImg.onclick    在图片上点击
+
+// 事件：  在页面加载完成之后的事件    onload
+
+//  整个页面的加载完成之后， 是 window.onload 而不是 document.onload
+window.onload = function() {
+
+	var oImg = document.getElementById("pic1")
+
+	console.log(oImg.src)
+}
+
+</script>
+
+ </head>
+ <body>
+  
+  <img src="images/1.jpg" id="pic1">
+
+ </body>
+</html>

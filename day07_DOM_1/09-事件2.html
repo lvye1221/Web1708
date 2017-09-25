@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <input type="text" id="text1" />
+
+  <script>
+
+var oInput = document.getElementById("text1")
+
+// onfocus  获得焦点时
+oInput.onfocus = function() {
+	console.log("获得焦点")
+}
+
+// onblur  失去焦点时
+oInput.onblur = function() {
+	console.log("失去焦点")
+}
+
+  </script>
+ </body>
+</html>

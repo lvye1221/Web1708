@@ -1,0 +1,59 @@
+
+
+JS:
+	基础语法 （定义变量、函数、数组、对象）
+	DOM   文档对象模型    js 操作 页面
+	BOM   浏览器对象模型  js 操作 浏览器
+
+
+DOM 文档对象模型 （JS通过DOM 可以操作页面上的元素）
+
+1. 获取元素（通过id）
+	id="xxxx"
+	document.getElementById("xxxx")
+
+2. 修改的方式
+
+	与标签名无关： p,div,img, link, meta， ...
+
+    (1) 对象.的方式  （不能获取和修改 自定义属性的值）	
+	oDiv.src
+	oDiv.href
+	oDiv.style
+	oDiv.id     【注意 这个不能改，只能读】
+	oDiv.style.background
+	oDiv.style.backgroundColor  【驼峰命名规则】
+
+    (2) 方法设置 (功能强大)
+	获取：  对象.getAttribute("id")
+	修改：  对象.setAttribute("xxx", "500")
+
+
+
+事件：
+	
+	onclick
+	ondblclick   双击
+	onmouseover  鼠标进入
+	onmouseout   鼠标移出
+	onfocus      获取焦点
+	onblur       失去焦点
+	onmousedown  鼠标按下
+	onmouseup    鼠标抬起
+
+
+	onload     window.onload  页面加载完成之后的事件   
+
+
+【】整理成笔记 --> 【简书】（电脑、手机）  中笔记
+	当你不记得时，就看看
+	睡觉前 看看
+	起床上 看看
+	坐地铁上 看看
+
+
+【练习】 实现6个按钮，点击按钮弹出对应的编号。（只要能实现效果即可，完成后考虑有没有更优化的办法）
+
+例如： 点击按钮1，弹出1； 点击按钮2，弹出2； ...
+
+16：20 对对

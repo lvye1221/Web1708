@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+
+
+<script>
+/*
+// 实现trim(str)方法，过滤字符串首位空白
+
+
+//  思路：
+//       1. 定义1个规则，匹配 首位空白
+
+//					首位    空白字符(多个)
+//                   ^		  \s{1,}
+
+//       2. 字符串中的替换方法，将满足规则的字符 全部替换成 ""
+
+console.log(  ("    今天天气不错")  )
+console.log(  trim("    今天天气不错")  )
+console.log(  trim("    今天   天气不   错")  )
+
+console.log(  trim("的的的")  )
+
+function trim(str)
+{
+	var reg = /^\s{1,}/;
+
+	// 返回替换后的结果【注意】 replace 不会改变str原本的内容
+	return str.replace(reg, "")
+}
+*/
+
+
+/*
+获取<p class='demo'>hello ucai</p>内部文案
+
+思路：
+	去掉 html 标签，剩下的部分就是 内部文案
+
+	1. 定义正则表达式，匹配 html 标签
+		
+			开始字符       除开>或<以外的任意字符(不限个数)      结束字符
+				<				[^><]*						  			>
+
+
+	2. 替换
+
+
+var str = "<p class='demo'>hello ucai</p>"
+
+var reg = /<[^><]*>/g4
+
+var result = str.replace(reg, "")
+
+console.log(result);
+
+*/
+
+
+/*
+将div#demo.demo转化成<div id="demo" class="demo"></div>
+
+
+思路：
+	1. 提取 3部分的内容 （正则表达式）
+		
+开始  【字母(1个以上)】   #    【名字(1个以上)】  . 【名字(1个以上)】  结束
+  ^      ([a-zA-Z]+)        #       (\w+)             \.   (\w+)              $
+ 
+	2. 字符串拼接成最终的结果即可
+
+*/
+
+
+//var str = "div#demo.demo";
+// var str = "p#pp1.pp2";
+
+var str = "img#pic1.pic2";
+
+
+var reg = /^([a-zA-Z]+)#(\w+)\.(\w+)$/
+
+
+// 得到匹配数组
+var arr = str.match(reg)
+
+console.log(arr)
+
+
+// <div id="demo" class="demo"></div>
+var result = '<' + arr[1] + ' id="' + arr[2] + '" class="' + arr[3] + '"></' + arr[1] + '>';
+
+console.log(result)
+
+// 单引号里面可以放双引号
+// 双引号里面 也可以 放 单引号
+
+//  但是： 单引号里面不可以单引号， 双引号里面不可以方法双引号
+
+
+</script>
+
+  
+ </body>
+</html>

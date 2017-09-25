@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <!-- 如果在 html 中，必须 onclick=func()
+	采用这种方式，容易给美工带来困惑，也不便于以后代码维护
+
+HTML 是员工 A 负责, 某一天 A不小心将func->fun
+JS 是员工 B 负责
+
+  -->
+  <input id="btn1" type="button" value="按钮" />
+
+  <script>
+
+// 得到按钮
+var oBtn = document.getElementById("btn1")
+
+//  点击按钮 绑定 了   【匿名函数】
+//     onclick 代表点击的时候
+oBtn.onclick = function () {
+	document.write("点击了")
+}
+
+/*
+// 设置按钮的点击事件处理函数 为 func，
+//     那么系统点击按钮的时候，会自动调用func
+oBtn.onclick = func;   //  func 函数
+// oBtn.onclick = func(); //  func函数的返回值   undefined
+
+function fun() {
+	document.write("点击按钮了");
+}
+*/
+
+  </script>
+
+ </body>
+</html>

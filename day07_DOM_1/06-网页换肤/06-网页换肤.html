@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8" />
+	<title></title>
+
+<link id="link" href="css/css2.css" rel="stylesheet" type="text/css" />
+
+	<script>
+
+var oLink = document.getElementById("link")
+
+console.log(   oLink.href   )
+
+// 修改引入css文件的文件
+oLink.href = "css/css1.css"
+
+/*
+function f1() 
+{
+	oLink.href = "css/css1.css"
+}
+
+function f2() 
+{
+	oLink.href = "css/css2.css"
+} */
+
+/* 改变样式 
+	 参数: css 就是改变的文件名
+
+	 重构：  不改变功能的前提下，让代码更简洁，更容易维护
+*/
+function changeCss(css)
+{
+	oLink.href = "css/" + css
+
+/*
+	"css/css"  代表 css 文件夹下的 css 文件
+	"css/" + css  代表 css 文件夹下  变量css的值  的那个文件
+					 变量css的值 a.css  那么代表的上就是 a.css 这个文件
+	*/
+}
+
+
+//  【练习】 网页换肤      11:40 对对
+	</script>
+
+  </head>
+
+  <body>
+
+<dl id="message">
+	<form>
+		<dt>
+			<strong>可以换肤的提交框：</strong>
+			<input type="button" value="皮肤1" data-css="css1" id="btn1" />
+			<input type="button" value="皮肤2" data-css="css2" id="btn2"/>
+
+		
+		</dt>
+		<dd>输入姓名：<input class="text" type="text" /></dd>
+		<dd>输入密码：<input class="text" type="password" /></dd>
+		<dd>请您留言：<textarea></textarea></dd>
+		<dd class="center"><input class="btn" type="submit" value="提交" /></dd>
+	</form>
+</dl>
+
+
+<script>
+
+var oBtn1 = document.getElementById("btn1");
+
+oBtn1.onclick = function() {
+	
+	var a = oBtn1.getAttribute("data-css")
+
+	a = a + ".css"
+
+	oLink.href = "css/" + a
+}
+
+</script>
+	
+  </body>
+</html>
