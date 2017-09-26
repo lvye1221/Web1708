@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+ <div id="div1" style="width: 100px; height: 100px; background: red"> </div>
+  
+<script>
+
+
+// 得到物体
+var oDiv = document.getElementById("div1");
+
+// 浏览器的能力检测
+//   getComputedStyle 因为没定义，所以访问出错
+//   window.getComputedStyle   因为window定义了，访问其中不存在的属性是没关系的
+if (window.getComputedStyle)
+{
+	var oStyle = getComputedStyle(oDiv)
+}
+else
+{
+	// 得到样式对象【IE8及以下浏览器获取样式对象的方法】
+	var oStyle = oDiv.currentStyle;
+}
+
+document.write(oStyle.width)
+
+</script>
+
+ </body>
+</html>

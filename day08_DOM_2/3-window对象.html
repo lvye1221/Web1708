@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+
+ <div id="div1" style="width: 100px; height: 100px; background: red"> </div>
+  
+<script>
+
+//  自定义一个对象，该对象存储一个学生的信息，该对象包含学号、身份证、年龄、性别、所学专业等属性信息，同时该对象包含一个自我介绍的方法，用来输出该对象的所有信息。
+
+var stu = {}
+
+stu.xh = "07101111"
+stu.js = function() {
+	document.write("我是007，我最帅！")
+}
+
+// window.getComputedStyle  如果存在，就不等于 undefined
+//                          如果不存在 就等于 undefined
+document.write(   stu.xxxx   )
+/**/
+
+
+
+/*
+// 得到物体
+var oDiv = window.document.getElementById("div1");
+
+// 获取样式
+//    window.getComputedStyle  在 IE9 以下是不能使用的
+
+if (window.getComputedStyle != undefined)
+{
+	var oStyle = window.getComputedStyle(oDiv)
+
+	document.write( oStyle.width )
+}
+
+
+
+// 【练习】 用 IE8 测试 获取样式。   11:18 对对
+
+
+
+
+
+window.alert();
+
+window.prompt()
+
+// parseFloat 是1个函数， 是 window 的函数呢？
+//   window.parseFloat  与 parseFloat  是等价的。因为 window 可以省略不写
+var a = window.parseFloat("1.2")
+
+document.write( a )
+
+
+var a = parseFloat("1.2")
+
+// 定义变量 a，其实 是在 系统根对象 window 对象中新增了1个属性 a
+//    window.a  代表 访问window对象下面的 a的属性值
+document.write( window.a )
+
+var a = 100
+
+document.write( window.a )
+*/
+
+</script>
+ </body>
+</html>
