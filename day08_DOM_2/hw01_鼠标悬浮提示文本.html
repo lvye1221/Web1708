@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.form{
+			width: 300px;
+			margin: 0 auto;
+			border: 1px solid #ccc;
+			position: relative;
+		}
+		.tips{
+		    position: absolute;
+		    top: 150px;
+		    left: 27px;
+		    background: yellow;
+		    border: 1px solid orange;
+		    width: 180px;
+		    padding: 6px;
+		    border-radius: 10px;
+		    box-shadow: 1px 1px 1px black;
+		    font-size: 12px;
+		    line-height: 25px;
+		    /*隐藏*/
+		    display: none;
+		}
+	</style>
+</head>
+<body>
+	<div class="form">
+		<p>email: <input type="text" /></p>
+		<p>密码: <input type="password" /></p>
+		<p>确认密码: <input type="password" /></p>
+		<p>
+			<input type="checkbox" id="cb"/>
+			<label for="cb" id="label_cb">十天内免登陆</label>
+		</p>
+		<div class="tips" id="tips">
+			请注意安全啊请注意安全啊请注意安全啊请注意安全啊请注意安全啊请注意安全啊请注意安全啊请注意安全啊
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		//得到所有的相关元素
+		var oLabelCB = document.getElementById("label_cb");
+		var oTips = document.getElementById("tips");
+		var oCheckBoxCB = document.getElementById("cb");
+
+		//绑定监听，鼠标进入的时候
+		oLabelCB.onmouseover = tipShow;
+		oCheckBoxCB.onmouseover = tipShow;
+		oLabelCB.onmouseout = tipHide;
+		oCheckBoxCB.onmouseout = tipHide;
+
+
+		//事件的处理程序，事件的处理函数。这个函数绑定给了两个HTML元素的事件
+		function tipShow(){
+			//显示
+			oTips.style.display = "block";
+		}
+
+		//绑定监听，鼠标离开的时候
+
+		function tipHide(){
+			//显示
+			oTips.style.display = "none";
+		}
+	</script>
+</body>
+</html>

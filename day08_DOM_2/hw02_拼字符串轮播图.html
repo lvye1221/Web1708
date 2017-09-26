@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="button" value="上一张" id="leftBtn" />
+	<img src="images/beijing/1.jpeg"  id="pic" />
+	<input type="button" value="下一张"  id="rightBtn"  />
+	
+	<p>
+		<input type="text" id="numTxt" value="1" />
+		<input type="button" value="go" id="goBtn"/>
+	</p>
+	
+
+	<script type="text/javascript">
+		//用字符串拼接法的轮播图
+		//得到所有元素
+		var leftBtn = document.getElementById("leftBtn");
+		var rightBtn = document.getElementById("rightBtn");
+		var oImgPic = document.getElementById("pic");
+		var numTxt = document.getElementById("numTxt");
+		var goBtn = document.getElementById("goBtn");
+		
+		numTxt.focus();
+
+		//信号量
+		var index = 1;	//图片编号，合理值1~5
+
+
+		//事件监听，go按钮
+		goBtn.onclick = function(){
+			//先更改信号量
+			index = numTxt.value;
+			if(!/^\d$/.test(index) || !(index <= 5 && index >= 1)){
+				alert("不合法的数值");
+				return;
+			}
+			//调用业务函数
+			go();
+		}
+
+		//事件监听，右按钮
+		rightBtn.onclick = function(){
+			//先更改信号量
+			index++;
+			if(index > 5){
+				index = 1;
+			}	
+			//调用业务函数
+			go();
+		}
+
+		//事件监听，左按钮
+		leftBtn.onclick = function(){
+			//先更改信号量
+			index--;
+			if(index < 1){
+				index = 5;
+			}		
+			//调用业务函数
+			go();
+		}
+
+		function go(){
+			//切换图片
+			oImgPic.src = "images/beijing/" + index + ".jpeg";
+			//让文本框中的数字变化
+			numTxt.value = index;
+		}
+	</script>
+</body>
+</html>

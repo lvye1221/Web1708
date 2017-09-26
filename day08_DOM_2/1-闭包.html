@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+<script>
+
+/*
+var a = 100
+// 电脑： 很多程序， 运行在内存， 8G
+
+// 函数的特点： 调用时才创建空间，【正常情况】下，调用结束之后会自动释放
+// 如果函数 m1 被调用了100万次，那么 将有100万个 a 的空间不会释放
+var a = (function m1() 
+{
+	var a = 100;
+
+	// 定义函数m2
+	function m2()
+	{
+		// 函数m2 中使用a变量
+		//   自己函数中没有定义变量a，系统会自动往外层函数找
+		//   外部的变量 a 的空间不会释放
+		// 这种情况称为闭包
+		a++
+
+		console.log(a)
+	}
+
+	// m1 函数的返回结果： m2 这个函数
+	//       m2()  代表调用函数m2,整体的值 是 m2的返回值
+	return m2;
+})()
+
+// 调用函数m1, 整体的值 是 m2。所以相当于 a 等于 m2
+// var a = m1()
+
+a()
+a()
+*/
+
+
+
+oBtn.onclick = (function (a)
+{
+	return function(){
+		console.log(a)
+	}
+})(100)
+
+
+for (var a = 1; a <= 6; a++)
+{
+
+oBtn.onclick = function(){
+		console.log(a)
+	}
+
+</script>
+
+ </body>
+</html>
