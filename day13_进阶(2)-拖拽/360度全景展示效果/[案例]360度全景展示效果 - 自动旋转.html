@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>360度全景展示</title>
+    <style>
+        img {
+        	display:block;
+            margin: 50px auto;
+        }
+        .controle{padding:20px;text-align:center;}
+    </style>
+    <script>
+        window.onload = function(){
+            /*
+                思路：
+                    1.给document绑定onmousedown事件
+                        1)给document绑定onmousemove事件
+                            计算当前index索引
+                            改变#img的src属性
+                    2.鼠标弹开时清除onousemove事件
+             */
+            var img = document.getElementById('img');
+            var autoRotate = document.getElementById('autoRotate');
+
+            var index = lastIndex = 0;
+            var num = 77;//图片数量
+            var speed = 20;//图片旋转的速度,越小越快
+            document.onmousedown = function(e){
+                e = e || event;
+
+                // 改变鼠标形状
+                document.body.style.cursor = 'w-resize'
+
+                // 记录当前按下位置
+                startX = e.clientX
+
+                document.onmousemove = function(evt){
+                    evt = evt || event;
+
+                    if(speed<1) speed=1;
+                    speed -= 0.1;
+
+                    // 获取移动过的距离
+                    var dis = startX - evt.clientX;
+
+                    // 计算当前索引值=移动张数+上次索引位置
+                    index = Math.floor(dis/speed)%num + lastIndex;
+                    console.log(index)
+
+                    // 索引小0时，回到最后
+                    // 大于num时，回到开头
+                    if(index<0){
+                        index = index%num + num;
+                    }else if(index >= num){
+                        index = index%num
+                    }
+                    
+                    showImg();
+
+                    evt.preventDefault();
+                }
+            }
+            document.onmouseup = function(){
+                document.onmousemove = null;
+
+                // 鼠标方放开后把当前索引值记录在lastIndex，
+                lastIndex = index;
+
+                // 重置速度
+                speed = 20;
+
+                // 恢复鼠标形状
+                document.body.style.cursor = '';
+            }
+
+            // 键盘左右按键
+            document.onkeydown = function(e){
+                e = e || event;
+                if(e.keyCode == 37){
+                    index--;
+                }else if(e.keyCode == 39){
+                    index++;
+                }
+                showImg();
+            }
+
+            // 自动展示
+            var timer;
+            autoRotate.onclick = function(){
+                this.auto = !this.auto;
+
+                if(this.auto){
+                    this.innerHTML += '(激活)';
+                }else{
+                    this.innerHTML = this.innerHTML.replace('(激活)','');
+                    clearInterval(timer);
+                    return;
+                }
+
+                timer = setInterval(function(){
+                    index++;
+                    showImg();
+                },30);
+            }
+
+            // 图片展示函数
+            function showImg(){
+                if(index<0){
+                    index = num-1;
+                }else if(index >= num){
+                    index = 0
+                }
+                img.src = 'img/'+index + '.jpg';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <img id="img" src="img/0.jpg" />
+    <div class="controle">
+        <button id="autoRotate">自动旋转</button>
+    </div>
+</body>
+
+</html>
