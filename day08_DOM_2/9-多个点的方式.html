@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <div id="div1">
+	<img src="images/1.jpg">
+  </div>
+
+  <img src="images/2.jpg">
+
+<script>
+// 让 div1 中间的 1.jpg 加上 10像素的红色实线边框
+
+// 思路：
+//    1. 得到 div1 这个元素
+//    2. div1 来得到其中 img
+//    3. 加边框即可
+/*
+var oDiv1 = document.getElementById("div1");
+
+var oImg = oDiv1.getElementsByTagName("img")[0]
+
+oImg.style.border = "10px solid red"
+*/
+
+
+/*
+function m1()
+{
+	return "哈哈";
+}
+// 可以！
+//     m1()  代表调用函数，整体的是 "哈哈"
+//     "哈哈".length
+document.write( m1().length   )
+
+//  m1()    整体的值是 return 的值
+//  m1      就是函数 
+*/
+
+/*
+function m1()
+{
+	return [1,2,3];
+}
+
+//  m1()  相当于  arr=[1,2,3]
+//                arr[1]
+document.write(   m1()[1]  )
+*/
+
+
+
+function getElementsByTagNameJieGeGe()
+{
+	return [1,2,3];
+}
+
+document.write(   getElementsByTagNameJieGeGe()[1]  )
+
+
+</script>
+ </body>
+</html>

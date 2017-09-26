@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+
+  <style>
+
+table {
+	/* CSS 将单元格间隙去除*/
+	border-collapse:collapse;
+}
+
+
+td {
+	width: 100px;
+	height: 30px;
+	border: 1px solid black;
+}
+
+  </style>
+ </head>
+ <body>
+  <table>
+  <tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+  </tr>
+  <tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+  </tr>
+  <tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+  </tr>
+  <tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+  </tr>
+  <tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+  </tr>
+  <tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+  </tr>
+  <tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+  </tr>
+  <tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+  </tr>
+  <tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+  </tr>
+  <tr>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+	<td></td>
+  </tr>
+  </table>
+
+
+<script>
+
+// 得到 页面中 所有tr
+var aTr = document.getElementsByTagName("tr")
+
+// aTr[0] 第一行
+//      在第一行中所有的 td 元素
+var aTd = aTr[0].getElementsByTagName("td");
+
+for (var i = 0; i < aTd.length; i++)
+{
+	if (i % 2 == 1)
+	{
+		aTd[i].style.background = "red"
+	}
+}
+
+</script>
+
+ </body>
+</html>

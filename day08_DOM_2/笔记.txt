@@ -53,5 +53,16 @@ js 是所有页面的动态效果的基石
 
 
 浏览器 获取样式
-	getComputedStyle(oDiv)
-	oDiv.currentStyle
+
+	oDiv.style.width   只能获取样式
+
+	获取计算后的样式
+		getComputedStyle(oDiv)   
+		oDiv.currentStyle
+	
+		// 能力检测
+		if (window.getComputedStyle) {
+			
+		} else {
+
+		}

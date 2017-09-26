@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <style type="text/css">
+		p{
+			width: 60px;
+			height: 60px;
+			float: left;
+			margin-right: 20px;
+			background-color: yellowgreen;
+		}
+	</style>
+
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+	<p></p>
+
+
+<script>
+// 【练习】 实现点击方块变成红色 
+//        16:24 对对
+
+var aP = document.getElementsByTagName("p");
+
+for (var i = 0; i < aP.length; i++)
+{
+	aP[i].xxx = i  // 先保存i, 保存到 按钮对象中
+	aP[i].state = true; // 
+
+	aP[i].onclick = function() {
+		console.log( this.xxx )  // 因为this代表当前点击的对象
+		if (this.state == true)
+		{
+			this.style.background = "red"
+		}
+		else 
+		{
+			this.style.background = "green"
+		}
+
+		this.state = !this.state
+	}
+}
+
+
+/*
+// aP[0] 是1个对象
+// aP[0]的xxx属性， 如果不存在的话，会自动创建的
+aP[0].xxx = 100
+
+aP[0].onclick = function() {
+	// 点击函数中，存在1个好东西   this 代表【当前点击】的对象
+	console.log(this.xxx)
+}
+*/
+
+</script>
+
+ </body>
+</html>

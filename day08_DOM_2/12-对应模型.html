@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  	<style type="text/css">
+		div{
+			width: 600px;
+			height: 100px;
+			border: 1px solid gray;
+		}
+		p{
+			float: left;
+			width: 60px;
+			height: 60px;
+			background-color: #ccc;
+			margin-right: 10px;
+		}
+	</style>
+
+	
+	<div id="box1">
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+	<div id="box2">
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+
+<script>
+// 思路：
+//    1. 获取 上排  和 下排 所有 盒子元素
+//    2. 给所有 上排元素 添加 点击函数
+//    3. 点击函数中： 获取点击的下标， 更改 下排 对应下标元素的样式
+
+var oBox1 = document.getElementById("box1")
+var oBox2 = document.getElementById("box2")
+
+var aTop = oBox1.getElementsByTagName("p")  // 上排
+var aBot = oBox2.getElementsByTagName("p")  // 下排
+
+for (var i = 0; i < aTop.length; i++)
+{
+	aTop[i].xxx = i;  // 保存按钮的下标
+	aTop[i].onclick = function() {
+		// console.log(i)  // i 等于8
+		//  【注意】下标不能用i，因为点击函数的执行肯定是在循环之后，i早就变成循环最大值了。不是下标了！
+
+		// this.xxx 就是点击按钮的下标
+		aBot[this.xxx ].style.background = "red"
+	}
+}
+
+</script>
+ </body>
+</html>

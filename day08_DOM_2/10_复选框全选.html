@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="box">
+		<p><input type="checkbox" /> 吃饭</p>
+		<p><input type="checkbox" /> 吃饭</p>
+		<p><input type="checkbox" /> 吃饭</p>
+		<p><input type="checkbox" /> 吃饭</p>
+		<p><input type="checkbox" /> 吃饭</p>
+		<p><input type="checkbox" /> 吃饭</p>
+	</div>
+
+	<input type="button"  value="选择" id="btn" />
+
+	<script type="text/javascript">
+/*
+var oCheck = document.getElementsByTagName("input")[1];
+
+// oCheck 代表 多选框对象
+// oCheck.checked  代表 多选框对象 的 checked 属性
+//                           设置为 true 代表 选中
+//                           设置为 false 代表 不选中
+oCheck.checked = true
+*/
+
+// 【练习】 点击按钮，全选； 再点击一次，全部取消
+//    思路：
+//          1. 定义1个变量 state, 初始值 true
+//          2. 点击时，将所有的 多选框对象.checked 全部变成 state 的值
+//          3. state = !state  反向
+
+//    15:28 对对
+
+//  信号量： 全局变量
+var state = true;
+
+// 得到 按钮、多选框
+var oBtn = document.getElementById("btn"); // 按钮
+var oBox = document.getElementById("box");
+
+//  oBox.get.. 代表 oBox 中间的 input
+var aChk = oBox.getElementsByTagName("input");  // 所有多选框
+
+//  点击函数只创建1次
+oBtn.onclick = function () {
+
+	// 遍历所有的多选框
+	for (var i = 0; i < aChk.length; i++) {
+		aChk[i].checked = state;
+	}
+
+	// !state 代表 之前状态的相反状态
+	//     例如  state是true   那么 !state 是 false
+	//     例如  state是false  那么 !state 是 true
+	state = !state
+}
+
+// 休息5分钟， 15:50 继续
+	</script>
+</body>
+</html>

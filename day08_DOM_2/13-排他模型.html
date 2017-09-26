@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <style type="text/css">
+		div{
+			width: 600px;
+			height: 100px;
+			border: 1px solid gray;
+		}
+		p{
+			float: left;
+			width: 60px;
+			height: 60px;
+			background-color: #ccc;
+			margin-right: 10px;
+			border-radius: 50%;
+		}
+	</style>
+	
+	<h1 id="biaoti">哈哈</h1>
+	<div id="box1">
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+		<p></p>
+	</div>
+
+	<script type="text/javascript">
+		var oBox1 = document.getElementById("box1");
+		var aP = oBox1.getElementsByTagName("p");
+
+		for (var i = 0; i < aP.length; i++)
+		{
+			aP[i].onmouseover = function() {
+				// 全部干掉！   循环
+				for (var j = 0; j < aP.length; j++)
+				{
+					aP[j].style.background = "gray"
+				}
+
+				// 自己再亮起来
+				this.style.background = "red"
+			}
+		}
+	</script>
+ </body>
+</html>
