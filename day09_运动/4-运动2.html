@@ -28,15 +28,23 @@
 <div id="div1"> </div>
 
 <script>
-
+//  【练习】 无缝滚动！ 14:22 对对
+//         思路：  获取子元素，然后在定时器中，定时更新子元素的left值
 // 1. 得到方块
 var oDiv = document.getElementsByTagName("div")[0];
 
+//  oDiv.style["left"] 与  oDiv.style.left  完全等价的！
+var a = "left"
+oDiv.style[a] = "100px"
+
+
+
+
 // 2. 定时更新。 【注意】 setInterval 第1个参数必须是函数
-setInterval(move, 50)
+// setInterval(move, 50)
 
 // 演示： 到达某个位置 反向
-var x = 0;  // x 的初始值
+var x = 0;  // x 的初始值     信号量
 var xSpeed = 10;  // x 轴的速度
 // 定义函数 move
 function move() {

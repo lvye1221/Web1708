@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <style>
+  * {
+	  margin: 0;
+	  padding: 0;
+  }
+  div {
+	  width: 100px;
+	  height: 100px;
+	  background: red;
+
+	  position: absolute;
+  }
+  </style>
+
+<input type="button" value="按钮1" id="btn1">
+<input type="button" value="按钮2" id="btn2">
+
+<div id="div1" style="top:20px;left:0px;width:100px;"> </div>
+<div id="div2" style="top:200px;left:0"> </div>
+
+
+<script>
+
+var oDiv1 = document.getElementById("div1")
+var oDiv2 = document.getElementById("div2")
+
+var oBtn1 = document.getElementById("btn1") 
+var oBtn2 = document.getElementById("btn2") 
+
+oBtn1.onclick = function() {
+	move(oDiv1, "left", 500)
+}
+
+oBtn2.onclick = function() {
+	move(oDiv2, "left", 700)
+}
+
+
+// 考虑到运动会被很多代码使用，所以，封装代码，便于重复利用
+//   提供3个信息：
+//          1. 物体									obj
+//          2. 属性（left、width 等）  字符串       attr
+//          3. 目标值                               target
+//  功能名：move
+//    例如：
+//      调用函数中传递的值，称为 “实参”
+//       move(oDiv, "left", 300)   
+//       move(oDiv, "width", 500)
+
+
+// 定义函数中的参数，称为 “形参”
+function move(obj, attr, target) {
+
+	clearInterval(obj.t);
+
+	// 创建定时器
+	obj.t = setInterval(function() {
+
+		// 1. 得到物体的当前位置。
+		// 其中 [attr] 代表style对象中的 attr属性值
+		//      parseInt的作用  100px -> 100
+		var x = parseInt( obj.style[attr] )
+
+		// 2. 更新x值
+		if (x > target) {
+			x -= 10
+		} else {
+			x += 10
+		}
+
+		// 3. 判断
+		if (x == target) {
+			// 到达目标位置，关闭定时器
+			clearInterval(t);
+			// 终止函数，函数下面的代码不会执行
+			return ;
+		}
+	
+		// 4. 更新物体的位置
+		obj.style[attr] = x + "px"
+
+	}, 50);
+}
+
+</script>
+
+
+ </body>
+</html>

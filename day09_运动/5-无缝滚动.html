@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.rolling{
+			width: 800px;
+			height: 130px;
+			border: 10px solid #ccc;
+			margin: 100px auto;
+			position: relative;
+			overflow: hidden;
+		}
+		.rolling .m_unit{
+			/*这是运动的单位*/
+			/*这个宽度足以致命，为了让所有的li能够并排*/
+			/*这个宽度随便取，大一点*/
+			width: 4000px;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.rolling ul{
+			list-style: none;
+		}
+		.rolling ul li{
+			float: left;
+			margin-right: 10px;
+		}
+	</style>
+
+	<div class="rolling" id="rolling">
+		<div class="m_unit" id="m_unit">
+			<ul>
+				<li><a href=""><img src="images/shuzi/0.png" alt="" /></a></li>
+				<li><a href=""><img src="images/shuzi/1.png" alt="" /></a></li>
+				<li><a href=""><img src="images/shuzi/2.png" alt="" /></a></li>
+				<li><a href=""><img src="images/shuzi/pangzi.png" alt="" /></a></li>
+				<li><a href=""><img src="images/shuzi/4.png" alt="" /></a></li>
+				<li><a href=""><img src="images/shuzi/5.png" alt="" /></a></li>
+				<li><a href=""><img src="images/shuzi/6.png" alt="" /></a></li>
+				<li><a href=""><img src="images/shuzi/7.png" alt="" /></a></li>
+			</ul>
+		</div>
+	</div>
+
+<script>
+// 实现 无缝滚动！  
+//         思路：  获取子元素，然后在定时器中，定时更新子元素的left值
+
+//		【15:15】 对对
+
+// 整个页面加载完成
+window.onload = function() {
+
+	// 得到物体
+	var oDiv = document.getElementById("m_unit")
+
+	oDiv.onmouseout = function() {
+		// 创建定时器
+		t = setInterval(move, 50)
+	}
+
+
+	oDiv.onmouseover = function() {
+		// 清除定时器
+		clearInterval(t)
+	}
+
+
+
+	// 得到所有 li 物体
+	var aLi = oDiv.getElementsByTagName("li")
+
+	// oDiv.offsetWidth 代表 oDiv物体的 宽度值(width+padding+border)
+	console.log( aLi[0].offsetWidth )
+	//  maxLeft 最大的left值
+	var maxLeft = 0;
+	for (var i = 0; i < aLi.length; i++) {
+		maxLeft += aLi[i].offsetWidth;
+		maxLeft += 10; // 加外边距
+	}
+	console.log("maxLeft: " + maxLeft)
+
+	
+	// 再复制1份
+	var oUl = oDiv.getElementsByTagName("ul")[0];
+	oUl.innerHTML += oUl.innerHTML
+
+
+	// 创建定时器
+	var t = setInterval(move, 50)
+
+	// 保存位置
+	var x = 0; 
+
+	// 定义1个函数 move
+	function move() {
+		// 1. 更新位置
+		oDiv.style.left = x + "px";
+
+		// 2. 修改x的值
+		x += -10;
+
+		if (x < -maxLeft) {
+			x = 0
+		}
+	}
+}
+</script>
+
+ </body>
+</html>
