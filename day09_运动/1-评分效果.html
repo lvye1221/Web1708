@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+
+   <style>
+
+	div {
+		width: 27px;
+		height: 28px;
+		background: url(star.gif);
+		float: left;
+
+	}
+
+   </style>
+   
+   <div></div>
+   <div></div>
+   <div></div>
+   <div></div>
+   <div></div>
+
+
+<script>
+// 思路：
+//     1. 每个星星绑定 点击事件处理函数
+//     2. 点到谁
+//             (1) 全部变灰
+//             (2) 点击位置之前所有星星 都点亮
+
+// 得到所有星星
+var aDiv = document.getElementsByTagName("div")
+
+for (var i = 0; i < aDiv.length; i++) {
+	aDiv[i].xxx = i;
+
+	aDiv[i].onclick = function() {
+		// 全部变灰
+		for (var j = 0; j < aDiv.length; j++) {
+			aDiv[j].style.backgroundPositionY = "0px"
+		}
+
+		// 点击位置之前所有星星
+		for (var j = 0; j <= this.xxx; j++) {
+			aDiv[j].style.backgroundPositionY = "-29px"
+		}
+	}
+}
+
+
+</script>
+
+
+ </body>
+</html>

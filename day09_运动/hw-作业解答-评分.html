@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8" />
+	<title>评分功能</title>
+
+<style>
+  #starList { list-style: none; }
+
+  li {background: url("star.gif"); float: left; width: 27px; height: 28px; }
+
+  li.active {background: url("star.gif") 0px -29px;}
+  
+</style>
+
+<script>
+
+// 思路
+// 1. 给所有的小星星都绑定一个点击事件处理函数
+// 2. 在事件处理函数中： (1) 让所有星星都灭掉  (2) 将0~点击的下标的所有星星都亮起来
+
+// 设置在 window 加载完成之后，执行 myOnload 函数
+onload = myOnload;
+
+function myOnload() {
+	// 1. 获取所有的小星星
+	var allLi = document.getElementsByTagName("li");
+
+	var starList = document.getElementById("starList");
+
+	// var level = -1;
+	window.level = -1;
+
+
+
+	// 只给星星外层的绑定了一个鼠标移开的事件
+	starList.onmouseout = function() {
+		// 所有星星都灭掉
+		for (var j = 0; j < allLi.length; j++) {
+			allLi[j].className = "";
+		}		
+
+        // 访问保存下来的级别！
+		// alert(level);
+		for (var j = 0; j <= window.level; j++) {
+			allLi[j].className = "active";
+		}
+
+	}
+
+
+	// 2. 给所有的小星星都绑定一个点击事件处理函数
+	for (var i = 0; i < allLi.length; i++) {
+
+		allLi[i].xxx = i;
+
+	    // 点击星星，保存评价
+		// 思路： 1. 给星星绑定一个点击事件处理函数
+		//       2. 在函数中保存评价级别
+		//             级别保存到哪里？ ==》 变量
+		allLi[i].onclick = function() {
+			// var level = this.xxx;
+			window.level = this.xxx;
+			console.log(window.level);
+		}
+		
+		
+		allLi[i].onmouseover = function() {
+
+			// 所有星星都灭掉
+			for (var j = 0; j < allLi.length; j++) {
+				allLi[j].className = "";
+			}
+
+			for (var j = 0; j <= this.xxx; j++) {
+				allLi[j].className = "active";
+			}
+			
+		}
+
+	}
+}
+
+</script>
+
+  </head>
+
+  <body>
+
+	<ul id="starList">
+	  <li> </li>
+	  <li> </li>
+	  <li> </li>
+	  <li> </li>
+	  <li> </li>
+	</ul>
+  </body>
+</html>

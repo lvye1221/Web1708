@@ -48,6 +48,16 @@ var aChk = oBox.getElementsByTagName("input");  // 所有多选框
 //  点击函数只创建1次
 oBtn.onclick = function () {
 
+	// 判断有没有按钮被选中
+	for (var i = 0; i < aChk.length; i++)
+	{
+		if( aChk[i].checked ) {
+			// 如果有1个选中了，立即终止函数
+			return ;
+		}
+	}
+
+
 	// 遍历所有的多选框
 	for (var i = 0; i < aChk.length; i++) {
 		aChk[i].checked = state;
