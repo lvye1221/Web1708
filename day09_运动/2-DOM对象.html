@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <style>
+  div {
+	width: 100px;
+	height: 100px;
+	background: red;
+  }
+
+  div.c1 {
+	background: yellow;
+  }
+
+  .c1 {
+	background: green;
+  }
+
+  .c2 {
+	background: blue;
+	border: 10px solid red;
+  }
+
+
+
+  </style>
+  <!-- class="c1 c2" 代表同时将 c1 和 c2 样式作用在盒子上
+
+权重：
+		id		class	 标签
+div#div1.c1
+#div1   1      0            0
+ div.c1 0		1			1      ==> 11
+.c1		0		1			0      ==> 10
+.c2		0		1			0	   ==> 10       两个一样的情况下，css后面的大
+div		0		0			1      ==>  1
+  --->
+  <div id="div1" style="" class="c1 c2"> </div>
+
+<script>
+
+var oDiv = document.getElementById("div1")
+
+// className
+// oDiv.className = "c2"
+
+// oDiv.id 、 style
+
+//     innerHTML       元素中的 内容，其中是可以写 HTML 代码的 
+//      内部的 HTML    
+oDiv.innerHTML = "<h3>试试</h3>"
+
+</script>
+
+ </body>
+</html>

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+
+  <style>
+  * {
+	  margin: 0;
+	  padding: 0;
+  }
+  div {
+	  width: 100px;
+	  height: 100px;
+	  background: red;
+
+	  position: absolute;
+  }
+  </style>
+
+<div id="div1"> </div>
+
+<script>
+
+// 1. 得到方块
+var oDiv = document.getElementsByTagName("div")[0];
+
+// 2. 定时更新。 【注意】 setInterval 第1个参数必须是函数
+setInterval(move, 50)
+
+// 演示： 到达某个位置 反向
+var x = 0;  // x 的初始值
+var xSpeed = 10;  // x 轴的速度
+// 定义函数 move
+function move() {
+
+	console.log(x)
+	
+	oDiv.style.left = x + "px"  // 1. 更新位置
+	x += xSpeed
+	
+	// ? :  称为条件运算符， 也是 三目运算符   
+	//  格式：  表达式1 ？ 表达式2 :  表达式3
+	//     功能：  如果表达式1的值为 true，那么执行 表达式2
+	//                                否则，那么执行 表达式3
+	//     整体的值：  如果表达式1的值为 true，那么整体的值是 表达式2 的值
+	//                                否则，那么整体的值是  表达式3 的值
+	xSpeed = (x >= 600) ? -xSpeed : xSpeed
+	xSpeed = x <= 0 ? -xSpeed : xSpeed
+	/*
+	if (x >= 600) {  // 2. 判断
+		xSpeed = -xSpeed
+	}
+
+	if (x <= 0) {
+		xSpeed = -xSpeed
+	}
+	*/
+}
+//  【练习】   11：38对对
+
+</script>
+
+
+ </body>
+</html>
