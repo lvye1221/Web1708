@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>360度全景展示</title>
+    <style>
+    img {
+    	display:block;
+        width: 640px;
+        height: 378px;
+        margin: 50px auto;
+    }
+    </style>
+    <script>
+    window.onload = function() {
+        var img = document.getElementById("img");
+
+        var index = 0;
+        var speed = 10;
+        var imgNum = 77;
+        var lastIndex = 0;
+        document.onmousedown = function(e) {
+        	// 记录按下去是的位置
+            var startX = e.clientX;
+
+            // 改变鼠标形状
+            document.body.style.cursor = 'e-resize';
+
+            // 鼠标按下后绑定鼠标移动事件
+            document.onmousemove = function(evt) {
+                //计算鼠标移动的距离
+                var dis = evt.clientX - startX;
+
+                // 根据移动的距离计算当前索引值
+                index = Math.floor(dis / speed);
+                console.log('start:', index,speed);
+                if (index < 0) {
+                    index = index % imgNum + imgNum;
+                } else if (index > imgNum) {
+                    index = index % imgNum;
+                }
+                console.log('end:', index);
+
+                img.src = "img/" + index + ".jpg";
+                lastIndex = index;
+                evt.preventDefault();
+            }
+        }
+        document.onmouseup = function(event) {
+            //鼠标松开时清空移动事件
+            document.onmousemove = null;
+
+            // 恢复鼠标形状
+            document.body.style.cursor = '';
+        }
+    };
+    </script>
+</head>
+
+<body>
+    <img id="img" src="img/0.jpg" />
+</body>
+
+</html>

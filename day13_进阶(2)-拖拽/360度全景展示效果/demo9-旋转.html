@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>360度全景展示</title>
+    <style>
+        img {
+        	display:block;
+            margin: 50px auto;
+        }
+        .controle{padding:20px;text-align:center;}
+    </style>
+    <script>
+        window.onload = function(){
+
+			var autoRotate = document.getElementById('autoRotate');
+			var oImg = document.getElementById('img');
+
+            var timer = null;
+			var index = 0;
+            autoRotate.onclick = function(){
+
+                timer = setInterval(function(){
+					// img/0.jpg
+					oImg.src = "img/" + index + ".jpg";
+
+                    index++;
+
+					if (index > 76) {
+						index = 0;
+					}
+
+                },30);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <img id="img" src="img/0.jpg" />
+    <div class="controle">
+        <button id="autoRotate">自动旋转</button>
+    </div>
+</body>
+
+</html>
