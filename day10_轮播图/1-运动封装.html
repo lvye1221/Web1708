@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <style>
+  * {
+	  margin: 0;
+	  padding: 0;
+  }
+  div {
+	  width: 100px;
+	  height: 100px;
+	  background: red;
+
+	  position: absolute;
+  }
+  </style>
+
+<input type="button" value="按钮1" id="btn1">
+<input type="button" value="按钮2" id="btn2">
+
+<div id="div1" style="top:20px;left:0px;width:100px;"> </div>
+<div id="div2" style="top:200px;left:0"> </div>
+
+
+<script>
+
+var oDiv1 = document.getElementById("div1")
+var oDiv2 = document.getElementById("div2")
+
+var oBtn1 = document.getElementById("btn1") 
+var oBtn2 = document.getElementById("btn2") 
+
+oBtn1.onclick = function() {
+	// 调用中的参数，称为 实参
+	move(oDiv1) 
+}
+
+oBtn2.onclick = function() {
+	move(oDiv2)
+}
+
+//  【练习】 5分钟  9:22对对。  注意测试 传参的变化
+/*
+ * 如果写1个函数，
+ *   就要写1个函数的使用说明，告诉我们调用者，该怎么函数 
+ *     
+ * move  移动物体
+ *    参数1  obj  对象 代表需要移动的物体
+ */
+
+function move(obj) {
+
+	var x = 0
+
+	setInterval(function() {
+		obj.style.left = x + "px";
+	
+		x += 10;
+	}, 50)
+}
+
+</script>
+
+
+ </body>
+</html>

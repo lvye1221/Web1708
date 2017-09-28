@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+
+<script>
+
+m1(m2)
+
+
+// cb 称为 回调函数。
+function m1(cb) {
+	// 其中做很多事情！
+
+	// 现在已经完成了
+	cb()
+}
+
+// 完成的时候执行 m2, m2可以是其他函数
+function m2() {
+	console.log("调用函数m2, 说明已经完成了！")
+}
+function m3() {
+	console.log("调用函数m3, 说明已经完成了！")
+}
+</script>  
+
+ </body>
+</html>

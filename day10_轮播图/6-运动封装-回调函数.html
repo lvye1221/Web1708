@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <style>
+  * {
+	  margin: 0;
+	  padding: 0;
+  }
+  div {
+	  width: 100px;
+	  height: 100px;
+	  background: red;
+
+	  position: absolute;
+  }
+  </style>
+
+<input type="button" value="按钮1" id="btn1">
+<input type="button" value="按钮2" id="btn2">
+
+<div id="div1" style="top:20px;left:500px;width:100px;"> </div>
+<div id="div2" style="top:200px;left:0px"> </div>
+
+
+<script>
+
+// 如果表达式1为 真 后面就不看了
+// 如果表达式1为 假 就要执行表达式2 
+// 表达式1 || 表达式2
+
+// var a = {}
+
+var oDiv1 = document.getElementById("div1")
+
+move()
+move(oDiv2)
+
+function move(obj)
+{	
+	// obj  undefined  ==> oDiv1
+	obj = obj || oDiv1
+
+	
+}
+
+
+
+
+
+
+
+var oDiv1 = document.getElementById("div1")
+var oDiv2 = document.getElementById("div2")
+
+// move(oDiv1, 300)
+
+//   物体   目标值   完成函数
+spec()
+
+function spec() {
+	move(oDiv1, 300, function() {
+		move(oDiv2, 600, function() {
+			move(oDiv1, 500, function() {
+				move(oDiv2, 0, spec)    // 参数3： spec函数
+			})
+		})
+	})
+}
+
+/*
+ * 如果写1个函数，
+ *   就要写1个函数的使用说明，告诉我们调用者，该怎么函数 
+ *     
+ * move  移动物体
+ *    参数1  obj	 对象 代表需要移动的物体
+ *    参数2  target  数字 代表物体移动的终止位置
+ *    参数3  cb      函数 物体运动完成之后，自动调用 cb
+ */
+
+function move(obj, target, cb) {
+
+
+	// 下一次运行前，先关闭之前 物体obj的定时器 t
+	clearInterval(obj.t)
+
+	// 在对象中新增属性t，值为定时器编号
+	obj.t = setInterval(function() {
+		// 1. 先获取物体的初始值 
+		var current = parseInt(obj.style.left)
+
+		// 2. 判断是否到达目的地
+		if ( target == current) {
+			console.log("清除定时器")
+
+			/*
+			if (cb) {
+				cb();  // 调用函数 cb
+			}
+			*/
+			// &&: 只要有1个为假，结果肯定是假
+			//    从左到右执行，如果表达式1结果为假，忽略表达式2
+			// 假： false, undefined
+			// 与上面的if等价
+			cb && cb()
+
+			// 终止物体定时器 obj.t
+			clearInterval(obj.t)
+			
+			// 终止函数，不要更新位置
+			return ;
+		}
+
+		// 3. 调整位置
+		//    速度
+		var speed = (current > target) ? -10 : 10   
+		current += speed;
+	
+		// 4. 更新位置
+		obj.style.left = current + "px";
+	}, 50)
+}
+
+</script>
+
+
+ </body>
+</html>
