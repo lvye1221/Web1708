@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+
+ </head>
+ <body>
+  
+  <style>
+  * {
+	  margin: 0;
+	  padding: 0;
+  }
+  div {
+	  width: 100px;
+	  height: 100px;
+	  background: red;
+
+	  position: absolute;
+	  left: 0;
+	  top: 0;
+  }
+
+  </style>
+
+<div id="div1"> </div>
+
+  <!-- 引入动画文件 -->
+  <script src="animate-0.0.2.js"></script>
+
+<script>
+
+var oBox1 = document.getElementById("div1");
+
+
+animate(oBox1, {
+	"left": 300,
+	"width": 500,
+	"height": 500,
+	"opacity": 30
+}, function() {
+	console.log("完成啦！");
+});
+
+/*
+var a = {
+	"left": 300,
+	"width": 500,
+	"height": 500,
+	"opacity": 30
+};
+
+animate(oBox1, a);
+*/
+
+</script>
+
+ </body>
+</html>

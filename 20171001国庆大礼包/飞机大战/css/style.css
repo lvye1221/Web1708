@@ -1,0 +1,147 @@
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body, html {
+	width: 100%; 
+	height: 100%; 
+	overflow: hidden;
+	font-size: 12px;
+}
+
+ul, li {list-style: none;}
+a {text-decoration: none;}
+
+/************ 主菜单 ***************/
+
+.main {
+	/*width: 480px;*/
+	width: 100%;
+	height: 100%;
+	border: 1px solid black;
+	margin: 0 auto;
+	background: url(../img/bg.jpg);
+	background-size: cover;
+	position: fixed;
+	position: relative;
+	
+}
+
+.main #list {
+	width: 10rem;
+	height: 20rem;
+	position: absolute;
+	left: 50%; 
+	top: 50%;
+	margin-left: -2.5rem;
+	margin-top: -5rem;
+}
+
+.main #list li {
+	width: 5rem;
+	height: 2rem;
+	line-height: 2rem;
+	background: #f40;
+	color: white;
+	font-size: .7rem;
+	font-family: "微软雅黑";
+	border: 1px solid black;
+	margin-bottom: .5rem;
+	border-radius: .5rem;
+	text-align: center;
+	cursor: pointer;
+}
+
+/************ 游戏加载界面  **************/
+.logo {
+	width: 6rem;
+	height: 1.4rem;
+	background: url(../img/logo.png) no-repeat;
+	background-size: cover;
+	position: absolute;
+	left: 50%; 
+	top: 25%;
+	margin-left: -3rem;
+}
+
+.loading {
+	width: 4.5rem;
+	height: 1rem;
+	background: url(../img/loading1.png) no-repeat;
+	background-size: cover;
+	position: absolute;
+	left: 50%; 
+	top: 50%;
+	margin-left: -2.5rem;
+	margin-top: -0.5rem;
+}
+
+
+.myplane {
+	width: 98px;
+	height: 122px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: url(../img/me.png);
+}
+
+.bullet {
+	position: absolute;
+	width: 7px;
+	height: 18px;
+	background: url(../img/bullet.png);
+}
+
+.bullet-die {
+	position: absolute;
+	width: 41px;
+	height: 39px;
+	background: url(../img/die1.png);
+}
+
+/*大型飞机*/
+.enemy-large {
+	width: 165px;
+	height: 256px;
+	background: url(../img/plane3.png) no-repeat;
+	position: absolute;
+}
+
+/*中型飞机*/
+.enemy-middle {
+	width: 70px; 
+	height: 92px;
+	background: url(../img/plane2.png) no-repeat;
+	position: absolute;
+}
+
+/*小型飞机*/
+.enemy-small {
+	width: 59px; 
+	height: 36px;
+	background: url(../img/plane1.png) no-repeat;
+	position: absolute;
+}
+
+
+/*分数*/
+.score {
+	width: 100px;
+	height: 30px;
+	background: yellow;
+	text-align: center;
+	line-height: 30px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	font-size: 20px;
+	font-family: "微软雅黑";
+	z-index: 100;
+}
+
+
+
+

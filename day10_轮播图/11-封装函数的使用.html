@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+
+ </head>
+ <body>
+  
+  <style>
+  * {
+	  margin: 0;
+	  padding: 0;
+  }
+  div {
+	  width: 100px;
+	  height: 100px;
+	  background: red;
+
+	  position: absolute;
+	  left: 0;
+	  top: 0;
+  }
+
+  </style>
+
+<div id="div1"> </div>
+
+  <!-- 引入动画文件 -->
+  <script src="animate-0.0.1.js"></script>
+
+<script>
+
+var oBox1 = document.getElementById("div1");
+
+// 解决了传递多个属性的问题。   键值对  对象    JSON(数据格式)
+var oAttr = {
+	"left": 300,
+	"width": 500,
+	"opacity": 100
+};
+
+for (var i in oAttr )
+{
+	console.log(i, oAttr[i])
+}
+
+/*
+// 练习： 定义对象，并遍历输出其中所有 属性名 和 对应的属性值  
+//             16:35 对对
+
+// 如何实现同时改变？ left, width, opacity
+//     思路： 
+//         （1） 只创建1个定时器
+//                  定时器函数中：
+							同时改变多个属性
+							   1. 遍历所有属性
+									 （1） 先得到当前值
+									 （2） 判断当前值是否到达目标值
+												当前属性遍历结束，继续下一个属性变化
+									 （3） 更新当前属性的值
+
+					   如何知道动画完成？
+							所有属性都达到目标值了
+							   1. 设置1个变量 flag = true
+							   2. 遍历所有属性
+									如果有1个属性没有到达目标 -> flag = false
+							   3. 判断flag
+									 如果为 true 说明所有属性都达到目标了
+
+*/
+
+
+// 回调函数不能实现同时改变
+// animate(oBox1,"left",300, function() {
+//	animate(oBox1,"width",300);
+// })
+
+//2.4 变width
+// animate(oBox1,"left",300);   // 创建物体的定时器：改变left
+// animate(oBox1,"width",300);  //  清除前面的定时器，再创建我们自己的 改变width
+
+/*
+animate(oBox3, "left", 300)
+
+
+animate(oBox1, "left", 300, function() {
+	animate(oBox1, "height", 300)
+})
+
+animate(oBox2, "right", 300, function() {
+	animate(oBox2, "height", 300)
+})
+*/
+</script>
+
+ </body>
+</html>

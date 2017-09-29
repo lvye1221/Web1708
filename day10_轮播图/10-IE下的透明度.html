@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <style>
+	div {
+		width: 100px;
+		height: 100px;
+		background: black;
+		
+		/*IE9以下设置不透明度的方法*/
+		filter:alpha(opacity=30);
+		opacity: 0.3;
+	}
+
+  </style>
+
+  <div id="div1">
+  </div>
+
+<script>
+
+var oDiv = document.getElementById("div1")
+
+// 低版本IE下，是可以通过 opacity 属性值来获取到透明度的
+// document.write(     xxxxxxxx(oDiv, "opacity")   )
+
+move(oDiv, "opacity", 100);
+
+function move(obj, attr, target)
+{
+	clearInterval(obj.t)
+
+	obj.t = setInterval(function() {
+		// 1. 得到物体当前样式值
+		//        opacity --> 可能是 left、width、 height  ==> 用1个函数参数来替代
+		// var current = parseFloat(obj.style[attr]);
+		
+		//  getComputedStyle(obj)  获取obj的样式对象，返回结果是1个对象
+		var current = parseFloat( xxxxxxxx(obj, attr) )
+
+		console.log(current)
+
+		if (attr == "opacity") {
+			// 透明度 统一成 100 进制
+			current *= 100
+		}
+
+		// 2. 判断当前样式值是否等于目标值
+		if (current == target) {
+			clearInterval(obj.t);
+			return ;
+		}
+
+		// 3. 速度变化
+		var speed = (target > current) ? 10 : -10
+		current += speed;
+
+		// 4. 更新样式值
+		if (attr == "opacity") {
+			obj.style[attr] = current / 100
+			obj.style.filter = "alpha(opacity=" + current + ")"
+		} else {
+			obj.style[attr] = current + "px"
+		}
+		
+	}, 50);
+}
+// 练习： 考虑IE8下的透明度问题：  14:28 对对
+	
+		/*
+			！！！这里是 CSS设置的 代码！！！
+		IE9以下设置不透明度的方法。同时指定2个属性
+		filter:alpha(opacity=30);
+		opacity: 0.3;
+*/
+
+xxxxxxxx(oDiv1, "opacity")
+
+function xxxxxxxx(obj, attr)
+{
+	if (window.getComputedStyle)
+	{
+		// getComputedStyle 是函数
+		return getComputedStyle(obj)[attr];
+	}
+	else
+	{
+		// obj.currentStyle    是个对象
+		return obj.currentStyle[attr]
+	}
+}
+
+</script>
+
+ </body>
+</html>
