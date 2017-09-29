@@ -152,6 +152,24 @@
 	
 
 */
+
+var btn1 = document.getElementById("carousel_leftBtn"); // 左按钮
+var btn2 = document.getElementById("carousel_rightBtn"); // 右按钮
+
+btn1.onclick = function() {
+	go(4)
+}
+
+var cur = 0;  // 保存当前下标    信号量
+btn2.onclick = function() {
+	cur++;  // 指向下一页
+	if (cur >= 5) {
+		cur = 0
+	}
+
+	go(cur)
+}
+
 		var oImgList = document.getElementById("imagesList")
 		var aImgLi = oImgList.getElementsByTagName("li");
 
@@ -167,53 +185,32 @@
 			aLi[i].index = i;
 
 			aLi[i].onmouseover = function(){
-				// 全部变灰
-				for (var j = 0; j < aLi.length; j++) {
-					aLi[j].className = ""
-				}
-
-				this.className = "current";
-				
-				console.log(this.index)
-
-				/*
-				轮播图的思路：
-
-					1. 获取选中小圆点 的下标 index  
-						【千万不要用i，因为鼠标以上时，循环早已结束】
-						this.index
-					2. 设置图片为 下标为 index 的那张图片
-						(1) 全部图片都不显示   aImgLi
-						(2) 显示下标为 index 的那张图片
-
-				*/
-				// 先 设置全部图片都不显示
-				for (var j = 0; j < aImgLi.length; j++) {
-					aImgLi[j].className = ""
-				}
-				// 再显示下标为 this.index 的图片
-				aImgLi[this.index].className = "current"
+				go(this.index)
 			};
 		};
 
 
-		//具体业务的函数，根据当前信号量的值，来切换图片
-		function changePic(){
+// 跳转到 下标为 num 的图片
+function go(num)
+{
+	cur = num;
+	
+	// 全部变灰
+	for (var j = 0; j < aLi.length; j++) {
+		aLi[j].className = ""
+	}
 
-			//去掉所有图片li的current类名
-			for (var i = 0; i < imagesListLis.length; i++) {
-				imagesListLis[i].className = "";
-			};
-			//把当前信号量的图片li加上current类
-			imagesListLis[img_idx].className = "current";
+	aLi[num].className = "current";
 
-			//去掉所有小圆点li的current类名
-			for (var i = 0; i < circlesLis.length; i++) {
-				circlesLis[i].className = "";
-			};
-			//把当前信号量的小圆点li加上current类
-			circlesLis[img_idx].className = "current";
-		}
+	// 先 设置全部图片都不显示
+	for (var j = 0; j < aImgLi.length; j++) {
+		aImgLi[j].className = ""
+	}
+	// 再显示下标为 this.index 的图片
+	aImgLi[num].className = "current"
+	
+}
+
 	</script>
 </body>
 </html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <style>
+	div {
+		width: 100px;
+		height: 100px;
+		background: black;
+
+		
+	}
+
+  </style>
+
+  <div style="opacity: 0" id="div1">
+  </div>
+
+<script>
+
+
+
+var oDiv = document.getElementById("div1")
+
+
+
+oDiv.onmouseover = function() {
+	move(oDiv, 1)
+}
+
+
+oDiv.onmouseout = function() {
+	move(oDiv, 0)
+}
+
+
+/* 
+
+实现透明度自动变化
+	obj: 变化的物体
+	target: 目标值
+
+
+练习： 透明度，鼠标移入显示， 鼠标移出隐藏。 【9:50 对对】 多练习5分钟
+*/
+
+function move(obj, target)
+{
+	clearInterval(obj.t)
+
+	obj.t = setInterval(function() {
+		// 1. 得到物体当前样式值
+		var current = parseFloat(obj.style.opacity);
+
+		// 2. 判断当前样式值是否等于目标值
+		if (current == target) {
+			clearInterval(obj.t);
+			return ;
+		}
+
+		// 3. 速度变化
+		var speed = (target > current) ? 0.1 : -0.1
+		current += speed;
+
+		// 4. 更新样式值
+		obj.style.opacity = current
+		
+	}, 500);
+}
+
+
+
+var current = parseFloat("0")
+
+current += 0.1
+current += 0.1
+
+// 00.1
+//  console.log(current);
+</script>
+
+ </body>
+</html>

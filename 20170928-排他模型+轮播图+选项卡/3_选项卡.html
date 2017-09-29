@@ -114,30 +114,35 @@
 	</div>
 
 	<script type="text/javascript">
-		//得到元素，需要得到hd中的三个span，他们身上有监听； 也需要bd中的三个div，他们是被操作对象
-		var hdSpans = document.getElementById("tab_hd").getElementsByTagName("span");
-		var bdDivs = document.getElementById("tab_bd").getElementsByTagName("div");
 
-		//监听
-		for (var i = 0; i < hdSpans.length; i++) {
-			(function(i){
-				hdSpans[i].onmouseover = function(){
-					//让所有的dbDivs都没有current类
-					for(var j = 0 ;  j < bdDivs.length ; j++){
-						bdDivs[j].className = "";
-					}
-					//当前的i对应的div显示
-					bdDivs[i].className = "current";
+var oBox1 = document.getElementById("tab_hd")
+var aSpan = oBox1.getElementsByTagName("span");
 
-					// 让所有的hdSpans都没有current类
-					hdSpans[0].className = "";
-					hdSpans[1].className = "";
-					hdSpans[2].className = "last";
-					//让当前指向的span类名为current
-					this.className += " current";
-				}
-			})(i);
-		};
+
+var oBox2 = document.getElementById("tab_bd")
+var aDiv = oBox2.getElementsByTagName("div");
+
+for (var i = 0; i < aSpan.length; i++)
+{
+	aSpan[i].index = i
+	aSpan[i].onmouseover = function() {
+		
+		for (var j = 0; j < aSpan.length; j++)
+		{
+			aSpan[j].className = ""
+		}
+		this.className = "current"
+		
+		for (var j = 0; j < aDiv.length; j++)
+		{
+			aDiv[j].className = ""
+		}
+		console.log(this.index)
+		aDiv[this.index].className = "current"
+	}
+}
+
+	
 	</script>
 </body>
 </html>

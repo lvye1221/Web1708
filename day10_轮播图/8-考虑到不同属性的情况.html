@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <style>
+	div {
+		width: 100px;
+		height: 100px;
+		background: black;
+
+		
+	}
+
+  </style>
+
+  <div style="opacity:0.8;width:100px" id="div1">
+  </div>
+
+<script>
+
+var oDiv = document.getElementById("div1")
+
+oDiv.onmouseover = function() {
+	move(oDiv, "width", 300)
+}
+
+
+oDiv.onmouseout = function() {
+	// 规定透明度 100程度     0 透明， 100 不透明
+	move(oDiv, "opacity", 30)
+}
+
+
+/* 
+
+实现物体自动变化
+	obj: 变化的物体
+	attr: 要变化的样式属性，例如 opacity, height, width 等
+	target: 目标值
+
+
+// 【练习】 统一 透明度 与 宽度。  ： 【11:30】 对对
+*/
+
+function move(obj, attr, target)
+{
+	clearInterval(obj.t)
+
+	obj.t = setInterval(function() {
+		// 1. 得到物体当前样式值
+		//        opacity --> 可能是 left、width、 height  ==> 用1个函数参数来替代
+		var current = parseFloat(obj.style[attr]);
+
+		console.log(current)
+
+		if (attr == "opacity") {
+			// 透明度 统一成 100 进制
+			current *= 100
+		}
+
+		// 2. 判断当前样式值是否等于目标值
+		if (current == target) {
+			clearInterval(obj.t);
+			return ;
+		}
+
+		// 3. 速度变化
+		var speed = (target > current) ? 10 : -10
+		current += speed;
+
+		// 4. 更新样式值
+		if (attr == "opacity") {
+			obj.style[attr] = current / 100
+		} else {
+			obj.style[attr] = current + "px"
+		}
+		
+	}, 50);
+}
+
+
+
+
+// 对象中属性的访问方式 。  【练习】 理解访问对象属性值的3种方法  10:35 对对
+
+var stu = {}
+
+stu.name = "Jack"
+//console.log(stu.name)
+
+var k = "name"
+
+// stu[k]    代表是  访问 stu对象中   变量k所代表的     属性  
+//                           stu            name        属性  ==> Jack
+
+// stu["name"]  代表是  访问 stu 对象中   name						属性 
+// stu[name]  代表是    访问 stu 对象中   变量name所代表的          属性 
+console.log(   stu[k]  )
+
+
+// stu[height]    代表  访问 stu对象中      变量height 所代表的         属性
+// stu["height"]  代表  访问 stu对象中      height                      属性
+// stu.height     代表  访问 stu对象中      height                      属性
+
+// 休息20分钟，【10:55】 继续
+</script>
+
+ </body>
+</html>
