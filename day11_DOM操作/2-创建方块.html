@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+
+  <!-- 引入css -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <style>
+#bigbox {
+	width: 400px;
+	height: 400px;
+	border: 1px solid red;
+}
+
+#bigbox div {
+	float: left;
+	margin: 10px;
+}
+
+  </style>
+ </head>
+ <body>
+
+	<input type="button" value="开始游戏" id="btnStart"/>
+
+    <div id="bigbox"></div>
+
+<script>
+
+var oBox = document.getElementById("bigbox");
+var oBtn = document.getElementById("btnStart");
+
+//  练习： 15分钟， 11:30对对
+oBtn.onclick = function() {
+
+	// 点击时，创建4个方块（正方形排列）
+	//   思路：
+	//         1. 重复调用 box 4次， 添加到 大盒子中（大盒子采用浮动的形式）
+
+	//   color() 代表调用 color 这个函数，那么整体的值，就是函数的返回值
+	//                   "rgb(随机数1，随机数2，随机数3)"  类型就是字符串
+	var c1 = color();
+	var c2 = color();
+
+	// 随机位置
+	var rndIndex = parseInt(Math.random() * 4); 
+
+	for (var i = 0; i < 4; i++) {
+		// 如果当前下标为 随机的那个下标
+		if (i == rndIndex) {
+			box(c2); // 使用特殊颜色
+			continue;
+		}
+
+		box(c1)
+	}
+
+}
+
+
+// 在页面上创建1个方块
+//    rgb 代表方块的背景颜色
+function box(rgb) {
+	// 1. 创建1个div元素
+	var oDiv = document.createElement("div")
+
+	// 2. 设置div的 宽、高、位置、样式
+	oDiv.style.width = "100px";
+	oDiv.style.height = "100px";
+
+
+	oDiv.style.background = rgb;  
+
+	//oDiv.style.left = "100px";
+	//oDiv.style.top = "100px";
+	//  设置元素的 class 值
+	// oDiv.className = "block";
+
+	// 3. 添加到大盒子上
+	oBox.appendChild(oDiv)
+}
+
+// 创建随机颜色：
+//   思路1： 1. 对象里面有很多不同颜色，每个颜色都有编号
+//           2. 产生随机编号，获取其中的颜色即可
+//   思路2： 产生3个不同 (0~255) 随机值
+//   思路3： 3个数值来转换成 十六进制形式 ==> #ff0010  
+
+function color()
+{
+	// 产生 0~255 随机数
+	var r = parseInt(Math.random() * 256);
+	var g = parseInt(Math.random() * 256);
+	var b = parseInt(Math.random() * 256);
+
+	var c = "rgb(" + r + "," + g + "," + b + ")"
+
+	// 将颜色字符串返回给调用者
+	return c;
+}
+
+</script>  
+
+ </body>
+</html>

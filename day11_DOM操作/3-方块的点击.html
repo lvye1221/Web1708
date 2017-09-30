@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <style>
+#bigbox {
+	width: 400px;
+	height: 400px;
+	border: 1px solid red;
+}
+
+#bigbox div {
+	float: left;
+	margin: 10px;
+	width: 100px;
+	height: 100px;
+}
+
+  </style>
+
+	<input type="button" value="开始游戏" id="btnStart"/>
+
+    <div id="bigbox"></div>
+
+<script>
+
+var oBox = document.getElementById("bigbox");
+var oBtn = document.getElementById("btnStart");
+
+oBtn.onclick = function() {
+
+	// 隐藏按钮
+	oBtn.style.display = "none";
+
+	for (var i = 0; i < 4; i++)
+	{
+		var oDiv = document.createElement("div");
+
+		oDiv.style.background = color();
+
+		oBox.appendChild(oDiv)
+
+		// 每个方块的点击函数
+		oDiv.onclick = function() {
+			// 清空大盒子
+			oBox.innerHTML = "";
+
+			// 调用按钮的点击函数，重新执行，重新创建4个方块
+			oBtn.onclick()
+			// 练习： 5分钟  11:55 对对
+		}
+
+	}
+
+}
+
+
+
+
+
+// 创建随机颜色：
+//   思路1： 1. 对象里面有很多不同颜色，每个颜色都有编号
+//           2. 产生随机编号，获取其中的颜色即可
+//   思路2： 产生3个不同 (0~255) 随机值
+//   思路3： 3个数值来转换成 十六进制形式 ==> #ff0010  
+
+function color()
+{
+	// 产生 0~255 随机数
+	var r = parseInt(Math.random() * 256);
+	var g = parseInt(Math.random() * 256);
+	var b = parseInt(Math.random() * 256);
+
+	var c = "rgb(" + r + "," + g + "," + b + ")"
+
+	// 将颜色字符串返回给调用者
+	return c;
+}
+
+</script>
+
+
+ </body>
+</html>

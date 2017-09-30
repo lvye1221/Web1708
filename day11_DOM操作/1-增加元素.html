@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <div id="div1" style="width:100px;height:100px;background:red">
+  </div>
+
+
+<script>
+
+// 【练习】 点击方块，自动产生飞机     9:55对对！
+var oDiv1 = document.getElementById("div1");
+
+oDiv1.onclick = fj      // 将函数fj赋值给onclick，点击按钮有效果
+//oDiv1.onclick = fj()    // 立即调用1遍，点击没用。因为将undefined赋值给 onclick
+
+function fj() {
+	var oImg = document.createElement("img");
+	oImg.src = "me.png"
+	document.body.appendChild(oImg)
+}
+
+// 以下代表只能点击body所在区域才有效果
+// document.body.onclick = fj
+
+// 以下代表点击页面任何1个位置都可以
+document.onclick = fj 
+
+// 在div中增加1个按钮   <input 
+//  方法1：
+//  oDiv1.innerHTML = '<input type="button" value="按钮" />'
+
+//  方法2：
+// 1. 创建1个input
+// 2. 添加到div
+/*
+//  createElement  代表 创建元素， 是document对象中的1个函数
+//   "input"       代表 创建元素的标签名  img、input、div、h3、...
+//  函数的返回值：   创建的元素 【对象】
+var oInput = document.createElement("input")
+
+// 设置input的类型
+oInput.type = "button"
+oInput.value = "按钮"
+
+// appendChild 是 DOM元素对象中的 函数，用于在最后面添加子元素
+//   oInput    代表要添加子元素  类型 元素【对象】
+oDiv1.appendChild(oInput)
+*/
+// 【练习】 在页面上通过创建元素 添加1张图片
+//                 9:40 对对
+
+/*
+var oImg = document.createElement("img")
+oImg.src = "me.png"
+
+// 添加 body 节点里面
+// var oBody = document.getElementsByTagName("body")[0];
+
+// document.body  代表body节点对象
+document.body.appendChild(oImg);
+*/
+
+
+
+</script>
+
+ </body>
+</html>
