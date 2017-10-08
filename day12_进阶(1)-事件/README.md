@@ -115,6 +115,7 @@ http://www.cnblogs.com/prince1988/archive/2009/04/04/1429525.html
 ```
 
 ### 事件类型 ###
+```
 
 鼠标事件：
 	onclick:点击
@@ -140,7 +141,7 @@ http://www.cnblogs.com/prince1988/archive/2009/04/04/1429525.html
 窗口事件：
     onload事件: 页面加载完成之后立刻执行的事件
 
-
+```
 
 
 ### 通用事件对象属性和方法 ###
@@ -149,7 +150,6 @@ http://www.cnblogs.com/prince1988/archive/2009/04/04/1429525.html
 ● event.target 返回你点击的最小的那个元素，即使这个元素身上没有监听，也是返回它
 ● event.currentTarget	返回自己，this一定和event.currentTarget是一个元素，都是自己
 ● event.bubbles	返回一个布尔值，表示这个事件是否冒泡
-
 
 
 ```
@@ -193,11 +193,12 @@ screenY表示鼠标的位置，距离屏幕上边边的距离
 
 IE浏览器的event对象是window对象的属性，而不是事件的实参。
 
+```
 2	document.onmousemove = function(event){
 3	    event = event || window.event;
 4	    document.innerHTML = event.clientX;
 5	}
-
+```
 
 #### 【案例】鼠标跟随效果 ####
 
@@ -218,12 +219,15 @@ event.button
 
 //如果当前event是鼠标事件，则会有一个button属性，它是一个数字
 //W3C 规定 event.button 取值如下:
+```
 0代表鼠标按下了左键
 1代表按下了滚轮
 2代表按下了右键
-
+```
 
 不过老版本的IE并没有遵守W3C的规范，它的button属性含义如下
+
+```
 鼠标左键 1
 鼠标右键 2
 左右同时按 3
@@ -231,6 +235,8 @@ event.button
 左键加滚轮 5
 右键加滚轮 6
 三个同时 7
+
+```
 
 onmousedown: 鼠标点下的事件
 

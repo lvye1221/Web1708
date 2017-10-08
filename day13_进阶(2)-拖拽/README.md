@@ -8,9 +8,16 @@
 
 # 课堂内容 #
 
-## 窗口转动 ##
+## 窗口卷动 ##
 
+```
 
+// 窗口改变的事件，省略了window对象
+onresize = onload = onscroll = move;
+
+// 获取当前滚动条的位置
+var iScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+```
 
 ## 阻止浏览器默认行为 ##
 
