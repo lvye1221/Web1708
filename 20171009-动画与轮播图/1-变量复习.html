@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+
+<script>
+
+/*
+var a = {height: 180, age:18};
+
+console.log( a.height   )
+console.log( a.age   )
+
+
+
+var i = -50;
+
+while (i <= 50)
+{
+	console.log(i);
+	i++;
+}
+
+
+var i = -50;
+
+do
+{
+	console.log(i);
+	i++;
+}
+while (i <= 50);
+
+
+// 求a，b之间的最大值
+function max(a,b){
+	if (a>=b)
+	{
+		return (a)
+	}else{
+		return (b)
+	}
+}
+max(3,6)
+
+
+// 3, 6, 9  中间的最大值
+
+document.write(   max(max(3,6), 9)  )
+
+
+function f1()
+{
+	// 内部存在 arguments 来接收参数，是1个数组
+	console.log( arguments[2] );
+}
+
+f1(100, 1,2,3,4,5)
+
+
+
+// 求出5个参数中，最小的那2个数
+//    思路：
+//        1. 求最小值
+//              遍历比较，选择最小的
+//        2. 遍历时，排除刚才的最小值，再从剩下的元素中选择1个最小值
+
+function m1(a,b,c,d,e)
+{
+	var min1 = a;
+	for (var i = 0; i < arguments.length; i++)
+	{
+		if (min1 > arguments[i])
+		{
+			min1 = arguments[i]
+		}
+	}
+
+	// 到这里，min1一定是所有元素中最小的那个
+
+	var max = a; 
+	for (var i = 0; i < arguments.length; i++)
+	{
+		if (max < arguments[i] )
+		{
+			max = arguments[i]
+		}
+	}
+	// 到这里，min2一定是所有元素中不等于 min1 的，剩下元素中最小的那个
+
+	return {min: min1, max: max};
+}
+
+var obj = m1(102,2,3,4,5) 
+
+console.log( obj.min, obj.max  )
+
+
+//*/
+var a = {name: "Jack", age: 36, children: ["Kyle", "Kate", "Kevin"] }
+
+
+a.wife = "Rose";
+
+
+console.log(a.age)
+
+for (var i in a)
+{
+	console.log(i);
+}
+
+</script>
+
+
+ </body>
+</html>
