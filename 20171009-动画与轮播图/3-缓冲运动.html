@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <div id="box" style="width:100px;height:100px;background:red;position:absolute;left:0px"></div>
+
+
+<script>
+
+var oBox = document.getElementById("box");
+
+// 让物体，移动到 left值为 500px的位置
+// 思路：
+//		  1. 初始位置                          0
+//        2. 目标值和 当前位置的差值           500-0  == 500
+//        4. 总共需要多少帧                    100帧
+
+// 帧编号
+// 1		-->   left:  5
+// 2		-->   left:  10
+// 3		-->   left:  15
+
+// n        -->   left: 5*n
+
+//第一个参数t表示当前帧编号
+//第二个参数b表示起始位置
+//第三个参数c表示变化量
+//第四个参数d表示总帧数
+function easeIn(t,b,c,d) {
+    return c * ( t /= d) * t + b;
+}
+function taotiao(t,b,c,d){
+    if ((t/=d) < (1/2.75)) {
+        return c*(7.5625*t*t) + b;
+    } else if (t < (2/2.75)) {
+        return c*(7.5625*(t-=(1.5/2.75))*t + .75) + b;
+    } else if (t < (2.5/2.75)) {
+        return c*(7.5625*(t-=(2.25/2.75))*t + .9375) + b;
+    } else {
+        return c*(7.5625*(t-=(2.625/2.75))*t + .984375) + b;
+    }
+}
+
+var n = 1;
+
+var timer = setInterval(function() {
+
+	
+	oBox.style.left = taotiao(n, 0, 1000, 100) + "px"
+
+	// 指向下一帧
+	n++;
+
+	// 已经到达最后一帧了，结束
+	if (n == 100)
+	{
+		clearInterval(timer);
+	}
+}, 10); 
+
+
+</script>
+
+ </body>
+</html>

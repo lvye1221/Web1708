@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+    
+  <div id="box" style="width:100px;height:100px;background:red;position:absolute;left:0px"></div>
+  <div id="box2" style="width:100px;height:100px;background:red;position:absolute;left:0px;top: 200px"></div>
+  <div id="box3" style="width:100px;height:100px;background:red;position:absolute;left:0px;top:400px"></div>
+
+
+<script src="tween.js"></script>
+<script src="animate-2.0.0.1.js"></script>
+<script>
+/**/	
+var oBox = document.getElementById("box");
+var oBox2 = document.getElementById("box2");
+var oBox3 = document.getElementById("box3");
+
+animate(oBox, "left", 900, "BounceEaseOut")
+animate(oBox2, "left", 900, "Linear")
+animate(oBox3, "left", 900, "QuadEaseInOut")
+
+
+
+</script>
+
+ </body>
+</html>

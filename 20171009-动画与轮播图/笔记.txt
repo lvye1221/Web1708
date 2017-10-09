@@ -142,3 +142,64 @@ for (var k in obj)
 {
 	obj[k]
 }
+
+
+
+<div id="box1"> </div>
+
+var aDiv = document.getElementsByTagName("div")
+var oDiv = document.getElementById("box1")
+
+oDiv.id
+oDiv.style
+oDiv.style.width
+
+oDiv.innerHTML
+
+// 创建h3标签
+var oH3 = document.createElement("h3")
+
+// 将h3标签添加到div中去
+oDiv.appendChild(oH3);
+
+
+
+
+// 每隔1秒执行的定时器
+var timer = setInterval(function() {
+	
+	// 关闭定时器
+	clearInterval(timer)
+
+}, 1000)
+
+
+
+function m1( callback )
+{
+	
+	callback()
+}
+
+
+
+
+
+
+为了让动画使用更加方便，所以，我们封装函数
+
+采用缓冲运动
+	1. 物体  
+	2. 目标
+	3. 变化的公式名
+
+
+
+缓冲动画：采用公式来实现的
+动画函数的封装
+间歇性轮播图
+
+
+作业：
+
+	如果有不明白的地方，记录下来，明天讲解。

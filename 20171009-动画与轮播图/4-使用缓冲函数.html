@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+    
+  <div id="box" style="width:100px;height:100px;background:red;position:absolute;left:0px"></div>
+  <div id="box2" style="width:100px;height:100px;background:red;position:absolute;left:0px;top: 200px"></div>
+  <div id="box3" style="width:100px;height:100px;background:red;position:absolute;left:0px;top:400px"></div>
+
+
+<script src="tween.js"></script>
+<script>
+	
+var oBox = document.getElementById("box");
+var oBox2 = document.getElementById("box2");
+var oBox3 = document.getElementById("box3");
+
+
+// 帧编号，从1开始
+var n = 1;
+
+// 创建定时器
+var timer = setInterval(function() {
+
+	// 计算当前帧的位置: 通过缓冲计算函数来进行计算
+	//    1. 帧编号
+	//    2. 起始位置
+	//    3. 变化量     
+	//    4. 总帧数
+	oBox.style.left = Tween.SineEaseInOut(n, 0, 1000, 100) + "px";
+	oBox2.style.left = Tween.ElasticEaseOut(n, 0, 1000, 100) + "px";
+	oBox3.style.left = Tween.BounceEaseOut(n, 0, 1000, 100) + "px";
+
+	// 已经到目标帧了，终止计时器
+	if (n == 100)
+	{
+		clearInterval(timer);
+	}
+	
+	// 指向下一帧
+	n++;
+}, 50);
+
+//   练习： 
+//    1. 练习缓冲运动
+//    2. 同时改变3个div，采用不同的缓冲计算公式
+//          15:05 对对
+
+</script>
+
+ </body>
+</html>
