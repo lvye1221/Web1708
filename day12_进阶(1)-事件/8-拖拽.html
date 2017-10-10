@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <img src="images/bird.jpg" id="bird" style="position: absolute;">
+
+
+<script>
+
+/*
+拖拽
+
+思路：
+
+	1. 给物体添加 onmousedown (鼠标按下事件)
+
+	2. 在事件处理函数中
+			让物体跟随鼠标移动
+				window.onmousemove = 函数（处理移动事情）
+
+	3. 鼠标抬起时，停止鼠标跟随
+			window.onmouseup = function() {
+				window.onmousemove = null;
+			}
+
+练习： 实现拖拽1~2步， 16:15对对
+*/
+
+var oImg = document.getElementById("bird");
+
+oImg.onmousedown = function(e1) {
+	
+	// 组织浏览器默认行为
+	e1.preventDefault();
+
+	// 点击位置在 图片中间隙长度
+	var detaX = e1.clientX - oImg.offsetLeft;
+	var detaY = e1.clientY - oImg.offsetTop;
+	
+	// 让物体跟随鼠标移动
+	window.onmousemove =  function(e2) {
+		var x = e2.clientX - detaX;
+		var y = e2.clientY - detaY;
+
+		// x，y 图片的左上点的坐标
+		oImg.style.left = x + "px";
+		oImg.style.top = y + "px";
+
+	}
+
+	// 鼠标抬起事件
+	window.onmouseup = function() {
+		// 清空onmousemove， 相当于 鼠标移动事件处理函数为 空
+		window.onmousemove = null;
+	}
+}
+
+
+</script>
+
+ </body>
+</html>
