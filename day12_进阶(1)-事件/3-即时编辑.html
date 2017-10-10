@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+
+<style>
+/*
+* {
+	margin: 0;
+	padding: 0;
+}
+
+table {
+	border-spacing: 0 0; 
+}
+
+td, input {
+	width: 300px;
+	height: 30px;
+}
+*/
+</style>
+
+  <table border=1>
+  <tr>
+	<td>你好</td>
+	<td>祝你幸福</td>
+	<td>再见</td>
+  </tr>
+  </table>
+
+  <script>
+/*
+效果： 点击td，出现文本框。可以不考虑保存的问题
+思路：
+	1. 给所有td绑定onclick事件
+	2. 事件处理函数中：
+		(1) 创建1个input
+		(2) 添加input到当前td中
+		(3) 获取td中的内容，添加到input的value 中
+
+
+点击td内部的input 事件，由于 事件冒泡的存在，点击事件会传播给外层 td，相当于你点击了td。那么自然会重新执行 点击事件处理函数
+
+【解决办法】 input里面，阻止 点击事件冒泡
+oInput.onclick = function(e) {
+	e.stopPropagation();
+}
+*/
+
+var aTd = document.getElementsByTagName("td");
+
+
+for (var i = 0; i < aTd.length; i++)
+{
+	aTd[i].onclick = function() {
+		// 先保存内容
+
+		//    1. 祝你幸福
+		//    2. <input value="祝你幸福">
+		var str = this.innerHTML;
+
+		// 清空td
+		this.innerHTML = "";
+
+		// 创建1个input   对象 object
+		var oInput = document.createElement("input");
+
+		// this代表你当前点击td元素
+		this.appendChild(oInput);
+
+		// 设置文本框中的内容
+		oInput.value = str;
+
+		// 给 oInput 添加了 onclick 事件处理函数
+		oInput.onclick = function(e) {
+			// 阻止事件冒泡 【注意，这里只阻止了onclick事件】
+			e.stopPropagation();
+		}
+
+		// 获取焦点
+		oInput.focus();
+
+		// 先备份td
+		var td = this;
+
+		// onblur 代表失去焦点
+		oInput.onblur = function() {
+			// 把 input 的value 设置到 td里面
+			td.innerHTML = oInput.value
+		}
+		// 练习： 14:50对对
+	}
+}
+
+  </script>
+
+ </body>
+</html>

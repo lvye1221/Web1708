@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8" />
+	<title></title>
+
+	<style>
+	* { margin: 0; padding: 0;}
+
+	#box {width:400px; height:400px; background: #FF0000}
+	#two {width:300px; height:300px; background: yellow; position: absolute; left: 0; top: 20px;}
+
+
+
+	#one {width:400px; height:400px; background: #FF0000}
+	#two {width:300px; height:300px; background: #FF5050}
+	#three {width:200px; height:200px; background: #FF9090}
+	#four {width:100px; height:100px; background: #FFe0e0}
+	  
+	</style>
+
+
+  </head>
+  <body>
+	<div id="box">
+	</div>
+	
+
+	<div id="one">
+	  one
+	  <div id="two">
+		two
+		<div id="three">
+		  three
+		  <div id="four">
+			four
+		  </div>
+		</div>
+	  </div>
+	</div>
+	<script>
+
+	var one = document.getElementById("one");
+	var two = document.getElementById("two");
+	var three = document.getElementById("three");
+	var four = document.getElementById("four");
+
+	one.onclick = function() {
+		console.log("one");
+	}
+
+	two.onclick = function() {
+		console.log("two");
+	}
+
+	three.onclick = function() {
+		console.log("three");
+	}
+
+	four.onclick = function(e) {
+
+		// 阻止事件冒泡（非IE）， IE下不是这种方法
+		e.stopPropagation();
+
+		console.log("four");
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var oBox = document.getElementById("box");
+
+// e 是系统提供的事件的信息对象，里面包含 坐标, 物体，
+oBox.onclick = function(e) {
+
+	// 获取点击的位置（坐标）
+	console.log(  e   )
+
+	// 10.4 橘子洲头  烟花盛宴
+	// 打印度， 信息：什么时候，什么地点
+	// 打人，   信息： 谁、在哪里、怎么打的
+}
+
+
+
+	</script>
+  </body>
+</html>
+

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <img src="images/bird.jpg" id="bird" style="position: absolute;">
+
+  <script>
+
+var oImg = document.getElementById("bird");
+
+// window 代表在整个页面， window.onmousemove 代表在整个页面中移动
+window.onmousemove = function(e) {
+
+	// e.clientX 代表事件发生的 x 坐标
+	// e.clientY 代表事件发生的 y 坐标
+	// oImg.style.left = e.clientX + "px"
+	// oImg.style.top = e.clientY + "px"
+	// 【注意】 设置元素的 left，top，必须在 绝对定位下才起作用
+
+	// console.log(e.clientX, e.clientY)
+	/*
+	oImg.style.left = e.screenX + "px"
+	oImg.style.top = e.screenY + "px"
+	console.log(e.screenX, e.screenY)
+	*/
+}
+
+
+window.onkeydown = function(e) {
+
+	console.log( e.keyCode  );
+
+	/*
+		e 是一个对象，来自于系统。
+
+	e.keyCode 按键编码
+	e.clientX x 坐标
+	e.clientY y 坐标
+
+	e.stopPropagation()  阻止事件流（非IE）
+	e.preventDefault()  阻止浏览器默认行为（非IE）
+	*/
+}
+
+// 休息20分钟  15:45 继续
+
+  </script>
+
+
+ </body>
+</html>

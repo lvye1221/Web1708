@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8" />
+	<title></title>
+
+	<style>
+
+	#one {width:400px; height:400px; background: #FF0000}
+	#two {width:300px; height:300px; background: #FF5050}
+	#three {width:200px; height:200px; background: #FF9090}
+	#four {width:100px; height:100px; background: #FFe0e0}
+	  
+	</style>
+
+	<script type="text/javascript">
+
+window.onload = function() {
+	var one = document.getElementById("one");
+	var two = document.getElementById("two");
+	var three = document.getElementById("three");
+	var four = document.getElementById("four");
+
+	one.onclick = function() {
+		console.log("one");
+	}
+
+	two.onclick = function() {
+		console.log("two");
+	}
+
+	three.onclick = function() {
+		console.log("three");
+	}
+
+	four.onclick = function() {
+
+		console.log("four");
+	}
+}
+
+// 事件，会从当前点击元素 向 外层逐步传播，这种方式称为  事件冒泡！ （IE、chrome默认采用此方式）
+//       从最外层元素，向当前点击元素 依次逐级传播，这种方式称为  事件捕获！
+///  事件的这种传播特性，统称为  事件流！
+	
+	</script>
+
+  </head>
+  <body>
+
+	<div id="one">
+	  one
+	  <div id="two">
+		two
+		<div id="three">
+		  three
+		  <div id="four">
+			four
+		  </div>
+		</div>
+	  </div>
+	</div>
+	
+  </body>
+</html>
+
+

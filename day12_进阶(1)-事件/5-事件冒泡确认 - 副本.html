@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8" />
+	<title></title>
+
+	<style>
+	* { margin: 0; padding: 0;}
+
+	#one {width:400px; height:400px; background: #FF0000}
+	#two {width:300px; height:300px; background: yellow; position: absolute; left: 0; top: 20px;}
+
+	</style>
+
+	<script type="text/javascript">
+
+window.onload = function() {
+	var one = document.getElementById("one");
+	var two = document.getElementById("two");
+
+	one.onclick = function() {
+		console.log("one");
+	}
+
+	two.onclick = function() {
+		console.log("two");
+	}
+}
+
+	</script>
+
+  </head>
+  <body>
+	<div id="one">
+	  one
+	</div>
+
+	<div id="two">
+	  two
+	</div>
+	
+  </body>
+</html>
+
