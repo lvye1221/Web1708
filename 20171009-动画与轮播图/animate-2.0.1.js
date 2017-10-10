@@ -64,6 +64,8 @@ function animate(elem , targetJSON , time , tweenString , callback){
 	//值就是当前的计算样式
 	for(var k in targetJSON){
 		//初试JSON
+
+		//  k 是要改变的属性名，例如： left, width
 		originalJSON[k] = parseFloat(fetchComputedStyle(elem , k));
 		//把每个targetJSON中的值都去掉px
 		targetJSON[k] = parseFloat(targetJSON[k]);
@@ -91,6 +93,9 @@ function animate(elem , targetJSON , time , tweenString , callback){
 		for(var k in originalJSON){
 			//动：
 			// n就表示这一帧应该在的位置：
+			//   Linear
+			//  Tween[tweenString]  代表我们的缓冲函数
+			//     例如 Tween["Linear"] ==> Tween.Linear  是函数
 			n = Tween[tweenString](frameNumber , originalJSON[k] , deltaJSON[k] , maxFrameNumber);
 			//根据是不是opacity来设置单位
 			if(k != "opacity"){
@@ -120,6 +125,7 @@ function animate(elem , targetJSON , time , tweenString , callback){
 			elem.isanimated = false;
 			//调用回调函数，并且让回调函数中的this表示运动的对象
 			//我们加上了判断，如果callback存在，再执行函数
+			// callback && callback()
 			callback && callback.apply(elem);
 		}
 	},interval);

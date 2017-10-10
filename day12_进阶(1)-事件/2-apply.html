@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  
+  <div id="box1" style="width:100px;height:100px;background:red;"></div>
+
+  <script>
+
+var oBox = document.getElementById("box1");
+  
+// oBox.onclick = c;
+
+// this 现在是谁呢？
+//     1. undefined
+//     2. div
+//     3. window    对的√
+//     4. document     window.document
+//     5. body          window.document.body
+
+//  c 没有绑定任何对象，所以里面的this就是系统的根对象 window
+
+//  函数调用的方式： 
+//   1.   c();
+//   2.   c 就是函数（本质上也是对象）
+//              apply  系统给函数默认提供的方法/函数
+
+
+var a = {"name": "Jack"}
+
+// apply 可以传递参数，让函数中的this变成传入的参数
+// c.apply(a);
+
+// 3. 与apply非常相似
+c.call(oBox);
+
+function c() {
+	// this 当前点击的物体对象
+	console.log( this )
+}
+  
+  </script>
+ </body>
+</html>

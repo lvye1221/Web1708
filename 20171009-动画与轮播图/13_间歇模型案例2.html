@@ -59,6 +59,9 @@
 		//模拟右按钮的业务
 		function move(){
 			idx++;
+			// ul -> elem
+			//  callback   elem -> this
+			//  ul -> this
 			animate(ul,{"top":-40 * idx},800,function(){
 				if(idx > length - 1){
 					idx = 0;
