@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <script>
+
+
+/*
+ 命名规则：
+	1. 必须由 英文、数字、_、 $ 组成
+	2. 不能以数字开头
+	3. 不能与系统的名字重名
+
+建议：
+	1. 见名知意（英文、拼音）
+	2. 变量的名字  驼峰命名法      例如： backgroundColor
+	3. 构造函数的名字，建议 在驼峰的基础上，首字母大写！
+
+*/
+
+
+console.log("执行这份代码了")
+
+// 构造函数 
+function Person(n, h) {
+
+	this.name = n;
+
+	// 添加属性
+	this.height = h;
+
+	// 添加动作/行为/方法/函数
+	this.play = function() {
+		console.log("玩游戏")
+	}
+}
+
+// 创建对象时，可以传递参数，与函数调用的规则是一致的，一一对应的
+var Jobs = new Person("Jobs", 200)
+var Jack = new Person("Jack", 100)
+
+console.log(Jobs.name, Jobs.height )
+console.log(Jack.name, Jack.height )
+
+// 每个对象的属性不一样：
+//   Jobs.height = 180
+//   Jack.height = 160
+
+  </script>
+ </body>
+</html>

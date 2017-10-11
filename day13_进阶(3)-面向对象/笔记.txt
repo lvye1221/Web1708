@@ -118,3 +118,32 @@ var Rose = {
 }
 
 
+
+创建对象的方式
+1. 构造函数
+	格式：
+		function Cat(参数列表) {
+			this.name     // this 代表new出来的对象
+
+			this.miaow = function() {}
+		}
+
+		new Cat(参数列表)  代表创建对象
+
+2. 函数创建的形式（工厂模式）
+		function create() {
+			var obj = {}
+
+			return obj;
+		}
+
+
+总结： 面向对象编程的特点：
+
+		1. 封装（属性 和 行为 都捆绑在一起）
+			
+			函数： 把代码捆在一起
+
+			优点：
+				（1） 重复利用
+				（2） 便于管理，代码更加清晰

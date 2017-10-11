@@ -75,13 +75,20 @@ function Person() {
 
 // 当你采用new关键字创建对象时，函数内部的this就是当前对象
 //     new 会执行函数 Person中的代码
-/*
+/**/
+
 var Jobs = new Person()
 var Jack = new Person()
 
 Jobs.play();
 Jack.play();
-*/
+
+console.log(Jobs.height )
+console.log(Jack.height )
+
+// 每个对象的属性不一样：
+//   Jobs.height = 180
+//   Jack.height = 160
 
   </script>
 
