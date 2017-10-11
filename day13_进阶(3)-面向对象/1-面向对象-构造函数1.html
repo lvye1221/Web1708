@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <script>
+
+/*
+function createPerson() {
+
+	var person = {
+		height: 180,
+		weight: 100,
+
+		eat: function() {
+			console.log("吃")
+		},
+
+		play: function() {
+			console.log("玩游戏")
+		}
+	}
+
+	return person;
+}
+
+// 创建2个人
+var Jobs = createPerson();
+var Jack = createPerson();
+
+// 乔布斯玩游戏
+Jobs.play();
+*/
+
+
+/*
+ 命名规则：
+	1. 必须由 英文、数字、_、 $ 组成
+	2. 不能以数字开头
+	3. 不能与系统的名字重名
+
+建议：
+	1. 见名知意（英文、拼音）
+	2. 变量的名字  驼峰命名法      例如： backgroundColor
+	3. 构造函数的名字，建议 在驼峰的基础上，首字母大写！
+
+*/
+
+
+function Person() {
+
+	// 在这个位置， this.height  值是什么？
+	//   undefined  
+	// console.log(this.height);
+
+	// 添加属性
+	this.height = 200;
+
+	// 添加动作/行为/方法/函数
+	this.play = function() {
+		console.log("玩游戏")
+	}
+}
+// 休息20分钟，10:50继续
+
+//   undefined   this 有个默认指向，默认是window，因为window里面没有height 
+// Person();
+
+// 当你采用new关键字创建对象时，函数内部的this就是当前对象
+//     new 会执行函数 Person中的代码
+/*
+var Jobs = new Person()
+var Jack = new Person()
+
+Jobs.play();
+Jack.play();
+*/
+
+  </script>
+
+ </body>
+</html>
