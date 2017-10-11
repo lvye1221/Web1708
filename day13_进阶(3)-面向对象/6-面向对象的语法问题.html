@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+<script>
+
+/*
+var a = {};
+
+// 在对象a中新增属性 name
+a.name = "jack";
+a["name"] = "jack";
+
+// 快速遍历对象
+for (var i in a)
+{
+	console.log(a[i]);
+}
+
+
+
+var a = {name:1};
+var b = {name:1};
+
+// false:  因为对象的空间不一样, 所以不相等
+console.log( a == b );
+*/
+
+function Dog() 
+{
+}
+
+function Cat()
+{
+}
+
+
+
+// a 可以变化，在不同的位置，是不同的对象。我们称为多态。
+var a = new Dog()
+
+a = new Cat();
+
+a = new Array();
+
+
+// var dog = new Dog()
+// var cat = new Cat();
+
+// false 因为 2个的空间不一样
+// console.log( dog == cat );
+
+
+//  看类型： 如果是基础类型： 比较的是值
+//                    数字、字符串、undefined、boolean、
+
+//           如果是对象       比较的是位置
+//                    object 
+
+// 问： 我如何知道 dog 是 一条狗
+//       object
+// console.log(  typeof dog )
+// console.log(  typeof cat )
+
+//  dog instanceof Dog  判断是否是Dog的对象（实例）
+//    instanceof    instance 实例    of 谁的
+// console.log(  dog instanceof Dog )
+
+
+/*
+var a = {};
+var b = [];  // var b = new Array()
+
+console.log(typeof a); // object
+console.log(typeof b); // object
+
+console.log(a instanceof Array); // false
+console.log(b instanceof Array); // true
+
+*/
+
+
+</script>
+
+ </body>
+</html>

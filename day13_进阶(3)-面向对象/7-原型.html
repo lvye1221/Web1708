@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+/*
+function Dog() 
+{
+	this.name = "狗狗";
+	
+	// bark 狗吠
+	this.bark = function() {
+		console.log("汪汪汪~")
+	}	
+}
+
+var dog1 = new Dog();
+var dog2 = new Dog();
+
+// console.log(dog1 == dog2); // false
+// name是字符串，是基础类型，比较的是值，所以相等
+// console.log(dog1.name == dog2.name); // true
+
+// false 函数也是对象，比较的是地址，所以不相等
+console.log(dog1.bark == dog2.bark); // false
+
+function www() {
+	console.log("汪汪汪~")
+}	
+
+function Dog() 
+{
+	this.name = "狗狗";
+	
+	// bark 狗吠
+	this.bark = www
+}
+
+var dog1 = new Dog();
+var dog2 = new Dog();
+
+
+// true: 因为 引入的是同一个地址
+console.log(dog1.bark == dog2.bark); // true
+*/
+
+
+function Dog() 
+{
+	this.name = "狗狗";
+}
+
+// 每个构造函数中都存在 1个隐藏的对象，名字是 prototype，  原型
+//     原型对象   是被所有实例对象 公用的！是唯一的
+Dog.prototype.bark = function() {
+	console.log("汪汪汪~")
+}
+
+var dog1 = new Dog();
+var dog2 = new Dog();
+
+// 
+console.log( dog1.bark == dog2.bark ); // true
+
+// 执行流程：
+//    1. 在构造函数中 找 有没有 bark 行为
+//           找到了， 直接调用  结束
+//           找不到， 
+//                 往原型对象中找
+//                           找到了，调用，结束
+//                           找不到， 报错！
+dog1.bark();
+
+
+  </script>
+ </body>
+</html>

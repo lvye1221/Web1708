@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+
+		<style>
+
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		html, body {
+			height: 100%;
+			width: 100%;
+		}
+
+		body {
+			background: url(images/bg.jpg);
+			background-size: cover;
+			overflow: hidden;
+		}
+
+		.ballon {
+			width: 81px;
+			height: 119px;
+			background: url(images/ballon.png);
+			position: absolute;
+			cursor: crosshair;
+		}
+
+		h1{
+			color:white;
+			font-size: 60px;
+		}
+
+
+		</style>
+
+	</head>
+	<body>
+	</body>
+
+<script src="Ballon.js"></script>
+<script src="Game.js"></script>
+
+<script>
+
+// 全局变量
+var gGame = new Game(0, 10);
+
+gGame.start();
+
+console.log("gGame: " + gGame);
+
+</script>
+
+</html>
+

@@ -59,6 +59,11 @@
 	蚂蚁
 
 2. 实现对象
+
+	//  document.createElement 创建标签
+	//  document.getElementById  通过id获取标签
+	//  document.getElementsByTagName  通过标签名获取标签
+【练习】 采用面向对象的思路来实现萤火虫。  14:20对对
 */
 
 function FireFly() {
@@ -71,28 +76,53 @@ function FireFly() {
 
 	document.body.appendChild(this.ele);
 
+	// 让出现位置随机
+	var x = Math.random() * 1000;
+	var y = Math.random() * 300;
+	this.ele.style.left = x + "px"
+	this.ele.style.top = y + "px"
 
+
+	
 	//     行为
 	this.fly = function() {
 			
-		var x = Math.random() * 1000;
-		var y = Math.random() * 300;
+		// clientWidth 代表元素的宽度（包括width+padding）
+		// offsetWidth 代表元素的宽度（包括width+padding+border）
+		var x = Math.random() * (document.body.offsetWidth - 60);
+		var y = Math.random() * (document.body.offsetHeight - 60);
 
 		// 定义变量 self 先备份下 萤火虫对象
-		var aaa = this;
+		var self = this;
 
 		animate(this.ele, {left: x, top: y}, 3000, "QuadEaseOut", function() {
-			// 继续飞
-			aaa.fly();
+			// 萤火虫继续飞
+			// 因为此处的this不是萤火虫，是萤火虫ele，所以需要先备份下萤火虫
+			self.fly();
 		})
 	}
 }
 
+for (var i = 0; i < 20; i++)
+{
+	new FireFly().fly();
+}
 
-new FireFly().fly();
-new FireFly().fly();
-new FireFly().fly();
 
+/*
+var count = 0;
+
+var t = setInterval(function() {
+	new FireFly().fly();
+
+	count++;
+
+	if (count >= 5)
+	{
+		clearInterval(t)
+	}
+}, 1000)
+*/
 
 </script>
 
