@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <img src="bird.jpg" id="picture" style="position: absolute;">
+
+  <script>
+
+      new Box()
+      function Box(){
+	      this.elem = document.getElementById("picture")
+		  var self = this
+		  this.elem.onmousedown = function (e){
+		     e.preventDefault();
+			 self.dateX = e.clientX - self.elem.offsetLeft;
+			 self.dateY = e.clientY - self.elem.offsetTop;
+			 self.start();
+			 document.onmouseup = function (){
+			     self.stop();
+			 }
+		  
+		  }
+		  this.start = function (){
+		      document.onmousemove = function (e){
+			      var x = e.clientX - self.dateX 
+				  var y = e.clientY - self.dateY
+				   self.move(x,y);
+			  }
+		  }
+		  this.move = function (x , y){
+		      self.elem.style.left = x + "px"
+			  self.elem.style.top = y + "px"
+		  }
+		  this.stop = function (){
+		      document.onmousemove = null
+		  }
+     }
+  
+  </script>
+ </body>
+</html>

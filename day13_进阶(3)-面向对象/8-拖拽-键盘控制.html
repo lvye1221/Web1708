@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+  <img src="bird.jpg" id="bird" style="position: absolute;">
+
+
+<script>
+
+var oBird = new Box("bird")
+
+// 引擎对象，   开始、结束
+
+window.onkeydown = function(e) {
+	if (e.keyCode == 37)
+	{
+		oBird.left();
+	}
+	else if (e.keyCode == 39)
+	{
+		oBird.right();
+	}
+}
+
+
+
+
+
+// 构造函数
+function Box(birdId)
+{
+	// 属性
+	this.ele = document.getElementById(birdId);
+
+	// 初始位置
+	this.x =  this.ele.offsetLeft;
+	this.y =  this.ele.offsetTop;
+
+	// 方法
+	//  上
+	this.up = function() {
+		this.y--;
+		this.ele.style.top = this.y + "px";
+	}
+	//  下
+	this.down = function() {
+		this.y++;
+		this.ele.style.top = this.y + "px";
+
+	}
+	//  左
+	this.left = function() {
+
+		this.x--;
+
+
+		this.ele.style.left = this.x + "px";
+
+	}
+	//  右
+	this.right = function() {
+		this.x++;
+		console.log("right:" + this.x);
+		this.ele.style.left = this.x + "px";
+
+	}
+}
+
+
+
+/*
+键盘控制图片
+
+
+面向对象编程思路：
+
+	1. 找对象
+							属性					方法
+			移动物体	长、宽、（元素）	向上走，向下走，向左走，向右走
+
+	2. 实现对象
+			（1） 写构造函数
+			（2） 写属性
+			（3） 写方法
+
+
+
+*/
+
+</script>
+
+ </body>
+</html>
