@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+<script>
+/*
+function Cat(n) {
+	console.log(this);
+
+	this.name = n;
+}
+
+// call 的一个参数，就是 this 的值
+// Cat.call([]);
+
+var obj = {};
+
+Cat.call(obj);
+
+console.log(obj.name);
+
+// new Cat("猫")
+*/
+/*
+function Cat() {
+	this.name = "猫猫"
+}
+
+var obj = {};
+// undefined   因为此时obj还没有name
+// console.log(obj.name);
+
+// Cat.call  相当于 调用 Cat函数，并且 让函数内部的 this等于 obj
+//     this.name = "猫猫"  相当于
+//     obj.name = "猫猫"
+Cat.call(obj);
+
+// 猫猫
+console.log(obj.name);
+*/
+
+
+/*
+function Cat(n) {
+	console.log(n);	
+}
+
+// undefined  把this变成“猫猫” n还是不存在，没有传值就是 undefined
+// Cat.call("猫猫");
+
+var obj = {};
+// call 的第1个参数，其实就是函数内部的this
+//        第2个参数，其实就是函数的第1个形参
+Cat.call(obj, "狗狗");
+
+
+
+function Cat(a, b) {
+	console.log(a, b);	
+}
+
+// call 的第1个参数，其实就是函数内部的this
+//        第2个参数，其实就是函数的第1个形参
+//        第3个参数，其实就是函数的第2个形参
+//        第4个参数，其实就是函数的第3个形参
+//        ... 依次顺延
+// Cat.call(null, "猫猫", "狗狗");
+
+// apply 的第1个参数，其实就是函数内部的this
+//        第2个参数，必须是数组
+//               数组的第1个元素  ，其实就是函数的第1个形参
+//               数组的第2个元素  ，其实就是函数的第2个形参
+Cat.apply(null, [1, 2]);
+*/
+
+
+
+function Cat(n) {
+	this.name = n;
+}
+
+var obj = {};
+
+// obj 替代里面的this， 称为 对象冒充
+Cat.call(obj, "猫猫");
+
+// 猫猫
+console.log(obj.name);
+
+
+</script>
+
+ </body>
+</html>

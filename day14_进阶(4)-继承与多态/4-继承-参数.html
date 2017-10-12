@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+
+<script>
+
+/*
+				属性				方法
+普通猫		名字				
+加菲猫		名字
+*/
+
+// n 是名字，代表猫的名字
+function Cat(n) {
+	this.name = n
+}
+
+var cat1 = new Cat("大志");
+console.log(cat1.name)
+
+function JFCat(a) {
+	
+	// 这里的this 是加菲猫
+	//   Cat.call  相当于用  加菲猫 去冒充 普通猫 里面的this
+	//				a 会传递给普通猫的名字
+	// 总之，在加菲猫中增加了 普通猫的 属性
+	Cat.call(this, a);
+}
+JFCat.prototype = new Cat()
+
+// 加菲猫有2个，一个叫 赛龙舟， 另一个叫   羽丰
+var cat2 = new JFCat("赛龙舟");
+console.log(cat2.name)
+
+var cat3 = new JFCat("羽丰");
+console.log(cat3.name)
+
+var cat4 = new JFCat("Jack");
+console.log(cat4.name)
+</script>
+  
+ </body>
+</html>

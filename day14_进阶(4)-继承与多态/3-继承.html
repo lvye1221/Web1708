@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+<script>
+/*
+			属性			方法
+动物	名字、颜色			跑
+狗		名字、颜色、鼻子    跑，叫
+*/
+
+/*
+// 动物类
+function Animal()
+{
+	this.name = "动物";
+	this.color = "黄色"
+}
+
+Animal.prototype.run = function() {
+	console.log("跑跑跑")
+}
+
+// 因为狗和动物有大部分代码是重复的
+function Dog()
+{
+	this.nose = "大鼻子";
+}
+// 设置狗的原型对象为 动物，相当于 狗 继承了 动物的所有属性和方法
+//   通过这条语句，可以实现让 狗 继承了 动物中的 所有属性和方法
+Dog.prototype = new Animal();
+
+var dog1 = new Dog();
+dog1.run();
+
+
+练习：
+	创建三种动物 对象如下， 做完把代码发QQ群里。  14:40 对对 
+
+	1. 猫       4条腿               喵喵叫
+	2. 加菲猫   4条腿，1对蓝眼睛    喵喵叫、讲笑话
+	3. Tom猫    4条腿，蓝色毛发     喵喵叫、讲笑话、抓老鼠
+
+//  
+*/
+
+function TomCat() {
+	this.color = "蓝色毛发";
+}
+
+// 继承
+TomCat.prototype = new Cat();
+TomCat.prototype.joke = function() {
+	console.log("讲笑话。哈哈哈");
+}
+TomCat.prototype.catchmouse = function() {
+	console.log("抓老鼠");
+}
+
+
+
+function JFCat() {
+	this.eye = "蓝眼睛"
+	
+}
+
+//    注意 顺序，先继承，再增加！
+// 继承猫
+JFCat.prototype = new Cat();
+// 增加了讲笑话的方法
+JFCat.prototype.joke = function() {
+	console.log("讲笑话")
+}
+
+
+
+function Cat() {
+	this.legs = 4; // 增加属性 腿
+}
+
+// 对于对象中 方法/行为/动作/函数  一般建议放在 原型 中！
+// 将方法 放到原型对象中，这样节省空间，更好些！
+Cat.prototype.miaow = function() {
+	console.log("喵喵喵~")
+}
+
+var cat1 = new Cat();
+cat1.miaow();
+
+
+var cat2 = new JFCat();
+cat2.miaow();
+cat2.joke();
+
+var cat3 = new TomCat();
+
+cat3.miaow();
+cat3.joke();
+cat3.catchmouse();
+
+cat1.joke();
+
+</script>  
+
+ </body>
+</html>
