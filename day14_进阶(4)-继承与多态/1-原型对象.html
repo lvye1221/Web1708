@@ -61,7 +61,7 @@ console.log( Dog.prototype == Animal.prototype)
 
 
 
-
+/*
 // 动物类
 function Animal()
 {
@@ -89,6 +89,37 @@ a.__proto__.color = "绿色"
 
 // 绿色   都是同一原型对象
 console.log(b.color); 
+
+*/
+
+
+
+
+
+// 动物类
+function Animal()
+{
+	this.name = "动物"
+}
+
+// 原型对象中的color属性
+Animal.prototype.color = "红色"
+
+// 创建两个对象
+var a = new Animal();
+var b = new Animal();
+
+// 1. 在自己对象中找
+//           找到了   输出
+//           找不到 ==> 去原型对象中找
+
+// 问题： 我如何判断 属性 在我的对象或者原型对象 中呢？
+//        【答】 使用  in 运算符，只要自己对象 或者 原型对象存在，就为true
+// console.log( "color" in a)
+
+// 问题： 我如何判断 属性 仅仅在我的对象 中呢？
+//        【答】 使用 对象.hasOwnProperty(属性) 来判断
+console.log( a.hasOwnProperty("color")  )
 
 
   </script>

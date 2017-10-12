@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+
+<div id="div1"></div>
+
+
+<script>
+/*
+var a = new Array();
+
+a.boomXXX = function() {
+	console.log("不错不错不错！");
+}
+
+a.boomXXX()
+
+var b = new Array();
+// 2-原型的应用.html:24 Uncaught TypeError: b.boomXXX is not a function
+b.boomXXX()
+*/
+// push 是对象中1个函数/方法
+// a.push(10)
+/*
+//  可以利用原型对象，在系统提供的构造方法中新增方法！
+Array.prototype.boomXXX = function() {
+	console.log("不错不错不错！");
+}
+
+var a = new Array();
+a.boomXXX()
+
+var b = new Array();
+b.boomXXX()
+*/
+/*
+//  题目，在 Array中 新增1个方法 boomXXX, 可以往里面压入1个元素
+Array.prototype.boomXXX = function(a) {
+	// this 就是调用此函数的 那个数组对象
+	this.push(a)
+}
+
+var arr = [1, 2, 3];
+
+arr.boomXXX(4);
+
+// 1,2,3,4  +
+console.log(arr);
+*/
+
+//  题目，在 Array 中 新增1个方法 dz, 作用：调转 第1个元素 与 最后1个元素
+//      例如：   a = [1,2,3,4];
+//               a.dz();
+//               console.log(a);   // 4,2,3,1
+//  【练习】 11:35对对， 做完发到QQ群中！
+
+/*
+Array.prototype.dz = function() {
+
+	// 取出第1个元素, 因为this相当于是调用的对象
+	var a = this[0];
+	var b = this[this.length-1];
+
+	// 倒转
+	this[0] = b;
+	this[this.length-1] = a;
+}
+
+var a = [1,2,3,4]
+
+a.dz()
+
+console.log(a);
+
+var b = ["Jobs", "Jack", "Kate"];
+
+b.dz();
+
+console.log(b);
+*/
+
+// Document 是 document 的构造函数
+/*
+console.log( Document.prototype );
+
+// 在document原型中 新增a的这方法
+Document.prototype.a = function(id) {
+	return this.getElementById(id);
+}
+
+//  这里就可以使用a方法
+var oDiv1 = document.a("div1");
+
+oDiv1.innerHTML = "成功！";
+
+
+
+String.prototype.boomXXX = function() {
+	console.log(this[0])
+}
+
+var str = new String("123");
+
+str.boomXXX();
+*/
+
+// console.log(  Math.pow(2, 2) );
+
+/*
+Math.__proto__.boomXXX = function() {
+	console.log("boomXXX")
+}
+
+Math.boomXXX();
+*/
+
+window.boomXXX = function() {
+	window.document.write("哈哈")
+}
+
+boomXXX();
+
+
+
+</script>
+
+
+ </body>
+</html>
