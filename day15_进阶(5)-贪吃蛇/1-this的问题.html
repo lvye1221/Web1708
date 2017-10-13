@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+
+<script>
+/*
+function Dog() {
+	// 函数中有1个特殊的变量   this, 系统规定，  中文：这个
+	console.log(this);
+}
+
+
+
+// 创建1条狗对象  dog1
+var dog1 = new Dog();
+var dog2 = new Dog();
+
+// 开枪
+//  张三.开枪      this 就是张三
+//  李四.开枪      this 就是李四
+
+
+function Dog(n) {
+	this.name = n
+}
+
+// 增加方法 bark
+Dog.prototype.bark = function() {
+	console.log( this.name + " 汪汪汪~");
+}
+// new
+//   1. 创建1个隐藏的对象  t
+//   2. this 指向t
+//   3. 执行 Dog 函数中的代码
+//   4. 返回内部隐藏的对象 t
+var dog1 = new Dog("小黄");
+var dog2 = new Dog("小黑");
+
+//  this 就是 dog1
+dog1.bark();
+//  this 就是 dog2
+dog2.bark();
+*/
+
+
+
+/*
+function Dog() {
+	console.log( this )
+}
+
+// 函数调用，因为没有对象，所以 this 只能设为window对象
+Dog()
+*/
+
+/*
+oBtn.onclick = function() {
+	// this
+}
+
+var obj = {};
+obj.onclick = function() {
+	this
+}
+
+
+
+function Dog() {
+}
+
+Dog.prototype.bark = function() {
+	console.log(this);
+}
+
+new Dog().bark();
+*/
+
+/*
+1. 创建1个空对象 t
+2. this 指向 t
+3. 执行函数中的代码
+4. 返回创建的空对象
+*/
+
+//  {}  ==> this  ==> dog1
+function Dog() { 
+}
+Dog.prototype.bark = function() {
+	return this;
+}
+Dog.prototype.smile = function() {
+	return this;
+}
+
+// 不可以：    new Dog().smile() 是  smile 里面没有bark所以不行
+//             new Dog().smile()   调用这个方法，不是对象，
+
+//  是方法， smile 方法里面没有bark，所以出错
+//  是空,  相当于调用方法，整体的值是 返回值，所以结果是undefined
+// 【解决办法】 在函数中返回this，可以一直调用， 下面这种形式 称为 链式调用
+new Dog().smile().bark().smile().bark().smile().smile()
+//console.log(  new Dog().smile()   )
+
+
+</script> 
+  
+ </body>
+</html>

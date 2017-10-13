@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+
+  <script>
+  /*
+ function Dog(n) {
+	 console.log(this); // this就已经是 柯基狗
+	this.name = n;
+ }
+
+ function DogKj(n) {
+	// 步骤： 
+	//  1. 用 柯基狗 替代函数 Dog 中的this，相当于this指向柯基狗
+	//  2. 执行函数 Dog 中的代码
+	//           柯基狗.name = n;   作用在柯基狗中增加名字，值是n
+	// Dog.call(柯基狗,n);
+
+	Dog.call(this,n);
+
+ }
+// 休息20分钟， 11：继续
+*/
+/*
+// 狗
+function Dog(n) {
+	this.name = n;
+
+	this.bark = function() {
+	}
+}
+
+// 哈巴狗
+function DogHaba(n) {
+	Dog.call(this, n);
+}
+
+var dog1 = new DogHaba("小白");
+
+// 能： 因为 构造函数中的 call 方法，用 哈巴狗 替换了 狗中的this，并且狗的构造函数代码都会执行，随意 this.name , this.bark 也会执行，所以 哈巴狗也有 bark方法
+dog1.bark();
+*/
+
+
+/*
+// 狗
+function Dog(n) {
+	this.name = n;
+}
+
+// Dog.prototype 代表所有狗公用的对象，只有1个对象。
+//  因为原型对象有个特点，自己对象中找不到时，就会去原型对象中找，所以，你在原型对象中增加方法，相当于在 构造函数中增加方法。效果一样的！
+Dog.prototype.bark = function() {
+}
+
+
+var dog1 = new Dog("小白");
+
+// 1. 能  因为可以在原型对象中找到，所以不报错
+dog1.bark();
+*/
+
+
+/*
+// 狗
+function Dog(n) {
+	this.name = n;
+}
+Dog.prototype.bark = function() {
+}
+
+
+// 哈巴狗
+function DogHaba(n) {
+	Dog.call(this, n);
+}
+
+
+	1. 创建1条哈巴狗            {}
+	2. this = 1条哈巴狗        
+	3. 执行函数 DogHaba 内部代码：  
+			对象冒充，相当于在 哈巴狗对象中 新增了属性 name
+
+				{name: "小白"}
+
+	4. 返回1条哈巴狗
+
+var dog1 = new DogHaba("小白");
+
+// 2. 不能  因为 call 没有继承 原型中的方法
+dog1.bark();
+*/
+
+/*
+// 狗
+function Dog(n) {
+	this.name = n;
+}
+Dog.prototype.bark = function() {
+}
+
+
+// 哈巴狗
+function DogHaba(n) {
+	Dog.call(this, n);
+}
+
+// DogHaba.prototype.bark = function() {}
+DogHaba.prototype = {
+	bark: function() {
+	}
+}
+
+var dog1 = new DogHaba("小白");
+
+// 1. 可以  因为这个对象中有这个方法
+dog1.bark();
+*/
+
+
+// 狗
+function Dog(n) {
+	this.name = n;
+}
+Dog.prototype.bark = function() {
+}
+
+var dog0 = new Dog("小黑");
+var dog01 = new Dog("小红");
+// 可以： 因为原型中对象中有
+//    dog0  [相当于]其中有 {bark:function(){}}
+// dog0.bark();
+dog01.bark();
+
+
+// 哈巴狗
+function DogHaba(n) {
+	Dog.call(this, n);
+}
+
+DogHaba.prototype = dog0
+
+var dog1 = new DogHaba("小白");
+
+// 可以， 因为 DogHaba 原型中存在 bark方法，所以没有问题
+dog1.bark();
+  </script>
+
+ </body>
+</html>
