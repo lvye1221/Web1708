@@ -42,7 +42,9 @@ xhr.open('get', 'demo.php?football=1&name=Koo', true);
 
 实现翻页效果
 
-访问服务器数据: 获取接口http://localhost:3000/ajax/football中的数据, 并显示如下图,  其中参数为: pageNo, 表示页码(从1开始)
+访问服务器数据: 获取接口
+http://localhost:8080/ajax/football
+中的数据, 并显示如下图,  其中参数为: pageNo, 表示页码(从1开始)
 
 
 ![](p2.png)

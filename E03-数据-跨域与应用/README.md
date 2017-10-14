@@ -49,8 +49,15 @@ js 具有同源策略
 4. jsonp
 
 
+## JSONP
+
+JSONP不是Ajax，没有利用XMLHttpRequest对象，而是利用script标签请求一个外部的网址，那个网址的内容是一个函数的执行，比如fun(JSON)。所以叫做JSONP，就是JSON + padding。此时页面中要定义一个函数，就相当于数据通过实参传给形参进入页面。我们可以瞬间创建一个script标签，然后立即删除它来发出JSONP请求，jQuery中的JSONP原理就是这样。
+
+
 案例：
 点击“获取数据”按钮，获取气象局中最新的天气数据
+
+
 
 # 作业
 
