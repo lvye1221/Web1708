@@ -45,6 +45,10 @@ xhr.open('get', 'demo.php?football=1&name=Koo', true);
 访问服务器数据: 获取接口http://localhost:3000/ajax/football中的数据, 并显示如下图,  其中参数为: pageNo, 表示页码(从1开始)
 
 
+![](p2.png)
+
+
+
 ## 字符编码: ##
 特殊字符传参产生的问题可以使用encodeURIComponent()进行编码处理，中文字符的返回及传参，可以将页面保存和设置为 utf-8 格式即可.
 ```
