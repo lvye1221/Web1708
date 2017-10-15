@@ -7,7 +7,8 @@
 
 # ÆÙ²¼Á÷ #
 
-½Ó¿Ú£º http://localhost:8080/ajax/pbl
+½Ó¿Ú£º 
+http://localhost:8080/ajax/pbl
 
 µã»÷ ¡°¼ÓÔØÍ¼Æ¬¡±£¬×Ô¶¯¼ÓÔØÍ¼Æ¬
 
@@ -56,7 +57,6 @@ JSONP²»ÊÇAjax£¬Ã»ÓÐÀûÓÃXMLHttpRequest¶ÔÏó£¬¶øÊÇÀûÓÃscript±êÇ©ÇëÇóÒ»¸öÍâ²¿µÄÍøÖ·£
 
 °¸Àý£º
 µã»÷¡°»ñÈ¡Êý¾Ý¡±°´Å¥£¬»ñÈ¡ÆøÏó¾ÖÖÐ×îÐÂµÄÌìÆøÊý¾Ý
-
 
 
 # ×÷Òµ

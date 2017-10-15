@@ -31,7 +31,9 @@ xhr.open('get', 'demo.php?football=1&name=Koo', true);
 练习: 表单验证(在服务端验证)
 
 输入用户名, 通过在服务器验证该用户名是否被注册过:
-获取接口:http://localhost:8080/ajax/checkname中的数据进行验证,
+获取接口:
+http://localhost:8080/ajax/checkname
+中的数据进行验证,
 参数:  regname: 表示用户名;  
 返回值说明: 如果返回yes则表示注册过, 如果返回no则表示可以使用.
 

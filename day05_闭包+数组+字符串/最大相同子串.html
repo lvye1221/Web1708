@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+<script>
+
+/*
+// 编写函数maxsame(char1,char2) 返回字符串char1和char2的最大相同子串
+//          比如maxsame("abcdefghijklmn","mndefghlm") 返回"defgh"
+
+思路：
+	1. 定义1个函数，求出单个字母开始的相同子串 在字符串1的最大 长度信息
+	
+	2. 循环遍历 字符串 char2 中，每个字符，分别求出其在字符串char1中 最大匹配长度，再从其中选出最长长度的即可
+*/
+
+// 测试3遍！
+var str = maxsame("abcdefghijklmn","mndefghlm");
+var str = maxsame("abcdefghijklmn","mndefghlmabcdefgh");
+var str = maxsame("abcdefghijklmn","mndefabcdefghghlm");
+
+document.write(str);
+
+
+function maxsame(char1,char2)
+{
+	var maxInfo = {pos: 0, len: 0}
+
+	// 遍历字符串2，用其中每个字符做开始字符，来和 字符串1进行匹配
+	for (var i = 0; i < char2.length; i++)
+	{
+		// 获取其最大子串信息
+		var t = getMaxLen(char1, char2, i);
+
+		// 如果最新的比较长，更新
+		if (t.len > maxInfo.len)
+		{
+			maxInfo = t;
+		}
+	}
+
+	// 取出子串
+	var str = char1.substr(maxInfo.pos, maxInfo.len);
+
+	return str;
+}
+
+
+// 返回 从下标 pos 开始，s2 在 s1 中的最大长度信息： 起始位置 以及 长度信息
+function getMaxLen(s1, s2, pos)
+{
+	var maxPos = 0;
+	var maxLen = 0;
+
+	for (var i = 0; i < s1.length; i++)
+	{
+		// 循环变量
+		var k = i;
+		var j = pos;
+
+		var count = 0;
+		while (s1[k] == s2[j])
+		{
+			// 指向下一个元素
+			k++;
+			j++;
+
+			// 计数器增1
+			count++;
+		}
+
+
+		// 更新保存的最大长度
+		if (maxLen < count )
+		{
+			maxLen = count;
+			maxPos = i;
+		}
+	}
+
+	// 返回最大子串匹配的 开始位置 及 其长度
+	return {pos: maxPos, len: maxLen};
+}
+
+
+</script>
+
+ </body>
+</html>

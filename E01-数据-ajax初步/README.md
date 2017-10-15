@@ -14,6 +14,11 @@
 2. 用户体验好
 3. 前端中必须要掌握的技能，应用无处不在
 
+### 效果展示 ###
+1. 百度搜索中的自动提示
+2. 163邮箱注册 用户名检测
+3. 百度图片无刷新加载
+
 ### 作用 ###
 允许客户端脚本发送HTTP请求，去请求服务器的数据来创建动态网页，可以在不重新加载整个网页的情况下，对网页的某部分进行更新。也称局部刷新
 
@@ -25,8 +30,6 @@
 AJAX (阿贾克斯 Asynchronous Javascript And Xml ) 异步JavaScript和XML，是指一种创建交互式网页应用的网页开发技术, 可以访问服务器数据的局部刷新的技术。
 
 AJAX不是一种新的编程语言，而是一种用于创建更好更快以及交互性更强的Web应用程序的技术。
-
-** AJAX的核心是 JavaScript对象XMLHttpRequest **。它是一种支持异步请求数据的技术。
 
 ## JSON ##
 
@@ -112,7 +115,10 @@ JSON.stringify() : json序列化,将原生JavaScript值(对象或数组)转换为JSON字符串的过
 
 ## XMLHttpRequest ##
 
-Ajax 技术核心是 XMLHttpRequest 对象(简称 XHR)。
+
+** AJAX的核心是 JavaScript对象XMLHttpRequest **。它是一种支持异步请求数据的技术。
+(简称 XHR)。
+
 XHR 的出现，提供了向服务器发送请求和解析服务器响应流畅的接口。能够以异步方式从服务器获取更多的信息，这就意味着，用户只要触发某一事件，在不刷新网页的情况下，更新服务器最新的数据。
 
 虽然 Ajax 中的 x 代表的是 XML，但 Ajax 通信和数据格式有关，也就是说这种技术不一定使用 XML。相反目前常用的数据格式是JSON.
@@ -238,12 +244,17 @@ req.onreadystatechange = function() {
 2, 将服务器数据也放在配置好的服务器中(可在服务器文件夹下自定义目录存放)
 
 练习: 访问服务器下的数据
-      获取接口:http://localhost:8080/json/news中的数据, 并显示如下图
+获取接口:
+http://localhost:8080/ajax/news
+中的数据, 并显示如下图
 
 ![](p2.png)
 
 ## 3. 加载足球信息 ##
-访问服务器数据, 获取接口:http://localhost:8080/json/football中的数据, 并显示, 如下图
+访问服务器数据, 获取接口:
+http://localhost:8080/ajax/football
+
+中的数据, 并显示, 如下图
 1, 默认没有数据, 点击”加载下一条数据”按钮每次加载一条数据,
 2, 当数据全部显示后, 点击按钮弹出提示框”数据已经加载完毕”
 
@@ -252,7 +263,10 @@ req.onreadystatechange = function() {
 
 ## 4. 加载足球信息 ##
 
-访问服务器数据, 获取接口:http://localhost:8080/ajax/weibo中的数据, 并显示, 如下图
+访问服务器数据, 获取接口:
+http://localhost:8080/ajax/weibo
+
+中的数据, 并显示, 如下图
 
 ![](p4.png)
 
