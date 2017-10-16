@@ -22,13 +22,44 @@ var gGameBox = {
 	allTds: [], // 存储所有的td元素对象
 
 	food: null, // 食物对象
+
+	snake: null, // 蛇对象
+
+	// 方法： 清空环境
+	clear: function() {
+		for (var i = 0; i < gGameBox.allTds.length; i++) {
+			for (var j = 0; j < gGameBox.allTds[i].length; j++) {
+				gGameBox.allTds[i][j].className = "";
+			}
+		}
+	},
 	
 	// 方法： 游戏开始
 	start: function() {
 
 		gGameBox.init(); // 游戏初始化
 		
-		this.food = new Food(); // 创建食物
+		gGameBox.food = new Food(); // 创建食物
+		gGameBox.snake = new Snake(); // 创建蛇
+
+		// 【11:40 对对】
+		// 启动游戏时，定时移动蛇
+		setInterval(function() {
+
+			// 1. 清空棋盘
+			gGameBox.clear();
+			
+			// 2. 蛇移动
+			gGameBox.snake.move();
+
+			// 3. 显示食物
+			gGameBox.food.show();
+
+			// 4. 支持键盘控制
+
+		}, 1000);
+
+		//gGameBox.snake.fresh();
 	},
 
 	// 初始化
