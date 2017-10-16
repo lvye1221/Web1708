@@ -1,0 +1,330 @@
+
+
+# 贪吃蛇项目总结
+
+## 项目需求分析
+
+采用 "面向对象编程" 思路，因为 面向对象的思想 更适应于应用程序的编写。
+
+### 1. 找对象
+								
+（1）蛇	     
+	属性： 长度、颜色、位置、头、移动方向	    
+	方法： 吃、移动、长大
+
+
+（2）食物         
+	属性： 大小、颜色、位置			    
+	方法： 改变位置 
+
+（3）游戏引擎     
+	属性： 场景、蛇、食物
+	方法： 初始化、键盘控制、启动游戏、停止游戏
+
+### 2. 实现对象
+
+#### 游戏引擎  
+采用 字面量的形式 创建对象。 因为游戏引擎只有1个，采用这种方式会更合适些。代码如下：
+
+```
+// 定义  游戏引擎  对象
+var gGameBox = {
+	
+	rows: 20,  // 行数
+	
+	cols: 20,  // 列数
+
+	allTds: [], // 存储所有的td元素对象
+
+	food: null, // 食物对象
+
+	snake: null, // 蛇对象
+
+	timer: null, // 定时器
+
+	// 方法： 清空环境
+	clear: function() {
+		for (var i = 0; i < gGameBox.allTds.length; i++) {
+			for (var j = 0; j < gGameBox.allTds[i].length; j++) {
+				gGameBox.allTds[i][j].className = "";
+			}
+		}
+	},
+
+	// 方法：支持键盘控制
+	keyControl: function() {
+		// onkeydown 键盘按下事件
+		window.onkeydown = function(e) {
+			// 获取按键编码
+			var c = e.keyCode;
+
+			if (c == 37)
+			{
+				// 左
+
+				if (gGameBox.snake.direct == "right")
+				{
+					// 当前是往右走，不能掉头，终止函数
+					return ;
+				}
+				gGameBox.snake.direct = "left";
+			}
+			else if (c == 38)
+			{
+				// 上
+				if (gGameBox.snake.direct == "down")
+				{
+					return ;
+				}
+				gGameBox.snake.direct = "up";
+			}
+			else if (c == 39)
+			{
+				// 右
+				if (gGameBox.snake.direct == "left")
+				{
+					return ;
+				}
+				//  改变蛇的方向
+				gGameBox.snake.direct = "right";
+			}
+			else if (c == 40)
+			{
+				if (gGameBox.snake.direct == "up")
+				{
+					return ;
+				}
+				// 下
+				gGameBox.snake.direct = "down";
+			}
+		}
+	},
+	
+	// 方法： 游戏开始
+	start: function() {
+
+		gGameBox.init(); // 游戏初始化
+		
+		gGameBox.food = new Food(); // 创建食物
+		gGameBox.snake = new Snake(); // 创建蛇
+
+		// 支持键盘控制
+		gGameBox.keyControl();
+
+		// 启动游戏时，定时移动蛇
+		gGameBox.timer = setInterval(function() {
+
+			// 1. 清空棋盘
+			gGameBox.clear();
+			
+			// 2. 蛇移动
+			gGameBox.snake.move();
+
+			// 3. 显示食物
+			gGameBox.food.show();
+
+			
+
+		}, 500);
+
+		//gGameBox.snake.fresh();
+	},
+
+	// 初始化
+	init: function() {
+		// 场景布置好, 用表格来做
+		var oTable = document.createElement("table");
+	
+		for (var i = 0; i < gGameBox.rows; i++)
+		{
+			// 创建tr
+			var oTr = document.createElement("tr"); 
+
+			// 每一行，定义1个空数组
+			var arr = [];
+
+			for (var j = 0; j < gGameBox.cols; j++) {
+				// 创建td
+				var oTd = document.createElement("td"); 
+
+				oTr.appendChild(oTd);
+
+				// 将td放到空数组中
+				arr.push(oTd);
+			}
+			// 将当前行所有的td，压入到 allTds 属性中
+			gGameBox.allTds.push(arr);
+
+			oTable.appendChild(oTr);
+		}
+
+		// 添加到body
+		document.body.appendChild(oTable);
+	}
+};
+```
+
+
+#### 食物
+
+因为食物可能在不断地创建，所以采用 （构造函数）的方式，更合适些。
+
+（扩展） 产生不同的食物
+
+
+```
+
+
+function Food() {
+
+	// 坐标
+	this.x = 0;
+	this.y = 0;
+
+	// 一开始就随机位置
+	this.change();
+}
+
+// 方法1: 出现在环境中
+Food.prototype.show = function() {
+	gGameBox.allTds[this.y][this.x].className = "food";
+}
+
+// 方法2: 改变位置, 随机的
+Food.prototype.change = function() {
+	this.x = parseInt(Math.random() * gGameBox.cols);
+	this.y = parseInt(Math.random() * gGameBox.rows);
+
+	this.show();
+}
+
+```
+
+
+#### 蛇
+
+因为蛇可能需要手动创建，可能有多条蛇，所以 采用 构造函数的方式 更合适些。
+
+（扩展） 蛇的颜色、蛇的大小、蛇的初始位置  都可以改，也可以继承的方式来实现不同的蛇
+
+```
+
+function Snake() {
+
+	// 存储蛇 所有节点坐标， 同时也存储了蛇的长度  this.arr.length
+	//  默认蛇头  this.arr[0]  节点
+	this.arr = [
+		{x: 5, y: 1},
+		{x: 4, y: 1},
+		{x: 3, y: 1},
+		{x: 2, y: 1},
+		{x: 1, y: 1}
+	];
+
+	// 当前移动方向：   left, right, down, up
+	this.direct = "down";
+
+	// 创建完就刷新到页面上
+	this.fresh();
+}
+
+
+
+// 方法1： 更新到页面上  fresh 刷新  
+Snake.prototype.fresh = function() {
+	// 给所有蛇节点，都添加样式
+	for (var i = 0; i < this.arr.length; i++)
+	{
+		// this.arr[i] 是蛇节点对象
+		var x = this.arr[i].x;
+		var y = this.arr[i].y;
+
+		gGameBox.allTds[y][x].className = "snake"
+	}
+}
+
+// 方法2： 移动
+Snake.prototype.move = function() {
+
+	// 蛇头坐标
+	var x = this.arr[0].x;
+	var y = this.arr[0].y;
+
+	// 思路： 根据当前蛇的方向，来分情况处理
+	if (this.direct == "right")
+	{
+		//   4      3       2     1      0
+		// (1,1) (2,1) (3,1) (4,1) (5,1)
+		// (2,1) (3,1) (4,1) (5,1) (6,1)
+		//       (2,1) (3,1) (4,1) (5,1) (6,1)
+		//  在 蛇头 增加新点 (6,1)， 删除蛇尾
+		x++;
+
+	}
+    else if (this.direct == "down")
+    {
+		y++;
+    }
+    else if (this.direct == "left")
+    {
+		x--;
+    }
+    else if (this.direct == "up")
+    {
+		y--;
+    }
+
+
+	if (x >= gGameBox.cols || y >= gGameBox.rows || x < 0 || y < 0)
+	{
+		clearInterval(gGameBox.timer);
+
+		console.log("GG啦~");
+		alert("GG啦~");
+		return ;
+	}
+
+	if (x == gGameBox.food.x && y == gGameBox.food.y)
+	{
+		// 吃到食物了，增加1个点
+		this.arr.unshift({x: x, y: y});
+
+		// 食物更改位置
+		gGameBox.food.change();
+
+		
+		this.fresh();
+
+		return ;
+	}
+
+
+	// 在蛇头增加新点
+	this.arr.unshift({x: x, y: y});
+
+	// 删除蛇尾
+	this.arr.pop();
+
+	// 将新蛇刷新到页面上
+	this.fresh();
+}
+
+```
+
+
+#### 启动游戏
+
+```
+gGameBox.start();
+```
+
+### 项目开发总结
+
+1. 构造函数名 首字母建议 大写
+2. 变量名不要写错
+3. 注意语法
+
+建议，自己完整地、从零开始、再写三遍。
+
+因为编程就是1个技能，就像打篮球一样，需要不断练习才能熟练掌握。
+

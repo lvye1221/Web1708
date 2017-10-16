@@ -80,6 +80,39 @@ Snake.prototype.move = function() {
     {
 		y++;
     }
+    else if (this.direct == "left")
+    {
+		x--;
+    }
+    else if (this.direct == "up")
+    {
+		y--;
+    }
+
+
+	if (x >= gGameBox.cols || y >= gGameBox.rows || x < 0 || y < 0)
+	{
+		clearInterval(gGameBox.timer);
+
+		console.log("GG啦~");
+		alert("GG啦~");
+		return ;
+	}
+
+	if (x == gGameBox.food.x && y == gGameBox.food.y)
+	{
+		// 吃到食物了，增加1个点
+		this.arr.unshift({x: x, y: y});
+
+		// 食物更改位置
+		gGameBox.food.change();
+
+		
+		this.fresh();
+
+		return ;
+	}
+
 
 	// 在蛇头增加新点
 	this.arr.unshift({x: x, y: y});

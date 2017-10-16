@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+
+<style>
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+#box {
+	border: 1px solid black;
+	width: 500px;
+	text-align: center;
+	display: none;
+
+	position: absolute;
+}
+
+#box h3 {
+	cursor: move;
+	background: skyblue;
+	color: white;
+	text-align: center;
+}
+
+#box h3 span {
+	cursor: pointer;
+	float: right;
+}
+
+</style>
+
+ </head>
+ <body>
+  
+  <ul>
+	<li>
+		今天下雨了~
+	</li>
+	<li>
+		今天下雨了~
+	</li>
+	<li>
+		今天下雨了~
+	</li>
+  </ul>
+
+<button id="btnSend"> 发布微博 </button>
+
+<div id="box" >
+	<h3> 发布微博  <span> X </span> </h3>
+	<p>
+	   请输入您要发布的文字
+	</p>
+	<textarea>
+	</textarea>
+
+	<div>
+		<button> 确定 </button>
+		<button id="btnCancel"> 取消 </button>
+	</div>
+</div>
+
+
+<script>
+/*
+1. 点击“发布微博”按钮，显示对话框。 默认是看不到对话框
+2. 按住标题可以拖拽 整个 div
+3. 点击“取消” 按钮可以关闭对话框
+4. （难） 点击“X” 按钮可以关闭对话框
+
+16:50
+
+*/
+
+var oBtnSend = document.getElementById("btnSend");
+var oBtnCancel = document.getElementById("btnCancel");
+var oBox = document.getElementById("box");
+
+var oH3 = oBox.getElementsByTagName("h3")[0];
+var oSpan = oH3.getElementsByTagName("span")[0];
+
+// 第1问
+btnSend.onclick = function() {
+	oBox.style.display = "block";
+}
+
+// 第3问
+oBtnCancel.onclick = function() {
+	oBox.style.display = "none";
+}
+
+// 第4问
+oSpan.onclick = function() {
+	oBox.style.display = "none";
+}
+
+//   避免点击关闭按钮时，可以拖拽对话框。方法，阻止事件冒泡
+oSpan.onmousedown = function(e) {
+	// 阻止事件冒泡
+	e.stopPropagation();
+}
+
+// 第2问
+oH3.onmousedown = function(e) {
+
+	e.preventDefault();
+
+	var detaX = e.clientX - oBox.offsetLeft;
+	var detaY = e.clientY - oBox.offsetTop;
+
+	document.onmousemove = function(e) {
+		var x = e.clientX - detaX;
+		var y = e.clientY - detaY;
+
+		oBox.style.left = x + "px";
+		oBox.style.top = y + "px";
+	}
+
+	document.onmouseup = function(e) {
+		document.onmousemove = null;
+	}
+}
+
+</script>
+
+ </body>
+</html>

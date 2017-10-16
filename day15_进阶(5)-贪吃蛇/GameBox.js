@@ -25,11 +25,62 @@ var gGameBox = {
 
 	snake: null, // 蛇对象
 
+	timer: null, // 定时器
+
 	// 方法： 清空环境
 	clear: function() {
 		for (var i = 0; i < gGameBox.allTds.length; i++) {
 			for (var j = 0; j < gGameBox.allTds[i].length; j++) {
 				gGameBox.allTds[i][j].className = "";
+			}
+		}
+	},
+
+	// 方法：支持键盘控制
+	keyControl: function() {
+		// onkeydown 键盘按下事件
+		window.onkeydown = function(e) {
+			// 获取按键编码
+			var c = e.keyCode;
+
+			if (c == 37)
+			{
+				// 左
+
+				if (gGameBox.snake.direct == "right")
+				{
+					// 当前是往右走，不能掉头，终止函数
+					return ;
+				}
+				gGameBox.snake.direct = "left";
+			}
+			else if (c == 38)
+			{
+				// 上
+				if (gGameBox.snake.direct == "down")
+				{
+					return ;
+				}
+				gGameBox.snake.direct = "up";
+			}
+			else if (c == 39)
+			{
+				// 右
+				if (gGameBox.snake.direct == "left")
+				{
+					return ;
+				}
+				//  改变蛇的方向
+				gGameBox.snake.direct = "right";
+			}
+			else if (c == 40)
+			{
+				if (gGameBox.snake.direct == "up")
+				{
+					return ;
+				}
+				// 下
+				gGameBox.snake.direct = "down";
 			}
 		}
 	},
@@ -42,9 +93,11 @@ var gGameBox = {
 		gGameBox.food = new Food(); // 创建食物
 		gGameBox.snake = new Snake(); // 创建蛇
 
-		// 【11:40 对对】
+		// 支持键盘控制
+		gGameBox.keyControl();
+
 		// 启动游戏时，定时移动蛇
-		setInterval(function() {
+		gGameBox.timer = setInterval(function() {
 
 			// 1. 清空棋盘
 			gGameBox.clear();
@@ -55,9 +108,9 @@ var gGameBox = {
 			// 3. 显示食物
 			gGameBox.food.show();
 
-			// 4. 支持键盘控制
+			
 
-		}, 1000);
+		}, 500);
 
 		//gGameBox.snake.fresh();
 	},
