@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	
+	<script>
+		// ajax 最重要的是1个对象    【XMLHttpRequest 对象】
+		
+		// 1. 创建对象
+		var xhr = new XMLHttpRequest();
+		
+		// 2. 调用此对象中【 准备】（打开）方法
+		//        参数1： 请求数据的方式 GET / POST ， put 等
+		//        参数2： 请求数据的地址
+		//        参数3： false 是同步的方式， true 就是异步
+		xhr.open("GET", "http://localhost:8080/ajax/ajaxtest", false);
+		
+		// 3. 发送
+		xhr.send();
+		
+		// 4. 获取数据
+		console.log(  xhr.responseText );
+		
+	</script>
+</html>

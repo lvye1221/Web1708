@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  
+<script>
+
+/*
+定义1个JSON变量，有 title, content(内容)
+
+
+
+写1个家庭变量，有4个人，每个人都有名字和年龄。 要求用 JSON来写
+
+写完截图发群里
+*/
+/*
+var jack = {
+	"name": "Jack",
+	"family": [
+		"baba",
+		"mama",
+		"didi"
+	]
+}
+
+console.log(jack.family[0])
+*/
+
+
+// '' 代表定义js中的字符串
+// var json = '{"name": "Jack"}'
+
+// 服务器与浏览器是 以 字符形式 传播的。
+//  浏览器接收的时候是 【字符串】
+
+// undefined    因为定义的json是字符串，其中没有name属性
+//console.log(json.name);
+
+// 字符串 如何 转换成 JS 的对象？
+//   JSON 是系统提供的对象（IE8以上才有）
+//     parse 是对象中的方法，用于将JSON字符串转换成js的对象
+
+var json = '{"name": "Jack"}'
+
+var obj = JSON.parse(json);
+
+console.log(obj.name);
+
+// 休息20分钟，11:10继续
+
+</script>
+
+ </body>
+</html>
