@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+
+		<button id="btn">动态加载新闻</button>
+		<table id="tbl">
+			<tr>
+				<th>标题</th>
+				<th>时间</th>
+			</tr>
+		</table>
+		
+		<script>
+
+var oBtn = document.getElementById("btn");
+
+
+oBtn.onclick = function() {
+	// 1. 创建对象
+	var xhr = new XMLHttpRequest();
+	
+	// 2. 准备
+	xhr.open("GET", "http://localhost:8080/ajax/news", true);
+	
+	// 3. 发送
+	xhr.send();
+	
+	// 4. 接收数据
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			var str = xhr.responseText;
+			
+			var obj = JSON.parse(str);
+			
+			// 更新到页面上
+			gx(obj);
+		}
+	}
+}
+
+// 定义函数 gx， 作用是 将obj 数据更新到页面上的表格中
+function gx(obj) {
+	
+	var oTable = document.getElementById("tbl");
+	
+	// 1. 取出新闻数据
+	var arr = obj.data;
+	
+	// 2. 遍历数组
+	for (var i = 0; i < arr.length; i++) {
+		// arr[i] 是1个对象， 中 title、time 属性
+		
+		var oTr = document.createElement("tr");
+		
+		console.log(arr[i]);
+	
+		// 标题单元格
+		var oTd1 = document.createElement("td");
+		oTd1.innerHTML = arr[i].title;
+		oTr.appendChild(oTd1);
+		
+		// 时间单元格
+		var oTd2 = document.createElement("td");
+		oTd2.innerHTML = arr[i].time;
+		oTr.appendChild(oTd2);
+		
+		oTable.appendChild(oTr);
+	}
+}
+
+		</script>
+		
+	</body>
+</html>

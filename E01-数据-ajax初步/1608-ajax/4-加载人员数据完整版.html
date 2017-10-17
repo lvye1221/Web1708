@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<marquee>滚来滚去</marquee>
+		<button id="btn"> 加载人员数据 </button>
+	</body>
+	
+	<script>
+
+var oBtn = document.getElementById("btn");
+
+oBtn.onclick = function() {
+	// 1. 创建对象
+	var xhr = new XMLHttpRequest();
+	
+	// 2. 准备
+	xhr.open("GET", "http://localhost:8080/ajax/person", true);
+	
+	// 3. 发送
+	xhr.send();
+	
+	// 4. 获取数据
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			// 获取数据。【注意】类型是字符串，因为网络传输的是字符
+			var str = xhr.responseText;
+			
+			// 字符串转 js 对象 【一定要记得转换下】
+			var obj = JSON.parse(str);
+			
+			// 更新到页面上
+			gx(obj)
+		}
+	}
+}
+	
+
+
+
+function gx(obj) {
+	// 创建表格
+	var oTable = document.createElement("table");
+	
+	// console.log(obj.total);
+	var arr = obj.data;
+	for (var i = 0; i < arr.length; i++) {
+		//  arr[i] 是1个对象
+		
+		//  创建表格的行
+		var oTr = document.createElement("tr");
+		
+		//  name， age, sex, phone, address, qq
+		//   循环遍历 对象 arr[i]
+		var o = arr[i];
+		
+		// 练习： 完善人员的数据信息。 16:33对对
+		
+		for (var j in o) {
+			
+			//  创建行中的td
+			var oTd = document.createElement("td");
+			oTd.innerHTML = o[j]
+			oTr.appendChild(oTd);
+		}
+		
+		oTable.appendChild(oTr);
+	}
+		
+	
+	document.body.appendChild(oTable)
+}
+	</script>
+</html>

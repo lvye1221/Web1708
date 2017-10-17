@@ -232,8 +232,11 @@ req.onreadystatechange = function() {
 
 ## 1. 加载人员信息 ##
 
-使用Ajax异步请求person.json数据:
-1, 点击按钮加载person.json中的数据并显示在table表格中(默认表格中没有数据, 只有表格标题)
+使用Ajax异步请求数据:
+http://localhost:8080/ajax/person
+
+1, 点击按钮加载中的数据并显示在table表格中    (默认表格中没有数据, 只有表格标题)
+
 2, 在下方显示一个滚动文字,并让其从右往左滚动
 
 ![](p1.png)
