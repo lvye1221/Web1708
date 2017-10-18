@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<form>
+			<p>
+				用户名： <input type="text" id="username" />
+				<span id="info"></span>
+			</p>
+			
+			<p>
+				密  码： <input type="password" />
+			</p>
+			
+			<p>
+				<button>注册</button> 
+				<input type="reset" value="重置"/>
+			</p>
+		</form>
+
+
+<script>
+
+var oUsername = document.getElementById("username");
+var oSpan = document.getElementById("info");
+
+oUsername.oninput = function() {
+	
+	// 取出用户名
+	var str = oUsername.value;
+	
+	// 地址字符串
+	var url = "http://localhost:8080/ajax/checkname?regname=" + str; 
+
+	// 思路： 向服务器发送请求，根据返回结果进行判断
+	var xhr = new XMLHttpRequest();
+	xhr.open("GET", url, true)
+	xhr.send();
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			var str = xhr.responseText;
+			
+			if (str == "true") {
+				console.log("可以注册");
+				oSpan.innerHTML = "可以注册";
+				oSpan.style.color = "green";
+			} else {
+				console.log("不能注册");
+				oSpan.innerHTML = "不能注册";
+				oSpan.style.color = "red";
+			}
+		}
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+//     【11:28】 对对
+//http://localhost:8080/ajax/checkname
+//regname=XXXX
+//http://localhost:8080/ajax/checkname?regname=张三
+	// 通过ajax来验证 str 是否已经注册，
+//	如果返回的结果是 true代表可以使用；
+//	如果返回的结果是 false 代表不可以用
+}
+	
+</script>
+
+	</body>
+</html>

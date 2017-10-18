@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+<script>
+
+// 【练习】 用POST来获取数据。
+
+// 请求地址
+var url = "http://localhost:8080/ajax/football"; 
+
+var xhr = new XMLHttpRequest();
+
+// 第1个参数 POST， 如果采用post方式，就会自动忽略 地址字符串后面的信息
+xhr.open("POST", url, true)
+
+//POST请求和Web表单提交不同，需要使用 XHR 来模仿表单提交
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+//  传递参数，数据是放在 send 方法中传递的
+xhr.send("pageNo=1");
+
+xhr.onreadystatechange = function() {
+	if (xhr.readyState == 4 && xhr.status == 200) {
+		var str = xhr.responseText;
+	}
+}
+</script>
+	</body>
+</html>

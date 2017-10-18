@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<!-- 引入库文件 -->
+		<script type="text/javascript" src="js/ajax-1.0.js" ></script>
+	</head>
+	<body>
+		
+		<script>
+			
+			// ajax();
+			// ajax("李四");
+			
+			
+//			var url = "http://localhost:8080/ajax/checkname?regname=张三";
+//			ajax(url, function(str) {
+//				console.log("这里是回调函数中的输出");
+//				console.log(str);
+//			});
+			
+			
+			
+			
+			
+			
+			// 请求足球的信息
+			var url = "http://localhost:8080/ajax/football?pageNo=1&pageCount=4";
+			ajax(url, function(str) {
+				console.log(str);
+			});
+			
+			// 【练习】封装 ajax函数，并调用。 16:30对对
+			
+			
+			// 分页，每页的数量
+			//  pageNo   pageCount
+			
+			// 分页，	每页的数量,	地区,  电视台,   时间范围 ....    
+			//  pageNo   pageCount
+			
+			// 直接写到url中
+			
+		</script>
+	</body>
+</html>

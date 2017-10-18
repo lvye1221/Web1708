@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	
+	<button id="btn">加载数据</button>
+	
+	
+<script>
+
+// 全局变量，用于保存足球的数据
+var gArr = null;
+// 当前应显示哪一条
+var i = 0;
+
+var oBtn = document.getElementById("btn");
+
+oBtn.onclick = function() {
+	
+	if (gArr) {
+		update();
+		
+		// 如果gArr有值，就会执行这里，return代表终止函数，所以下面的代码都不会执行
+		return ;
+	}
+	
+	// ajax 请求数据
+	
+	// 1. 创建对象
+	var xhr = new XMLHttpRequest();
+	
+	// 2. 准备
+	xhr.open("GET", "http://localhost:8080/ajax/football", true);
+	
+	// 3. 发送
+	xhr.send();
+	
+	// 4. 接收
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState == 4 && xhr.status == 200) {
+			var str = xhr.responseText;
+			
+			if (str == "true") {
+				
+			} else if (str == "false") {
+				
+			}
+			
+			var obj = JSON.parse(str)
+			
+			gArr = obj.data;
+			// console.log(str);
+			
+			update();
+		}
+	}
+}
+
+// 点击按钮，每次只加载一条数据
+// 思路1：
+//     1. 先全部隐藏 display : none 
+//     2. 有个编号，每次把所有的隐藏，然后显示当前编号的元素
+
+
+// 思路2：
+//     1. 设置变量i
+//     2. 每点击一次
+//				添加当前新闻
+//				如果到最后一条，就弹框结束
+//              i++，
+
+function update() {
+	//	gArr[i] 当前新闻对象
+	
+	if (i >= gArr.length) {
+		console.log("数据已经加载完毕！");
+		
+		return ;
+	}
+	
+	// 1. div
+	var oDiv = document.createElement("div");
+	
+	// 2. h3
+	var oH3 = document.createElement("h3");
+	oH3.innerHTML = gArr[i].name;
+	oDiv.appendChild(oH3);
+	
+	// 3. p
+	var oP = document.createElement("p");
+	oP.innerHTML = gArr[i].content;
+	oDiv.appendChild(oP);
+	
+	// 4 添加到页面
+	document.body.appendChild(oDiv);
+	
+	
+	// 指向下一条
+	i++;
+	
+}
+
+</script>	
+		
+	</body>
+</html>

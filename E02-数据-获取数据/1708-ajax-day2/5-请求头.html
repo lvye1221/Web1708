@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+
+<script>
+
+// 地址?用户名=Jack
+//  地址栏的数据，是不是很容易看到?
+//     GET发送数据，存在安全问题。 所以 get一般传递敏感数据
+
+// HTTP协议   协议头   中传递
+
+		
+		var url = "http://localhost:8080/ajax/football?pageNo=1"; 
+
+		var xhr = new XMLHttpRequest();
+		
+		xhr.open("GET", url, true)
+		
+		// 设置协议头，必须在 open 之后，send之前
+		xhr.setRequestHeader("password", "31415926");
+		xhr.setRequestHeader("sex", "renyao");
+		
+		xhr.send();
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				var str = xhr.responseText;
+			}
+		}
+</script>
+		
+	</body>
+</html>

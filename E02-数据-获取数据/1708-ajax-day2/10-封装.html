@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script type="text/javascript" src="js/ajax-4.0.js" ></script>
+		<script>
+			
+			
+			var obj = {
+				url: "http://localhost:8080/ajax/checkname",
+				data: "regname=如浪",
+				success: function(str) {
+					document.write(str);
+				}
+			};
+			
+			ajax.get(obj)
+			
+			console.log(a);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

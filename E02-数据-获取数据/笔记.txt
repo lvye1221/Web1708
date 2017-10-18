@@ -1,0 +1,43 @@
+
+
+1. 足球的信息加载
+
+
+
+休息20分钟，10:50 继续
+
+{}
+[]
+
+{[]}
+[{}]
+
+
+获取足球新闻的信息：
+
+http://localhost:8080/ajax/football
+
+你可以传递2个参数：
+1. pageNo  代表第几页
+2. pageCount 代表每页有多少条数据
+
+例如：
+http://localhost:8080/ajax/football?pageCount=2&pageNo=4
+
+得到第4页的数据，每页有2条数据
+
+
+var pageCount = 10
+
+xhr.open("GET", "http://localhost:8080/ajax/football?pageCount=" + pageCount + "&pageNo=4", true)
+
+代表：向服务器请求数据，传递是：
+pageCount: 1
+pageNo: 4
+
+
+
+
+ajax 4步走
+	GET，如何传递数据
+	POST， 如何传递数据

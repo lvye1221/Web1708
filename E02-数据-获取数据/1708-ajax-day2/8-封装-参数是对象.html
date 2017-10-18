@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script type="text/javascript" src="js/ajax-3.0.js" ></script>
+		<script>
+			
+			console.log(a);
+			
+			var obj = {
+				url: "http://localhost:8080/ajax/checkname",
+				data: "regname=张三",
+				success: function(str) {
+					document.write(str);
+				}
+			};
+			
+			ajax.get(obj);
+//			ajax.post(obj);
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
