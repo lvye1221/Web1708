@@ -142,15 +142,11 @@ var server = http.createServer(function(req, res) {
         var output = {total:data.length};
         if (params.query && params.query.pageNo) {
 
-			console.log( params.query.pageNo);
-
 
             var page = params.query.pageNo;
             var pageCount = params.query.pageCount || 10;
             output.data = data.slice((page-1)*pageCount,page*pageCount);
             
-			console.log(output.data );
-			
 			output.pageNo = page;
             output.pageCount = pageCount;
             
