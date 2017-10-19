@@ -45,6 +45,15 @@
 
 <script>
 
+// 【练习】 完善用户名的输入，实现多个浏览器间的聊天。  15:00 对对
+
+// 先要用户输入用户名
+var username = prompt("好汉，留下大名！");
+
+
+
+
+
 pull();
 
 // 每个1s拉取最新数据
@@ -76,6 +85,9 @@ function pull() {
 				oLi.innerHTML = "<span>[" + o.name+ "]</span>" + o.content;
 				
 				oUl.appendChild(oLi); // 添加到 ul 中
+				
+				
+				oLi.scrollIntoView(); // 将li显示到页面中
 			}
 		}
 	}
@@ -106,7 +118,7 @@ oBtn.onclick = function() {
 	// (2) 利用ajax发送数据给服务器
 	var obj2 = {
 		url: "http://localhost:8080/ajax/chat",
-		data: "type=send&sender=zhangsan&msg=" + str,
+		data: "type=send&sender="+username+"&msg=" + str,
 		success: function(str) {
 			// console.log( str );
 			// (3) 获取最新的聊天记录并更新到页面上

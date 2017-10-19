@@ -1,0 +1,30 @@
+
+
+http://127.0.0.1:8020/1708-ajax-day3/5-%E5%90%8C%E6%BA%90.html
+http://127.0.0.1:8020/1708-ajax-day3/football.json
+
+同源
+
+
+
+XMLHttpRequest cannot load http://localhost:8080/ajax/football?. No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'http://localhost:8020' is therefore not allowed access.
+
+
+1. 如何解决跨域的问题
+	（1） 后台决定
+
+2. 实际项目中，一般不用跨域
+	前台代码 和 后台代码是在一起， 同源的
+
+
+ajax 
+	1. Ayschou javascript and xml
+	2. 异步的请求数据
+		无刷新更新最新新闻
+		无刷新验证用户名是否注册
+		无刷新加载信息
+	3. http 的特点
+		GET
+		POST
+
+		【封装】

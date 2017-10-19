@@ -135,7 +135,7 @@ var server = http.createServer(function(req, res) {
     }else if(params.pathname == '/ajax/football'){
         res.writeHead(200, {
             "Content-Type": "text/plain; charset=utf-8",
-            "Access-Control-Allow-Origin": "*"
+//            "Access-Control-Allow-Origin": "*"
         });
         // var data = fs.readFileSync('./football.json');console.log(data);
         var data = require('./football.json');
