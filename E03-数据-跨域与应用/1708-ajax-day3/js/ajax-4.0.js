@@ -19,7 +19,7 @@ ajax = window.ajax = {}
  * 	    fail        失败的处理回调函数
  * 	    success     成功的处理回调函数
  */
-ajax.get = function() {
+ajax.get = function(obj) {
 	
 	if (obj.async == undefined) {
 		obj.async = true;
@@ -78,7 +78,7 @@ ajax.get = function() {
  * 	    fail        失败的处理回调函数
  * 	    success     成功的处理回调函数
  */
-ajax.post = function() {
+ajax.post = function(obj) {
 	
 	if (obj.async == undefined) {
 		obj.async = true;

@@ -1,0 +1,49 @@
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+#room {
+	border: 1px solid black;
+	
+	width: 300px;
+	margin: 0 auto;
+	padding: 10px;
+}
+
+#box {
+	border: 1px dashed gray;
+	margin: 0px;
+	height: 260px;
+}
+ul {
+	list-style-type: none;
+	padding: 5px;
+}
+
+ul li {
+	background-color: skyblue;
+	border-radius: 3px;
+	margin: 5px;
+	padding: 3px;
+}
+
+ul li span {
+	color: red;
+}
+
+#msg {
+	width: 100%;
+	margin-top: 5px;
+}
+
+#btn {
+	float: right;
+	width: 100px;
+	height: 30px;
+}
+
+.clear {
+	clear: both;
+}

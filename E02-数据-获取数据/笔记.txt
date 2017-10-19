@@ -41,3 +41,8 @@ pageNo: 4
 ajax 4步走
 	GET，如何传递数据
 	POST， 如何传递数据
+
+单词太长了
+	XMLHttpRequest
+	setRequestHead
+	...
