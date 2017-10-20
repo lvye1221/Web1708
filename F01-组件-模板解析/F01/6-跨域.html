@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="box"></div>
+		
+		<script>
+		// 优才的页面
+		function c(a) { 
+			document.getElementById("box").innerHTML = a;
+		}
+		
+		setInterval(getData, 100);
+
+		// 获取天气数据
+		function getData() {
+			var oJsonp = document.getElementById("jsonp");
+			
+			oJsonp.innerHTML = "";
+			
+			var oScript = document.createElement("script"); // 创建标签
+			oScript.src = "http://localhost/tq.js" // 设置地址
+			oJsonp.appendChild(oScript); // 添加到oJsonp
+		}
+
+
+		//  JSONP， 
+		//    1. 传递函数的名字给服务器
+
+		</script>
+	
+		<div id="jsonp"></div>
+		
+	</body>
+</html>

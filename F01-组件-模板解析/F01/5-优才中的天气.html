@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		气象局请求最新的天气数据 <div id="box"></div>			
+	
+<script type="text/javascript" src="js/ajax-5.0.js" ></script>
+
+<!-- 
+	http://127.0.0.1:8020/F01
+	
+引入天气的js文件，虽然现在跨域，但是 script 标签是可以跨域的！-->
+<script src="http://localhost/tq.js"></script>
+
+<script>
+
+var oBox = document.getElementById("box");
+
+oBox.innerHTML = a;
+
+
+// 因为在服务器端不支持的情况（默认），ajax是不能跨域，所以请求不到数据。
+//
+
+/*
+// http://127.0.0.1:8020/F01/5-%E4%BC%98%E6%89%8D%E4%B8%AD%E7%9A%84%E5%A4%A9%E6%B0%94.html
+ajax.get({
+	url: "http://localhost/tq.js",
+	success: function(str) {
+		console.log(str)
+	}
+})
+//*/	
+</script>
+		
+	</body>
+</html>
