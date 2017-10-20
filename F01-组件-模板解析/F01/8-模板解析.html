@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+<!-- 引入库文件 -->
+<script type="text/javascript" src="js/underscore-min.js" ></script>
+
+<script>
+
+// <%= %> 是库规定的模板格式
+var str = "<li> <span> <%=name%> </span> <%=content%> </li>"
+
+// 后台返回的json对象
+var data = {
+	"xingming": "赛舟",
+	"content": "再过一天就可以休息了"
+}
+
+// 将模板字符串 编译成1个函数
+var f = _.template(str)
+
+if (!data.name) {
+	// 补充name属性
+	data.name = "无名氏"
+}
+
+// 利用函数f 将 json对象，转换成 字符串
+console.log( f(data) );
+
+// 【练习】 使用 _template 函数 16:35 对对
+
+</script>
+
+
+
+	</head>
+	<body>
+	</body>
+</html>

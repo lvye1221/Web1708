@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<script type="text/javascript" src="js/ajax-5.0.js" ></script>
+		<script type="text/javascript" src="js/underscore-min.js" ></script>
+		
+	</head>
+	<body>
+		
+		<table >
+			<tr>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>性别</th>
+				<th>电话号码</th>
+				<th>地址</th>
+				<th>邮编</th>
+			</tr>
+			<tbody id="tb"></tbody>
+		</table>
+		
+		
+		<!-- 定义1个模板
+			
+			【注意】 类型 text/template 定义模板
+		-->
+		<script type="text/template" id="tp1">
+			<tr>
+				<td> <%=name%> </td>
+				<td> <%=age%> </td>
+			</tr>
+		</script>
+		
+		
+		<script>
+		
+//		var str = document.getElementById("tp1").innerHTML;
+//		console.log(str);
+		
+			
+			ajax.get({
+				url: "http://localhost:8080/ajax/person",
+				success: function(str) {
+					
+					var obj = JSON.parse(str);
+					var arr = obj.data; // 数组
+					
+					// 要创建tr td
+					// var str = "<tr>  <td> <%=name%> </td> <td> <%=age%> </td>  </tr>"
+					var str = document.getElementById("tp1").innerHTML;;
+
+					var f = _.template(str);
+					
+					var html = "";
+					for (var i = 0; i < arr.length; i++) {
+						// arr[i] 是1个对象  {}
+						html += f( arr[i] );
+					}
+					
+					document.getElementById("tb").innerHTML = html;
+				}
+			})
+			
+		</script>
+		
+	</body>
+</html>
