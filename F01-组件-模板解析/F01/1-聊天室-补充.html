@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<!--
+			快捷注释：  Ctrl + /
+		
+			div#room  按 TAB 自动补全
+		-->
+		
+		<div id="room">
+			<ul id="box">
+				<li><span>[张三] </span>你好</li>
+				<li><span>[李四] </span> 你好</li>
+			</ul>
+			
+			<textarea id="msg"></textarea>
+			
+			<div>
+				<button id="btn"> 发送 </button>
+				<div class="clear"></div>
+			</div>
+		</div>
+		
+		<!-- 练习： 实现获取服务器中的聊天数据，并更新到页面中： 11:30对对 -->
+
+<!--思路：
+	
+	1. 利用 ajax 请求数据
+		（1） 引入工具
+		（2） 使用工具
+	
+	2. 将数据更新到页面上
+		(1) 将字符串转换成 js 对象
+		(2) DOM 操作，更新到页面
+-->
+
+<!-- 1. 引入库 -->
+<script type="text/javascript" src="js/ajax-4.0.js" ></script>
+
+<script>
+
+// 【练习】 完善用户名的输入，实现多个浏览器间的聊天。  15:00 对对
+
+// 先要用户输入用户名
+var username = prompt("好汉，留下大名！");
+
+
+
+
+
+pull();
+
+// 每个1s拉取最新数据
+setInterval(pull, 1000);
+
+// 拉取最新的聊天数据并更新到页面
+function pull() {
+	var obj = {
+		url: "http://localhost:8080/ajax/chat", // 服务器地址
+		data: "type=query", // 数据， query 说明就是获取数据
+		success: function(str) { // 成功时调用这里的函数
+	//		console.log(str);
+	
+			var arr = JSON.parse(str); // 将字符串转换js的数组
+	
+			var oUl = document.getElementById("box");
+			
+			// 清除内容
+			oUl.innerHTML = "";
+	
+			// 遍历数组，将每条消息，都添加到 ul 中
+			for (var i = 0; i < arr.length; i++) {
+				var o = arr[i]  // 取出下标为i的消息对象
+				
+				// 创建li
+				var oLi = document.createElement("li");
+				
+				// 设置 li 中的内容
+				oLi.innerHTML = "<span>[" + o.name+ "]</span>" + o.content;
+				
+				oUl.appendChild(oLi); // 添加到 ul 中
+				
+				
+				oLi.scrollIntoView(); // 将li显示到页面中
+			}
+		}
+	}
+	
+	
+	ajax.get(obj);
+
+}
+
+
+// 实现聊天信息的发送
+// 思路：
+//     1. 给发送按钮绑定点击事件处理函数
+//     2. 在事件处理函数中:
+//                (1) 获取 textarea中的内容
+//                (2) 利用ajax发送数据给服务器
+//                (3) 获取最新的聊天记录并更新到页面上
+
+var oBtn = document.getElementById("btn");
+var oMsg = document.getElementById("msg");
+
+oBtn.onclick = function() {
+	// (1)  获取 textarea中的内容
+	var str = oMsg.value;
+	
+	oMsg.value = "";
+	
+	// 发送前 编码
+	str = encodeURIComponent(str);
+	username = encodeURIComponent(username);
+	
+	
+	// (2) 利用ajax发送数据给服务器
+	var obj2 = {
+		url: "http://localhost:8080/ajax/chat",
+		data: "type=send&sender="+username+"&msg" + str,
+		success: function(str) {
+			// console.log( str );
+			// (3) 获取最新的聊天记录并更新到页面上
+			pull();
+		}
+	};
+	
+	ajax.get(obj2)
+}
+
+</script>
+
+	</body>
+</html>

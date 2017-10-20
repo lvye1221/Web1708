@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+
+<script>
+
+// 工具的目的：  // 【练习】 封装。  10:15 对对
+//     将 1个对象  转换成   ajax的发送数据字符串
+// 例如：
+/*
+
+将
+{
+	type: "send",
+	sender: "Jack",
+	msg: "123"
+}
+
+转换成：
+type=send&sender=jack&msg=123
+
+思路：
+	遍历对象，拼接
+
+
+ */
+
+var str = translate({
+		type: "send",
+		sender: "Jack",
+		msg: "fsfsafsdfsd;"
+	});
+
+console.log("调用后的结果：" + str);
+// "http://ajax/chat?" + str 
+
+
+// 转换
+function translate(obj) {
+	var str = "";
+	for (var i in obj) {
+		
+		str += i;      // 拼接属性名     type
+		str += "=";    // 拼接=       =
+		str += obj[i]  // 拼接属性值     send
+		str += "&";    // 拼接&       &
+	}
+	
+	// 删除最后1个字符
+	//  str:    query&
+	//          query
+	str = str.substr(0, str.length-1);
+	
+	 return str;
+	// console.log(str)
+}
+
+// 函数  --> 工具（洗衣机、洗碗机、遥控器）
+//                洗衣机： 洗衣服
+//                    脏衣服  塞进去
+//                    干净衣服  出来
+	
+// 休息20分钟，10:50 继续	
+	
+</script>
+
+	</body>
+</html>

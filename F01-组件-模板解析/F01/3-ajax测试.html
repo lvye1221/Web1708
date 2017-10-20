@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/ajax-5.0.js" ></script>
+		<script>
+		
+		
+//		ajax.get({
+//			url: "http://localhost:8080/ajax/football",
+//			success: function(str) {
+//				console.log(str);
+//			}
+//		});
+		
+		
+		
+			// 不可以。 函数 translate 已经被包裹起来了，所以这边不能访问
+//			translate({})
+
+
+
+//		ajax.get({
+//			url: "http://localhost:8080/ajax/checkname",
+//			data: {regname: "张三"},
+//			success: function(str) {
+//				console.log(str);
+//			}
+//		});
+
+		ajax.get({
+			url: "http://localhost:8080/ajax/football",
+			data: {
+				pageNo: 2,     // 第2页
+				pageCount: 1   // 每页1条数据
+			},
+			success: function(str) {
+				console.log(str);
+			}
+		});
+
+// 【练习】 升级ajax为 5.0版本，支持 data 传对象的形式。并测试3个不同接口。 11:30对对
+
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
