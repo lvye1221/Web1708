@@ -74,21 +74,22 @@ underscore中内置了一个模板引擎：
 模板文件：
 
 ```
-<script type="text/template" id="tpl">  
-    <% for(var i = 0; i < list.length; i++) { %>  
-        <% var item = list[i] %>  
-        <li>  
-            <span><%=item.firstName%> <%=item.lastName%></span>  
-            <span><%-item.city%></span>  
-        </li>  
-    <% } %>  
-</script>  
+<script type="text/template" id="tp1">
+	<% for(var i = 0; i < list.length; i++) { %>  
+		<% var item = list[i] %>  
+		<li>  
+			<span><%=item.name%></span>  
+			<span><%=item.age%></span>  
+		</li>  
+	<% } %>  
+</script>
 
 
-    // 解析模板, 返回解析后的内容  
-    var html = _.template(tpl, data);  
-    // 将解析后的内容填充到渲染元素  
-    element.html(html); 
+var ttt = document.getElementById("tp1").innerHTML;
+
+// {variable: 'list'} 指定模板字符串中的变量名字是 list 
+// arr 是传递的数据
+var h = _.template(ttt, {variable: 'list'})(arr)
 ```
 
 _.template模板函数只能解析3种模板标签（这比Smarty、JSTL要简单得多）：
@@ -121,7 +122,6 @@ for (var i in arr)
 	var templateString = `<li><h3><%= title %></h3>, <%= time %></li>`;
 
 	var compile = _.template(templateString);
-
 	
 	var dict = arr[i];
 

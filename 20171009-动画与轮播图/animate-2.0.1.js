@@ -19,6 +19,11 @@
  * @para4  callback是回调函数，可选
  * return	本函数没有返回值
 */
+
+Tween.Linear
+Tween["Linear"]
+
+
 function animate(elem , targetJSON , time , tweenString , callback){
 	//函数重载，用户传进来的参数数量、类型可能不一样
 	//检查数量和类型

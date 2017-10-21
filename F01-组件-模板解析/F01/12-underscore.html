@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+	
+ </head>
+ <body>
+
+	<script type="text/template" id="tp1">
+<% for(var i = 0; i < data.length; i++) { %>  
+	<% var item = data[i] %>  
+	<li>  
+		<span><%=item.name%></span>  
+		<span><%=item.age%></span>  
+	</li>  
+<% } %>  
+	</script>
+
+
+<script type="text/javascript" src="js/ajax-5.0.js" ></script>
+<script type="text/javascript" src="js/underscore-min.js" ></script>
+<script>
+
+//var f = _.template("Using 'with': <%= data.answer %>", {variable: 'data'})({answer: 'no'});
+// console.log(f);
+
+
+ajax.get({
+	url: "http://localhost:8080/ajax/person",
+	success: function(str) {
+		
+		var obj = JSON.parse(str);
+		var arr = obj.data; // 数组
+
+
+		var ttt = document.getElementById("tp1").innerHTML;
+		var h = _.template(ttt, {variable: 'data'})(arr)
+	
+		console.log(h);
+	}
+});
+
+</script> 
+ </body>
+</html>

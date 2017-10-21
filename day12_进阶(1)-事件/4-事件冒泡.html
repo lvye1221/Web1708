@@ -33,7 +33,9 @@ window.onload = function() {
 		console.log("three");
 	}
 
-	four.onclick = function() {
+	four.onclick = function(e) {
+
+		e.stopPropagation();
 
 		console.log("four");
 	}
