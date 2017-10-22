@@ -86,9 +86,3 @@ http://plugins.jquery.com/cookie/
 
 
 
-
-### 2. ÂÖ²¥Í¼ ###
-
-
-
-3. 
