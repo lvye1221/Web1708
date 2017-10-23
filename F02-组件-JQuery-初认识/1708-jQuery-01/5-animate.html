@@ -3,30 +3,82 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		
+	
 		<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+	
+		<!-- 引入jQuery的插件，支持动画效果 
+			
+			【注意】 所有的 jQuery插件必须在 引入jQuery 之后引入
+			
+		jQuery 的优势	
+			1. 方便、简单
+			2. 插件非常丰富
+		-->
+		<script type="text/javascript" src="js/jquery.easing.1.3.js" ></script>
+				
 		
 		<script>
-		// 【练习】 使用 动画函数，将1个div 从(0,0)移动到(500,200) 的位置。 11:40对对
-		
+
 $(function() {
 	
-	move();
+	// 时间支持字符串
+	$("#div1").animate({"top": 500}, "fast");
+	// 立刻停止物体的动画
+	// $("#div1").stop();
+	//  1. true 代表清除动画队列（相当于之前的动画都没效果了，不执行了）
+	//  2. true 直接到目标位置， false 不会到目标位置
+	// $("#div1").stop(true, false);
 	
-	function move() {
-		$("#div1").animate({"left": 500, "top": 200}, 2000, function() {
-			
-			// this   谁调用它，就是谁
-			//             就是物体元素  DOM对象
-			//             实现原理： animate函数内部做了对象冒充，
-			//                          用物体元素对象替代了回调函数中 this
-			// this.style.backgroundColor = "blue";
-		 
-			// 要给 $(this)  才是jQuery的对象，this是js对象
-			//  $(this)    this -> jQuery 对象      
-			$(this).animate({"left": 100}, 2000, move)
 	
-		});
-	}
+	// 淡出，淡入
+	// $("#div1").fadeOut(2000).fadeIn(2000).animate({"top": 2000}, 2000);
+	
+	
+	
+	// 链式调用
+	//   【原理】 因为 hide, show 等这些方法，默认返回 jQuery 对象
+	// $("#div1").hide(2000).show(2000).hide(2000).show(2000)
+	
+	// new DragBox().init().drag();
+	
+	
+//	 隐藏
+//	$("#div1").hide(2000);
+//	// 显示
+//	$("#div1").show(2000);
+	
+	
+	// $("#div1").animate({"left": 600}, 2000, "easeInOutExpo");
+	
+	
+	
+	// 第1个动作
+	// $("#div1").animate({"top": 200}, 2000);
+	// 前提是： 【同一个物体】。第2个动作 需要等第1个动作完成后才执行
+	// $("#div1").animate({"left": 500}, 2000);
+	// $("#div2").animate({"left": 500}, 2000);
+	
+	// 每个jQuery的物体，内部是有个动画队列的。
+	
+	
+//	move();
+//	
+//	function move() {
+//		$("#div1").animate({"left": 500, "top": 200}, 2000, function() {
+//			
+//			// this   谁调用它，就是谁
+//			//             就是物体元素  DOM对象
+//			//             实现原理： animate函数内部做了对象冒充，
+//			//                          用物体元素对象替代了回调函数中 this
+//			// this.style.backgroundColor = "blue";
+//		 
+//			// 要给 $(this)  才是jQuery的对象，this是js对象
+//			//  $(this)    this -> jQuery 对象      
+//			$(this).animate({"left": 100}, 2000, move)
+//	
+//		});
+//	}
 })
 		
 		</script>
@@ -35,6 +87,9 @@ $(function() {
 	<body>
 		
 <div id="div1" class="c1" style="width: 100px; height: 100px;background: red; position: absolute;">
+</div>
+		
+<div id="div2" class="c1" style="width: 100px; height: 100px;background: red; position: absolute; top:300px">
 </div>
 		
 		

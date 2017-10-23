@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			
+			body {
+				height: 2000px;
+			}
+			
+			div {
+				width: 100px;
+				height: 100px;
+				background: blue;
+				color: white;
+				
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		
+		<div> 测试1 </div>
+		<div> 测试2 </div>
+		<div> 测试3 </div>
+		<div> 测试4 </div>
+		<div> 测试5 </div>
+		<div> 测试6 </div>
+		
+
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+
+<script>
+
+
+$("div").click( m1 );
+
+function m1() {
+	
+	// this 是物体 DOM元素对象
+	// this.xxx 是物体对象的属性
+	if (!this.xxx) {
+		this.xxx = true;  // 如果不存在，默认为true，代表 红色
+	} else {
+		// 说明存在
+		this.xxx = !this.xxx;  // 取反
+	}
+	
+	if (this.xxx) {
+		$(this).css({"background": "red"})
+	} else {
+		$(this).css({"background": "blue"})
+	}
+
+}
+//
+//// 可以，因为传递的是函数
+//$("#div1").click( m1 );
+
+
+// m1()  是  undefined
+//  不可以，因为参数有误
+// m1()  是调用函数 m1, 所以与点击无关，不管你有没有点击，都会执行的
+//$("#div1").click(m1());
+
+
+
+</script>		
+		
+	</body>
+</html>

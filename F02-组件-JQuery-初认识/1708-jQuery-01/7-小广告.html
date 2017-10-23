@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			
+			body {
+				height: 2000px;
+			}
+			
+			#div1 {
+				width: 100px;
+				height: 100px;
+				background: blue;
+				color: white;
+				position: absolute;
+				right: 0;
+				top: 0;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		
+		<div id="div1"> 我是小广告 </div>
+		
+
+<!-- 一定要引入库，否则出错误：
+	Uncaught ReferenceError: $ is not defined
+-->
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+
+<script>
+
+	/*
+	 思路：
+	   1. 绑定滚动事件
+	   2. 滚动事件处理函数中：
+	   		调整广告栏移动  到滚动的位置
+
+	由许多动画组成的问题解决思路：
+	
+思路1：
+	判断：
+		如果滚动太多，
+	
+思路2：
+	取最后一次，中间的不算，
+		限定1段时间内, 
+			10:00 ~ 10:02   只算 02那最后一次
+			
+思路3：
+	每次动画开始时，停止之前的动画
+	
+
+【练习】：  “回到顶部” 按钮的实现。 16:25 对对 
+
+	* */
+
+// 设置滚动条的位置
+$("body,html").animate({"scrollTop": 500})	
+
+// $(body)   不对，因为 body 不是对象，不是系统提供的对象，所以不能这样写 
+// $("body")  对   根据标签名 body 可以找到对象，因为 加了“” 所以是字符串没有语法问题
+// $(document) 对， 因为 document 是系统对象
+$(document).scroll(function() {
+
+	// 1. 得到滚动条的位置
+	var y = $(document).scrollTop();
+	
+	// 2. 调整广告栏的位置
+	$("#div1").stop(true).animate({"top": y+200}, 500);
+})
+
+</script>		
+		
+	</body>
+</html>

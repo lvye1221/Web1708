@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			
+			body {
+				height: 2000px;
+			}
+			
+		</style>
+	</head>
+	<body>
+<div id="div1" class="c1" style="width: 100px; height: 100px;background: red; position: absolute;">
+</div>
+
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+<script>
+
+//  【练习】   小广告 跟随 滚动条走的效果。
+
+//  onscroll 原生中的滚动事件
+// scroll 是页面滚动事件
+$(document).scroll(function() {
+	
+	// 2. jquery 获取滚动条的高度
+	var iTop = $("body").scrollTop();
+	
+	console.log(iTop);
+	
+	
+	// 获取滚动条的高度
+	//  1. 原生方法
+//	var iTop = document.body.scrollTop;  // Firefox
+//	var iTop = document.documentElement.scrollTop;  // IE
+//	
+//	iTop = document.body.scrollTop || document.documentElement.scrollTop || 0;
+//	
+//	console.log(iTop)
+})
+
+
+
+
+
+
+
+
+
+
+// mouseenter  mouseover 都是移入的事件
+// 不会事件冒泡    会事件冒泡
+//$("#div1").mouseenter(function() {
+//	console.log("移入了物体1")
+//})
+
+// 事件名  不需要添加 on前缀
+$("#div1").click(function() {
+	console.log("点击了物体1")
+})
+
+
+//var oDiv = document.getElementById("div1");
+//oDiv.onclick = function() {
+//	
+//}
+	
+</script>
+
+	</body>
+</html>
