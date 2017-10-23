@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+		
+		<script>
+//		【练习】：尝试获取1个div元素的 width 值。
+
+// DOM加载完成之后
+$(function() {
+	
+	//  css 函数； 这里返回值就是宽度值
+	//   $(".c1") 是 jQuery 的对象
+	var a = $(".c1").css("background");
+
+	console.log( a  );
+
+	// a = $(".c1").style.width;
+	// 不可以      $(".c1") 不是1个原生js对象
+	
+	// oDiv 是1个原生的js对象
+//	var oDiv = document.getElementById("div1");
+
+//	console.log(a);
+})
+		
+		</script>
+		
+	</head>
+	<body>
+		
+		<div id="div1" class="c1" style="width: 100px; height: 100px;background: red;">
+		</div>
+		
+		<div id="div1" class="c1" style="width: 200px; height: 100px;background: red;">
+		</div>
+		
+	</body>
+</html>

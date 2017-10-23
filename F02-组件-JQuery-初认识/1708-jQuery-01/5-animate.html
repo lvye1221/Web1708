@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+		
+		<script>
+		// 【练习】 使用 动画函数，将1个div 从(0,0)移动到(500,200) 的位置。 11:40对对
+		
+$(function() {
+	
+	move();
+	
+	function move() {
+		$("#div1").animate({"left": 500, "top": 200}, 2000, function() {
+			
+			// this   谁调用它，就是谁
+			//             就是物体元素  DOM对象
+			//             实现原理： animate函数内部做了对象冒充，
+			//                          用物体元素对象替代了回调函数中 this
+			// this.style.backgroundColor = "blue";
+		 
+			// 要给 $(this)  才是jQuery的对象，this是js对象
+			//  $(this)    this -> jQuery 对象      
+			$(this).animate({"left": 100}, 2000, move)
+	
+		});
+	}
+})
+		
+		</script>
+		
+	</head>
+	<body>
+		
+<div id="div1" class="c1" style="width: 100px; height: 100px;background: red; position: absolute;">
+</div>
+		
+		
+	</body>
+</html>

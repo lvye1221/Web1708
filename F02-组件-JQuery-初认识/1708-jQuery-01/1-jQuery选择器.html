@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		</style>
+		
+		<!-- 1. 引入jQuery库
+			
+			相对路径：
+				js/jquery-3.2.1.js   相对于当前html文件来说
+				../					  当前html文件 的上一级目录
+				./                   代表当前html文件 所在目录
+			
+			
+			绝对路径
+				/js/jquery-3.2.1.js   
+									 / 代表服务器根目录
+									 例如在 HBuilder 服务器中：
+									 	http://127.0.0.1:8020
+				http://www.baidu.com/1.jpg
+				c:/1.jpg
+				
+			
+			 练习， 路径中 以 / 开始的写法
+		-->
+		<script type="text/javascript" src="/1708-jQuery-01/js/jquery-3.2.1.js" ></script>
+		
+		
+	</head>
+	<body>
+		
+		<!--1. 是
+			2. 不是
+		-->
+		
+		<p> p1 </p>
+		<p> p2 </p>
+		<p> p3 </p>
+		<p> p4 </p>
+		
+		
+		<script>
+			//
+			// $ 是1个函数
+			// $("p") 是1个函数调用
+			//           返回的结果  jQuery 的内部【对象】
+			//                 所有的p元素
+			//        css 是设置样式
+			//          {"color": "red"} 是 css 的参数
+			
+			//  
+			
+			$("p").css({color: "red"});
+
+
+//   不要重复造轮子
+//		
+//		var aP = document.getElementsByTagName("p");
+//		for (var i = 0; i < aP.length; i++) {
+//			aP[i].style.color = "red";
+//		}
+//		
+		</script>
+		
+	</body>
+</html>
