@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div> </div>
+		<button> 按钮 </button>
+
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+<script>
+
+
+$("button").click(function() {
+
+	$("div").slideToggle()
+})
+
+//$("button").click(function() {
+//	console.log("1")
+//	
+//	// 如果原本是显示
+//	$("div").toggle()
+//})
+	
+</script>
+		
+	</body>
+</html>

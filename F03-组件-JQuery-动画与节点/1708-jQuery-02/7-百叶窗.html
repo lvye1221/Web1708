@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.shutter{
+			width: 800px;
+			
+			/* 总共宽度是 800， 1张图片是 560，所以剩下了 240，
+			 * 平分给其他4张图片，相当于每张是 60
+			 * 
+			 如果说现在显示的是第3张，那么左边分别是： 0, 
+			 * */
+			height: 300px;
+			border: 1px solid #000;
+			margin: 100px auto;
+			position: relative;
+			overflow: hidden;
+		}
+		.shutter ul{
+			list-style: none;
+		}
+		.shutter ul li{
+		 	position: absolute;
+		 	top: 0;
+		}
+		.shutter ul li.no0{left: 0;}
+		.shutter ul li.no1{left: 160px;}
+		.shutter ul li.no2{left: 320px;}
+		.shutter ul li.no3{left: 480px;}
+		.shutter ul li.no4{left: 640px;}
+	</style>
+</head>
+<body>
+	<div class="shutter">
+		<ul>
+			<li class="no0">
+				<a href="">
+					<img src="images/0.jpg" alt="" />
+				</a>
+			</li>
+			<li class="no1">
+				<a href="">
+					<img src="images/1.jpg" alt="" />
+				</a>
+			</li>
+			<li class="no2">
+				<a href="">
+					<img src="images/2.jpg" alt="" />
+				</a>
+			</li>
+			<li class="no3">
+				<a href="">
+					<img src="images/3.jpg" alt="" />
+				</a>
+			</li>
+			<li class="no4">
+				<a href="">
+					<img src="images/4.jpg" alt="" />
+				</a>
+			</li>
+		</ul>
+	</div>
+	
+	<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+	<script>
+		/*
+		 思路：
+		 		1. 给 li 绑定 mouseover (或者 mouseenter)
+		 		2. 改变 li 的 left 值
+		 					前面的
+		 					后面的
+		 					
+		  【练习】
+		  	1. 先实现
+		  	2. 再优化
+		  	
+休息20分钟， 15:55 对对
+
+
+mouseout 事件，具有 事件冒泡的特性
+
+切换 li， 相当于 移出了某个li   ===>  会传播给外层的 div
+
+1. 阻止li的 mouseout
+2. 添加不会冒泡的事件  mouseenter mouseleave
+
+		 */
+		
+		$("li").mouseleave(function() {
+			$("li").stop(true);
+			
+			$(".no0").animate({"left": 0});
+			$(".no1").animate({"left": 120});
+			$(".no2").animate({"left": 240});
+			$(".no3").animate({"left": 360});
+			$(".no4").animate({"left": 480});
+		})
+		
+		
+		// 1. 给所有的li都添加 鼠标移入的事件（mouseenter不会冒泡的）
+		$("li").mouseenter(function() {
+			$("li").stop(true);
+			
+			// 2. 找出变化值
+			//    （1） 当前是哪个li， li 的下标 i
+			//    （2）  <= i 的就是  往左边偏
+			//                   0,60,120,180,240
+			//          > i  的就是  往右边偏
+			//                   0,560,620,680,740
+			var i = $(this).index();
+			
+			var left = [0,60,120,180,240]; // 左边偏的值
+			var right = [ 0,560,620,680,740]; // 右边偏的值
+			
+			// 遍历所有的li
+			$("li").each(function(j) {  // j 是遍历的下标
+				if (j <= i) { // j <= i 的就是  往左边偏 的元素
+					$(this).animate({"left": left[j]});
+				} else {  // j > i 的就是  往右边偏 的元素
+					$(this).animate({"left": right[j]});
+				}
+			});
+			
+		})
+		
+		
+		/*
+		$(".no0").mouseenter(function() {
+			console.log("mouseover  移入");
+			// 先停止之前的动画，清除之前的动画队列
+			$("li").stop(true);
+			
+			$(".no0").animate({"left": 0});
+			$(".no1").animate({"left": 560});
+			$(".no2").animate({"left": 620});
+			$(".no3").animate({"left": 680});
+			$(".no4").animate({"left": 740});
+		})
+		
+		$(".no1").mouseenter(function() {
+			$("li").stop(true);
+			
+			$(".no0").animate({"left": 0});
+			$(".no1").animate({"left": 60});
+			$(".no2").animate({"left": 620});
+			$(".no3").animate({"left": 680});
+			$(".no4").animate({"left": 740});
+		})
+		
+		
+		$(".no2").mouseenter(function() {
+			$("li").stop(true);
+			
+			$(".no0").animate({"left": 0});
+			$(".no1").animate({"left": 60});
+			$(".no2").animate({"left": 120});
+			$(".no3").animate({"left": 680});
+			$(".no4").animate({"left": 740});
+		})
+		*/
+	</script>
+
+</body>
+</html>

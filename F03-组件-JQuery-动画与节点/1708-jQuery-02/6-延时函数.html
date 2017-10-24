@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				left: 100px;
+				top: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="box1"> </div>
+		<div id="box2"> </div>
+		<div id="box3"> </div>
+
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+<script>
+
+$("#box1").animate({"left": 500});
+// delay 延迟
+$("#box2").delay(1000).animate({"top": 300});
+$("#box3").delay(2000).animate({"left": 500,"top": 300});
+
+</script>
+		
+	</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+<style>
+	* {
+		margin: 0;
+		padding: 0;
+	}
+
+	body, html {
+		width: 100%;
+		height: 100%;
+		/* 给外层的body 添加隐藏*/
+		overflow: hidden;  
+	}
+
+	#big {
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	
+	.page {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		background: green;
+	}
+	
+	.page0 {
+		background: green;
+	}
+	
+	.page1 {
+		background: yellow;
+	}
+	
+	.page2 {
+		background: greenyellow;
+	}
+	
+	.page3 {
+		background: orange;
+	}
+	
+	.page4 {
+		background: gold;
+	}
+</style>
+
+	</head>
+	<body>
+
+<div id="big">
+	<!-- div.page*5  按TAB键
+		
+		page page0  同时将 page 和 page0 作用在 div元素 中
+	-->
+	<div class="page page0">1</div>
+	<div class="page page1">2</div>
+	<div class="page page2">3</div>
+	<div class="page page3">4</div>
+	<div class="page page4">5</div>
+</div>
+		
+		
+
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+	
+<!-- jquery 没有处理滚轮的事件， 借助插件。 插件已经处理了不同浏览器的兼容问题 -->
+<script type="text/javascript" src="js/jquery.mousewheel.js" ></script>
+
+
+<script>
+
+var y = 0;
+
+// mousewheel 鼠标滚轮事件
+$(document).mousewheel(function(e) {
+	// e  是事件对象，只要发生这个事件，系统会自动传递过来
+	
+	// 如果物体正在运动，截流
+	if ($("#big").is(":animated")) {
+		return ;
+	}
+	
+	// e.deltaY:   正： 往上滚，    负： 往下滚
+	// console.log(e.deltaY);
+	if (e.deltaY > 0) {
+		y--;
+	} else {
+		y++;
+	}
+	
+	// 判断
+	if (y < 0) {
+		y = 0;
+	}
+	if (y > 4) {
+		y = 4;
+	}
+	
+	console.log(y);
+	
+	// 更新页面
+	//     获取页面高度
+	var h = $("body").innerHeight();
+	$("#big").animate({"top": -y*h}, 1000);
+})
+	
+</script>
+
+
+	</body>
+</html>
