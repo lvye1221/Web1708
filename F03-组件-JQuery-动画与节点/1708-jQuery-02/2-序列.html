@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="box1">
+			<p>box1 -1 </p>
+			<p class="teshu">box1 -2 </p>
+			<p class="teshu">box1 -3 </p>
+			<p>box1 -4 </p>
+		</div>
+		<div class="box2">
+			<p class="teshu">0 </p>
+			<p class="teshu">1 我想红！我想当明星！</p>
+			<p>2</p>
+			<p>3</p>
+		</div>
+		
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>		
+
+<script>
+
+// 【练习】 使用each 方法，遍历所有 p 元素
+$(".box2 p").each(function(i) {
+	// i 就是遍历的下标
+	// this  代表的是当前的dom元素对象
+	
+	if (i > 0 && i < 3) {
+		$(this).css({"color": "red"})
+	}
+})
+
+//要单独显示p其中的一个: 0,        
+//   		p0,    p1,   p2,   p3
+// this   js对象  
+
+// dom 对象                          .getElementById()    
+// jQuery对象                      .css
+
+
+
+//
+//function m2(i)  {
+//	// 会输出什么？
+//	//    window   后面调用了m2，this 是代表谁调用它就是谁
+//	console.log(this);
+//}
+//// 没有对象，所以是 window.m2, 所以是 window调用了
+//// m2(1)  // window
+////m2.call({}, 1);
+//
+//function each(m1) {
+//	// call 让第一参数 冒充 m1 中的this
+//	//        因为 m1 等于 m2
+//	//      所以冒充的是 m2 中的this
+//	m1.call({}, 1)
+//}
+//each(m2);
+
+
+// 所有的p 对象
+//$(".box2 p")
+
+// each 函数是系统提供的，作用是遍历 jQuery 对象
+//$(".box2 p").each(function(i) {
+//	// i 是下标，是each函数内部传递出来的
+//	// console.log(i)
+//	if (i < 2) {
+//		$(".box2 p").eq(i).css({"color": "red"});
+//	}
+//})
+
+
+
+
+
+
+//$(".box2 p").click(function() {
+//	// 1. 取出点击的下标
+//	var i = $(this).index();
+//	
+//	// 2. 对应的设置
+//	$(".box1 p").eq(i).css({"color": "red"});
+//});
+
+
+//var a = 1;
+//
+//$(".box2 p").eq(a).css({
+//	"border": "1px solid red"
+//})
+
+</script>
+
+	</body>
+</html>

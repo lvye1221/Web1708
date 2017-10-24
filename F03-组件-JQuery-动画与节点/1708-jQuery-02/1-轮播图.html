@@ -113,16 +113,62 @@
 <script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
 <script>
 
+//  【练习】 用 jQuery 实现改变图片位置
 // 轮播图思路：
 //   1. 改变 m_unit 的 left 值，实现移动效果
 
 // 获取图片的宽度
 var w = $("#m_unit ul li").innerWidth();
 
-console.log(w);
+// 点击右边的按钮
+$("#rightBtn").click(function() {
+	move();
+});
 
-$("#m_unit").animate({"left": -w}, 2000);
 
+setInterval(move, 1000);
+
+// 保存轮播图的下标
+var i = 0;
+
+// 切换图片
+function move() {
+	
+	
+	// 函数截流
+	// 判断图片是否正在动，如果是返回true，否则返回false
+	if ($("#m_unit").is(":animated")) {
+		// 立刻终止函数
+		return ; 
+	}
+	
+	// 指向下一张轮播图
+	i++;
+	
+	//  -w 说明往左边移动 1张图片的宽度 
+	//  i-1  ==> i
+	$("#m_unit").animate({"left": -i*w}, 500, function() {
+		
+		// 0, 1, 2, 3, 4, 5
+		//    第5张【动画结束】之后，改变指向下标 i, 
+		if (i >= 5) {
+			i = 0;  // 变成0
+			$("#m_unit").css({"left": 0}); // 图片瞬间切换到第0张
+		}
+		
+		
+		// 移除所有li的 current样式
+		$(".circles ol li").removeClass("current");
+		
+		// eq(i) 代表匹配下标为 i 的jQuery对象
+		$(".circles ol li").eq(i).addClass("current");
+		
+		
+		// 休息20分钟，10:50继续。
+	});
+	
+	
+}
 </script>
 
   
