@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>购物车</title>
+
+	</head>
+
+<!-- 引入当前的 cookie 库文件 -->
+<script src="mycookie.js"></script>
+
+	<script>
+
+// 如何将数组设置到 cookie 中呢？
+/*
+var arr = [];
+
+var obj = {};
+
+obj.product = "iPhone7";
+obj.price = "100";
+
+arr.push(obj);
+
+var obj = {};
+
+obj.product = "Huawei P7";
+obj.price = "100000";
+
+arr.push(obj);
+
+//alert(arr.join("#"));
+// arr.toSource() 将数组对象转换成 字符串
+alert(arr.toSource());
+//*/
+
+
+
+// 当点击“添加到购物车”，就添加 cookie 
+
+onload = function() {
+
+	var str = getCookie("arr");
+
+	// 用于存储所有的商品
+	var arr = [];
+	if (str != "")
+	{
+		// 说明之前 cookie 中有商品的内容
+		// 取出来转换成数组
+		arr = eval(str);
+	}
+	//var arr = [];
+
+	// 商品由 名称 和 价格组成
+	// 例如：
+	// {product: XXX, price: 180}
+
+	var allA = document.getElementsByTagName("a");
+
+	for (var i = 0; i < allA.length; i++)
+	{
+		allA[i].onclick = function() {
+			// 这个是价格
+			var oPrice = this.parentNode.previousElementSibling
+
+			// 这个商品的信息
+			var oProduct = oPrice.previousElementSibling;
+			
+			
+			// 取出商品名字的标签对象
+			var oSpan = oProduct.getElementsByTagName("span")[0];
+		
+			// 取出标签对象中的名字，也就是商品的名称
+
+			// 函数库中自定义的函数
+			// 添加了一个 cookie,名字是 product, 内容是 商品的信息, 过期时间是 7天后
+			//alert(oSpan.innerHTML);
+			
+			// 转换成一个
+			// var str = encodeURI(oSpan.innerHTML);
+
+			var obj = {};
+
+			obj.product = oSpan.innerHTML;
+			obj.price = oPrice.innerHTML;
+
+			// 将创建好的商品添加到数组中
+			arr.push(obj);
+
+			// 将数组的内容设置到 cookie 中呢？
+			// cookie 的名字是 arr, 内容是数组中的商品，过期时间是7天以后
+			addCookie("arr", arr.toSource(), 7);
+
+
+
+			/*
+			addCookie("product", oSpan.innerHTML, 7);
+			
+			// 函数库中自定义的函数
+			// 添加了一个 cookie,名字是 price, 内容是 商品的价格, 过期时间是 7天后 
+			addCookie("price", oPrice.innerHTML, 7);
+			//*/
+			
+
+			alert("添加成功");
+		}
+	}
+
+
+	var btnGoto = document.getElementById("goto");
+	
+	btnGoto.onclick = function() {
+		// 跳转到另一个页面？
+		
+		location.href = "demo3-我的购物车.html";
+	}
+}
+
+	</script>
+
+	<body>
+		<ul>
+
+			<li>
+			  <span>
+				  <img src="images/taobao_cart_01.jpg" alt="shopping"/>
+				  <span>公主靴子</span>
+			  </span>
+			  <span style="color: red">RMB138</span>
+			  <span>
+				<!-- 
+					// 这个是价格
+					var oPrice = this.parentNode.previousElementSibling
+
+					// 这个商品的信息
+					var oProduct = oPrice.previousElementSibling;
+					
+					// 取出商品名字的标签对象
+					var oSpan = oProduct.getElementsByTagName("span")[0];
+				
+					// 取出标签对象中的名字，也就是商品的名称
+					oSpan.innerHTML;
+				
+				-->
+				<!-- href 设置成 javascript:void(0) 代表什么都不执行，那么忽略链接的跳转 -->
+				<a href="javascript:void(0)">加入购物车</a>
+			  </span>
+			</li>	
+
+
+
+			<li>
+			  <span>
+
+				<img src="images/taobao_cart_02.jpg" alt="shopping"/>
+				<span>香奈尔炫亮魅力唇膏3.5g</span>	
+
+			  </span>
+			  <span style="color: red">RMB265</span>
+			  <span>
+				<a href="javascript:void(0)">加入购物车</a>
+			  </span>
+			</li>	
+
+
+
+			<li>
+			  <span>
+
+				<img src="images/taobao_cart_03.jpg" alt="shopping"/>
+				<span>蝶妆海蓝清滢粉底液10</span>
+			  </span>
+			  <span style="color: red">RMB85</span>
+			  <span>
+				<a href="javascript:void(0)">加入购物车</a>
+			  </span>
+			</li>	
+
+
+
+			<li>
+			  <span>
+
+				<img src="images/taobao_cart_04.jpg" alt="shopping"/>
+				<span>最好用的LilyBell化妆棉</span>
+
+			  </span>
+			  <span style="color: red">RMB12</span>
+			  <span>
+				<a href="javascript:void(0)">加入购物车</a>
+			  </span>
+			</li>	
+
+
+
+		</ul>
+		<!--
+		<a href="demo3-我的购物车.html">查看购物车</a>
+		-->
+		<button id="goto"> 查看购物车 </button>
+	</body>
+
+</html>

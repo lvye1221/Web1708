@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="utf-8" />
+	<title></title>
+
+	<script> 
+
+// 新建了一个cookie，cookie 的名字是 username 值： yangjie
+//document.cookie = "username=yangjie"
+//document.cookie = "username=zhangsan";
+
+
+// expires 过期时间
+// 过期时间是一个日期对象
+
+/*
+// var oDate = new Date();
+
+// 得到1天以后的日期
+// oDate.setDate(oDate.getDate() + 1);
+// 到这里，oDate 就是一天以后的日期了
+
+// document.cookie = "username=zhangsan;expires=" + oDate;
+//*/
+
+
+// 【练习】
+// 创建一个 过期时间是 一年以后的 cookie
+
+var oDate = new Date();
+
+// 2016+1 ==> 2017
+//oDate.setDate(oDate.getFullYear() + 1);
+//oDate.setDate(oDate.getDate() + 365);
+
+// 得到一年之后的日期
+oDate.setFullYear(oDate.getFullYear() + 1);
+
+document.cookie = "username=老王;expires=" + oDate;
+
+// 新建的cookie 只要名字不一样，就不会覆盖，而是添加
+document.cookie = "password=Cool!;expires=" + oDate;
+
+
+/*
+var stu = {};
+
+stu.age = 18;
+stu.age = 108;
+
+alert(stu.age);
+//*/
+	</script>
+
+  </head>
+
+  <body>
+	
+  </body>
+</html>
+

@@ -162,7 +162,8 @@ var server = http.createServer(function(req, res) {
             "Access-Control-Allow-Origin": "*"
         });
         // var data = fs.readFileSync('./football.json');console.log(data);
-        var data = require('./person.json');
+        // var data = require('./person.json');
+		var data = "456"
         var output = {total:data.length};
         if (params.query && params.query.pageNo) {
             var page = params.query.pageNo;
