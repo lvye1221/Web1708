@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+
+<script>
+
+
+// 请求api地址
+var url = "http://h6.duchengjiu.top/shop/api_user.php";
+
+var data = {
+	"status": "check",
+	"username": "zhangsan"
+}
+
+$.post(url, data, function(str) {
+	// str 的类型是什么？  ==> 要根据服务器返回结果来确定
+	//    对象
+	console.log(str);
+})
+	
+</script>
+
+	</body>
+</html>

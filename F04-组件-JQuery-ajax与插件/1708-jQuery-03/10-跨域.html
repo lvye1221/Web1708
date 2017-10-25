@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+
+<script>
+
+
+// ajax 是不能跨域的
+//$.get("http://www.baidu.com", function(str) {
+//	console.log(str);
+//});
+
+
+// 利用 script 跨域 :  jsonp
+//     原理：  动态创建script标签，设置src，添加到页面， 删除掉
+//    天气预报
+
+// http://127.0.0.1:8020/1708-jQuery-03/10-%E8%B7%A8%E5%9F%9F.html
+
+
+var url = "http://localhost:8080/ajax/getJSONP"
+
+// jsonp 一般是需要传递给服务器一个回调函数的
+
+// 返回的数据
+//  func({"name":"王大锤","age":30,"sex":"男","married":false})
+
+
+$.ajax({
+	url: url,
+	type: "get",
+	dataType: "jsonp",  // 设置为采用 jsonp的方式请求数据。  还是需要服务器配合的
+	success: function(str) {
+		console.log(str);
+	}
+})
+
+// 使用jsonp 的前提：  后台服务器要支持jsonp的形式
+
+
+
+/*
+ * 
+正常情况下： 通过ajax 是不能由
+http://127.0.0.1:8020/1708-jQuery-03/10-%E8%B7%A8%E5%9F%9F.html
+
+向
+"http://localhost:8080/ajax/getJSONP" 
+ 请求数据：
+ 
+ 特殊情况下：
+ 	1. 服务器支持 jsonp
+ 	2. 服务器已经设置好   允许跨域  了   【一般比较少，安全性】
+ 
+ 
+ jsonp 内部原理是通过 哪个标签？
+ 	通过 script 去跨域请求链接，返回数据来实现的
+ 
+ script 请求回来的数据，结构选项：
+ 	函数调用
+ 
+ * */
+
+$.ajax({
+	dataType: "jsonp",
+	success: function(str) {
+		
+	}
+});
+
+</script>
+
+	</body>
+</html>

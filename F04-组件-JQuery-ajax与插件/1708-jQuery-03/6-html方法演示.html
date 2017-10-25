@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<p id="box">
+			<img src="images/0.jpg" />
+			<img src="images/1.jpg" />
+		</p>
+		
+		
+		<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+		<script>
+		
+			// append 添加时，会移动物体的
+		
+			// clone 克隆一份节点
+			$("#box").append(  $("#box img").eq(0).clone() );
+			
+			
+			
+			// html 设置元素中的内容
+//			$("p").html("<h3>哈哈</h3>");
+
+			// text 直接将文字显示到 元素内部
+//			$("p").text("<h3> 哈哈</h3>");
+			
+			
+		</script>
+		
+	</body>
+</html>

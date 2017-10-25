@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+
+<script>
+
+// 请求api地址
+var url = "http://h6.duchengjiu.top/shop/api_user.php";
+
+var data = {
+	"status": "check",
+	"username": "zhangsan"
+}
+
+$.ajax({
+	url: url,
+	type: "POST",  // 类型
+	data: data,
+	success: function(str) {  // 成功时的处理
+		console.log(str);
+	}
+})
+
+//  百度                        谷歌
+
+</script>
+
+</html>

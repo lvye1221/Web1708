@@ -105,10 +105,10 @@
  	1. 给 所有的 h3 绑定 点击事件处理函数
  	2. 函数中：
  				（1） 移除当前li所有兄弟 的cur 样式 
- 							$(this).parent().siblings()
+ 							$(this).parent().siblings()    .removeClass("cur")
  				
  				 （2）给当前li，添加 cur 样式
- 								$(this).parent()
+ 								$(this).parent()   .addClass("cur")
  					
  					(3) 先让其他所有 .content 隐藏
  								$(".content").slideUp();
@@ -118,13 +118,79 @@
  					
  					(4) 让 当前h3的兄弟节点.content 显示
  						$(this).siblings().slideDown()
+ 
+ 	【扩展】 点击已展开的元素，可以收回去
+
+思路：
+	1. 判断当前h3元素，是否展开了
+		方法
+		   （1）   判断 h3 父元素li 是否有 cur 样式
+		   					          js元素对象 .className == "cur"
+	
+	//     h3    父元素        js元素对象  样式名
+	if ($(this).parent().get(0).className.indexOf("cur") >= 0)
+	
+	
+	
+						.hasClass( )
+
+
+						is(".cur")
+	
+			（2）遍历，每1个js元素对象，加1个属性，标记是否点击了
+	
+			（3） is(":visiable")  是否可见
+			
+		
+			
+	2. 根据判断结果进行相应处理
+
+ 
  * */
+
+// 复习字符串中的索引
+var s1 = "cur"
+var s2 = "cur first"
+
+// 判断 s2 是否存在 s1，并且返回匹配s1中的第一个字符的下标。如果匹配不到，返回-1
+//  
+var r = s2.indexOf(s1)
+
+// console.log(r);
+
+
+
 
 $(".accordion h3").click(function () {
 	
-	$(this).parent().addClass("cur").siblings().removeClass("cur");
 	
-	$(this).siblings().slideDown().parent().siblings().children(".content").slideUp();
+	// 【练习】 实现展开后再点击 ，可以收起来      15:02对对
+	if ($(this).parent().is(".cur")) {
+		// 父元素有 cur 样式，说明是展开状态
+		
+		//  【问题原因】 父元素 li 没有删掉 cur 样式
+	
+		// 思路：
+		//  1. 将content收起来
+		//  2. 将父元素 li 的样式删除 cur
+		$(this).siblings(".content").slideUp();
+		
+		$(this).parent().removeClass("cur");
+		
+		return ;
+	}
+	
+	
+	// h3    父节点		 添加样式 cur        所有兄弟节点     移除样式
+	$(this).parent().addClass("cur").siblings().removeClass("cur");
+ 	
+ 	// 不可以， 会包含自己
+ 	//  可以      content只有1个
+ 	
+	// h3   所有兄弟节点  隐藏            父节点(li)   所有兄弟节点      儿子节点           显示出来
+ 	$(this).siblings().stop(true,true).slideToggle()
+ 	
+ 	$(this).parent().siblings().children(".content").stop(true,true).slideUp();
 
 })
 	

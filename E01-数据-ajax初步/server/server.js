@@ -72,7 +72,7 @@ var server = http.createServer(function(req, res) {
     } else if (params.pathname == '/ajax/getJSONP') {
         res.writeHead(200, {
             "Content-Type": "text/plain; charset=utf-8",
-            "Access-Control-Allow-Origin": "*"
+//             "Access-Control-Allow-Origin": "*"
         });
         var data = {
             name: '王大锤',
