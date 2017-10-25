@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<div id="box">
+			<a href="http://www.baidu.com" id="baidu">百度</a>  
+			<a href="http://www.baidu.com" >Google</a>
+		</div>
+		
+		<script>
+		
+		
+		var oBaidu = document.getElementById("baidu");
+		
+		xyg(oBaidu).style.color = "red";
+		
+		// 【练习】 封装获取下一个元素类型的兄弟节点。  10:45对对
+		
+		// 下一个元素兄弟节点
+		function xyg(ele) {
+			var o = ele.nextSibling;
+			while (o.nodeType != 1) {
+				o = o.nextSibling;
+			}
+			return o;
+		}
+		
+		
+		
+		
+		
+		// 兼容问题：  对于下一个节点的判断 标准不一致
+		//    思路： 1. 从当前元素，往下一个兄弟节点找
+		//          2. 找节点类型为1（元素节点）
+		//          3. 直到找到第1个元素节点终止
+		
+//		var o = oBaidu.nextSibling; // 第一个兄弟节点
+//		while (o.nodeType != 1) { // 判断是否为元素节点
+//			o = o.nextSibling;  // 继续寻找
+//		}
+//		
+//		// 循环结束， o 肯定是第一个元素类型的兄弟节点
+//		o.style.color = "red";
+//		
+		
+		
+		// 出错： 理由： 文本节点是不能设置样式的！
+		// oBaidu.nextSibling.style.color = "red"
+		
+		// nextSibling 下一个兄弟节点
+		// 空白节点: 因为百度的下一个节点是空白节点
+		//console.log(  oBaidu.nextSibling  );
+		
+		
+		
+//		// parentNode 父节点只有1个， 就是js元素对象
+//		oBaidu.parentNode.innerHTML = "父元素的内容被修改了！";
+//		
+//		// childNodes 子节点，可以有多个， 是数组
+		
+		/*
+		var oBox = document.getElementById("box");
+		
+		var arr = [];
+		
+		// 对于元素类型的节点。特点 nodeType 属性是等于1的
+		//     文本节点：                                                           3
+		//     
+		for (var i = 0; i < oBox.childNodes.length; i++) {
+			if (oBox.childNodes[i].nodeType == 1) {
+				// 说明这个就是元素节点
+				arr.push( oBox.childNodes[i] )
+			}
+		}
+		// 2
+		console.log( arr.length );
+		
+		// 输出结果：
+		// 5    因为包含了空白点 ( chrome、IE9、IE10等是包含空白节点)
+		// 2  IE6，IE7 
+		//console.log( oBox.childNodes.length );
+		
+		//  解决兼容问题：   判断
+		
+		*/
+		
+		
+		
+			
+//			// oA1 是 js的元素【对象】  包含js元素对象的 属性 和 方法
+//			var oA1 = document.getElementById("baidu");
+//			
+//			// childNodes 当前元素的子节点，类型是   伪数组
+//			console.log( oA1.childNodes )
+//			
+		</script>
+		
+	</body>
+</html>

@@ -67,3 +67,5 @@ previousSibling、nextSibling
 1. 整理这两天用过的 jQuery 的属性和方法， 发到简书上
 2. 重写 滚动页面 和 百叶窗 案例
 
+函数调用，传参
+
