@@ -13,16 +13,19 @@
 		
 		<script>
 		
+		// 休息20分钟，11:10点继续
 		
 		var oBaidu = document.getElementById("baidu");
 		
+		
 		xyg(oBaidu).style.color = "red";
 		
-		// 【练习】 封装获取下一个元素类型的兄弟节点。  10:45对对
+		// 【练习】 封装获取下一个元素类型的兄弟节点
 		
 		// 下一个元素兄弟节点
 		function xyg(ele) {
 			var o = ele.nextSibling;
+			if (o.nodeType != 1) {
 			while (o.nodeType != 1) {
 				o = o.nextSibling;
 			}
