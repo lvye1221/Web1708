@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+<!-- 引入 cookie 插件-->
+<script type="text/javascript" src="js/jquery.cookie.js" ></script>
+		
+
+<script>
+
+// 【练习】 熟悉 cookie 的添加与读取。   10:05 对对  
+
+// 1. 添加 cookie
+//         属性名 	   属性值
+$.cookie("username", "zhangsan");
+
+// 2. 读取cookie
+//                属性名
+var u = $.cookie("username");
+	
+console.log(u);
+
+/*
+cookie 的保存，是根据：
+	协议、域名、端口   来决定的
+
+
+
+【说明】
+chrome 浏览器，如果你是以本地协议打开的  file:// ，
+那么，由于安全设置，不允许使用cookie
+
+但 Firefox 是可以的
+
+ */
+
+</script>
+
+	</body>
+</html>

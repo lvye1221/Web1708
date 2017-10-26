@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title> 标题 </title>
+
+<script src="md5.js"></script>
+
+<script>
+
+/*
+var str = "<img src='1.jpg'>";
+
+// 将字符串转码，便于存储到 cookie 中
+var s1 = encodeURIComponent(str);
+
+// alert(s1);
+
+// 将存储到 cookie 中的字符串 还原回来
+var s2 = decodeURIComponent(s1);
+
+alert(s2);
+
+//*/
+
+
+var psw = "123456";
+
+// md5 加密，数学上，
+// 不可逆： 根据加密字符串不能推出来原字符串
+var s2 = str_md5(psw);
+
+console.log(s2);
+
+</script>
+
+ </head>
+
+ <body>
+  
+ </body>
+</html>

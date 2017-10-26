@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+
+<script>
+
+/*
+ *  对于ajax会缓存的问题，可以通过添加1个参数
+
+次数
+0： http://localhost:8080/ajax/person
+1： http://localhost:8080/ajax/person?v=1   
+2： http://localhost:8080/ajax/person?v=1     
+
+地址与第1次不一样了，这样服务器就不会从缓存中读取，返回服务器最新数据
+
+
+考虑到 i 一直增加，总会有一个最大值的，所以，
+
+在实际工作中，一般用请求的时间来作为区分
+
+
+
+*
+ * */
+// 创建 当前时间的 对象
+//   时间对象，中存在一个 函数/方法    getTime()
+//           作用是： 获取当前时间距离 1970.1.1 的毫秒数
+//console.log(  new Date().getTime()  );
+
+
+//var i = 0;
+
+setInterval(function() {
+	
+	// 【练习】 实现ajax无缓存刷新   9:36对对
+	// 拼接当前唯一毫秒数
+	var url = "http://localhost:8080/ajax/person?v=" + new Date().getTime();
+	
+	console.log(url);
+	
+	$.get(url, function(str) {
+		// 返回的结果 是 字符串
+		console.log(str);
+	})
+}, 1000);
+
+
+//*/
+
+</script>
+
+	</body>
+</html>
