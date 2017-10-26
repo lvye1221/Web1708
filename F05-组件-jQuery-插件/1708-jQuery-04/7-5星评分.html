@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		
+	</head>
+	<body>
+		
+		<div id="score"></div>
+		
+
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+<script type="text/javascript" src="js/raty/jquery.raty.js" ></script>
+
+<script>
+	
+    $.fn.raty.defaults.path = 'js/raty/images';
+    $(function(){
+    	$('#score').raty({
+    	 	score: 3, //初始化设置分数
+    	 	click: function(score){ //点击触发
+    	 		console.log(score);
+    	 	}
+    	});
+    })
+</script>
+
+
+	</body>
+</html>

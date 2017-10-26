@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<link rel="stylesheet" href="css/jquery.idcode.css"  />
+	</head>
+	<body>
+		<input type="text" id ="Txtidcode" class ="txtVerification">
+		<span id="idcode"></span>
+		
+		
+		<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+		<script type="text/javascript" src="js/jquery.idcode.js" ></script>
+		
+		
+		<script>
+		
+		//【练习】  14:40 对对， 做完就在群里扣1
+		//    1. 熟悉 验证码插件，
+		//    2. 尝试自己学习   星级评分 插件 ， 通过这个插件 实现 五级评分 效果。
+		
+			// 生成验证码
+			$.idcode.setCode();
+			
+			// 完成输入之后判断
+			$("#Txtidcode").change(function() {
+				var r = $.idcode.validateCode();
+				
+				if (r == true) {
+					console.log("验证成功！")
+				} else {
+					console.log("验证失败！")
+				}
+			})
+			
+		</script>
+		
+	</body>
+</html>
