@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		
+		<p></p>
+		
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+
+<script type="text/javascript" src="js/jquery.myfunc1.js" ></script>
+
+<script>
+
+// $.myfunc1 = 
+// 使用自己的插件
+//    $.myfunc1();
+
+
+// $ 给我们提供的对象
+// 内部其实是有1个属性 fn, 用于存储 所有  jQuery 的方法的  对象
+//    fff 自己增加的函数
+$.fn.fff = function() {
+	// this  jQuery对象
+	this.html("aaa");
+}
+
+$("p").fff();
+
+
+
+</script>
+
+	</body>
+</html>

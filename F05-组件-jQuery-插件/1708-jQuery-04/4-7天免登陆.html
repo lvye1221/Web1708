@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html>
+	<meta charset="UTF-8"/>
+	<head>
+		<title></title>
+	<style type="text/css">
+		    body{
+			    background-color:rgb(177, 208,224); font: normal 12px Trebuchet MS; color:#000;
+		    }
+		    .roundedCorners{ 
+			    width:220px; padding:10px;
+			    background-color:#DDEEF6; 
+			    box-shadow: 0px 0px 10px 0px #888888;
+			    border:1px solid #DDEEF6;
+			    border-radius:6px;
+			    margin: auto;
+		    }
+		    .roundedCorners-textbox{ 
+				border:1px solid #999; width:160px;
+		    }
+			.checkbox {
+				margin-left: 30px;
+				border:1px solid #999; width:20px;
+			}
+	</style>
+
+
+	</head>
+	<body>
+	<form >	
+		<div class="roundedCorners">
+			<label>账号</label>&nbsp;
+			<input id="username" type="text" class="roundedCorners-textbox" /><br /><br />
+			<label>密码</label>&nbsp;
+			<input id="password" type="text" class="roundedCorners-textbox" /><br /><br />	
+		    	<input id="savePwd" type="checkbox" class="checkbox" />
+				<label>7天内免登陆</label>
+		    	<br/><br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="button" value="确定" id="btnLogin" />
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<input type="reset" value="清空" />
+		</div>
+	</form>	
+	</body>
+	
+	<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+	<script type="text/javascript" src="js/jquery.cookie.js" ></script>
+	
+
+<script>
+
+$(document).ready(function() {
+	// (1) 先获取cookie中用户名和密码值
+	var u = $.cookie("u");
+	var p = $.cookie("p");
+	
+	// (2) 如何判断有没有 cookie
+	//         有： 登陆
+	//         没有:  不登陆
+	
+	if (p != undefined && u != undefined) {
+		$("#username").val(u); // 放到 input 中
+		$("#password").val(p); // 放到 input 中
+		
+		// 再发  ajax 向服务器发送登陆请求
+	}
+})
+
+
+// 1. 登陆按钮
+$("#btnLogin").click(function() {
+	
+	// 2. 判断是否勾选“7天免登陆”
+	if ( $("#savePwd").is(":checked") ) {
+		// console.log("勾选了")
+		
+		// （1） 得到用户名和密码
+		var u = $("#username").val();  // 注意input在jQuery中得到值 是用 val
+		var p = $("#password").val();
+		
+		// （2） 存cookie
+		$.cookie("u", u, {expires: 7});
+		$.cookie("p", p, {expires: 7});
+		
+	} else {
+		console.log("没勾选")
+		
+	}
+})
+	
+</script>
+	
+</html>

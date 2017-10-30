@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+
+// 注册： zhangsan1111, 123456
+
+<script src="js/jquery-3.2.1.js"></script>
+
+<script>
+	
+	// location.href 代表当前页面的地址
+	// console.log( location.href );
+	
+	//  跳转到另外一个页面
+	location.href = "http://www.baidu.com"
+	
+	
+	// 地址
+	var url = "http://h6.duchengjiu.top/shop/api_user.php";
+	
+	// 数据
+	var data = {
+		status: "register",
+		username: "zhangsan1112",
+		password: "123456"
+	}
+	
+	// ajax 请求
+	$.post(url, data, function(obj) {
+		console.log(obj.message);
+	})
+	
+</script>
+
+
+	</body>
+</html>

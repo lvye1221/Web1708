@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+<script src="js/jquery-3.2.1.js"></script>
+<script>
+
+	// 地址
+	var url = "http://h6.duchengjiu.top/shop/api_user.php";
+	
+	// 数据
+	var data = {
+		status: "login",
+		username: "zhangsan1112",
+		password: "123456"
+	}
+	
+	// ajax 请求
+	$.post(url, data, function(obj) {
+		console.log(obj);
+		
+		// 登录成功
+		if (obj.code == 0) {
+			$("#username").html(data.username);
+		}
+	})
+
+</script>
+	</head>
+	<body>
+		
+		<div id="username"> 登录 </div>
+		
+	</body>
+</html>

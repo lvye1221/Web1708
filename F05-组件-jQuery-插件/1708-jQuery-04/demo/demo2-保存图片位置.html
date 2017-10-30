@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖拽效果</title>
+
+    <script src="common.js"></script>
+
+	<style>
+	#box{position:absolute;width:160px;height:160px;background-color:#f00;}
+	img{width:160px;}
+
+	</style>
+	<script>
+	// 绑定方式
+		/*window.onload = function(){
+
+		}*/
+
+		window.addEventListener('load',function(){
+			/*
+				拖拽效果
+					1）前提是定位
+					2）给#box添加onmousedown事件
+						给document绑定onmousemove事件,在这个事件里不断改变#box的top,left值
+						left = e.clientX - e.offsetX
+						top = e.clientY - e.offsetY
+
+			 */
+			var box = document.getElementById('box');
+
+			var x = getCookie("x");
+			var y = getCookie("y");
+
+			if (x && y) {
+				box.style.left = x + "px";
+				box.style.top = y + "px";
+			}
+
+			box.onmousedown = function(e){
+				e = e || window.event;
+
+    	        var offsetLeft = e.offsetX ? e.offsetX : e.clientX - box.getBoundingClientRect().left;
+                var offsetTop = e.offsetY ? e.offsetY : e.clientY - box.getBoundingClientRect().top;
+
+				document.onmousemove = function(evt){
+					evt = evt || window.event;
+
+					box.style.left = evt.clientX - offsetLeft + 'px';
+					box.style.top = evt.clientY - offsetTop + 'px';
+
+
+					// 阻止浏览器的默认行为
+					evt.preventDefault ? evt.preventDefault() : evt.retrunValue = false;
+				}
+				e.preventDefault();
+			}
+
+			box.onmouseup = function(){
+				document.onmousemove = null;
+
+				setCookie("x", box.offsetLeft, 10);
+				setCookie("y", box.offsetTop, 10);
+			}
+
+		}, false);
+	</script>
+</head>
+<body>
+	<div id="box"><img src="hg.jpg"></div>
+</body>
+</html>

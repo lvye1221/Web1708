@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>我的购物车</title>
+	</head>
+
+<script src="mycookie.js"> </script>
+
+	<script>
+
+// alert(product + ", " + price);
+
+// [{product:"\u516C\u4E3B\u9774\u5B50", price:"RMB138"}, {product:"\u8776\u5986\u6D77\u84DD\u6E05\u6EE2\u7C89\u5E95\u6DB210", price:"RMB85"}]
+// 如何将字符串 转换成 数组？
+
+/*
+var s = "1+1";
+
+// eval(s) 将字符串按照 JS 的语法，重新解释执行！ 
+alert( eval(s) );
+//*/
+
+var str = '[{product:"111", price:"RMB138"}, {product:"222", price:"RMB85"}]';
+
+
+// 将字符串重新执行，那么可以得到原来的数组
+//   因为可能存在安全问题
+//var arr = eval(str);
+
+// alert(arr.length)
+
+
+
+
+onload = function() {
+
+	
+
+
+	var oUl = document.getElementById("plist");
+
+	var str = getCookie("arr");
+
+	// var a = "[{}]"
+	// string
+	//alert(typeof str);
+
+	var arr = eval(str);
+
+	for (var i = 0; i < arr.length; i++)
+	{
+		// 创建一个商品
+		var oLi = document.createElement("li");
+
+		// 取出数组中元素，arr[i] 是一个对象,
+		//    再取出这个对象中的产品名 和 价格
+		oLi.innerHTML = arr[i].product + ", " + arr[i].price;
+
+		oUl.appendChild(oLi);
+	}
+
+
+
+	/*
+	// 从 cookie 中，取出添加的商品
+	var product = getCookie("product");
+
+	// 取出cookie中添加的商品价格
+	var price = getCookie("price");
+	
+		
+
+	var oUl = document.getElementById("plist");
+
+	// 创建一个商品
+	
+	var oLi = document.createElement("li");
+
+	oLi.innerHTML = product + ", " + price;
+
+	oUl.appendChild(oLi);
+
+	//*/
+}
+
+	</script>
+
+	<body>
+		<ul id="plist">
+		  
+		</ul>
+	</body>
+
+</html>
