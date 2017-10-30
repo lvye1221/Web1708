@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+ 
+ 
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+<script>
+
+// 分类数据
+
+// 请求url地址
+var url = "http://h6.duchengjiu.top/shop/api_cat.php";
+
+$.get(url, function(str) {
+	// 返回的结果 是 什么类型?
+	console.log(str);
+})
+</script>
+
+ </body>
+</html>
