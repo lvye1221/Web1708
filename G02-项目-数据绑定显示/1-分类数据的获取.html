@@ -17,11 +17,32 @@
 // 分类数据
 
 // 请求url地址
-var url = "http://h6.duchengjiu.top/shop/api_cat.php";
+var url = "http://h6.duchengjiu.top/shop/api_goods.php";
 
-$.get(url, function(str) {
+var data = {
+	page: 1,
+	pageSize: 10
+}
+
+$.get(url, data, function(str) {
 	// 返回的结果 是 什么类型? ==> 对象
 	console.log(str);
+
+	for (var i = 0; i < str.data.length; i++)
+	{
+		var item = str.data[i];
+
+		console.log(item.goods_id);
+
+		var url = "http://h6.duchengjiu.top/shop/api_goods.php";
+		var data = {
+			goods_id: item.goods_id
+		}
+		$.get(url, data, function(a) {
+			console.log(a);
+		})
+
+	}
 })
 </script>
 
