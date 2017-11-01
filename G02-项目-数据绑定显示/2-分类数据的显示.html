@@ -13,12 +13,6 @@
  
 <div class="nav">
 	<ul class="nav" id="nav">
-		<li class="nav-content nav-current"><a class="nav-con" href="#">首页</a></li>
-		<li class="nav-content"><a class="nav-con" href="#">商店</a></li>
-		<li class="nav-content"><a class="nav-con" href="#">杂志</a></li>
-		<li class="nav-content"><a class="nav-con" href="#">分享</a></li>
-		<li class="nav-content"><a class="nav-con" href="#">达人</a></li>
-		<li><a href="#"></a></li>
 	</ul>
 </div>
  
@@ -26,24 +20,27 @@
 <script>
 
 // 分类数据
-/*
+//*
 // 请求url地址
 var url = "http://h6.duchengjiu.top/shop/api_cat.php";
 
 $.get(url, function(obj) {
 	// 返回的结果 是 对象
 
+	// 数组
 	var arr = obj.data;
 
 	var h = ""
+	// 0 ~ 最后一个
 	for (var i = 0; i < arr.length; i++)
 	{
+		// 取出对象
 		var item = arr[i]
 
 		h += '<li class="nav-content">'
 		h += '<a class="nav-con" href="#">'
 
-		h += item.cat_name;
+		//h += item.cat_name;
 		
 		h += "</a>"
 		h += "</li>"
@@ -51,7 +48,7 @@ $.get(url, function(obj) {
 
 	$("#nav").html(h);
 })
-*/
+//*/
 
 </script>
 

@@ -27,14 +27,18 @@
 
 <!-- 定义模板 -->
 <script type="javascript/template" id="tp1">
-<% for (var i = 0; i < data.length; i++) { %>  
-	<% var item = data[i] %>  
-	<li class="nav-content">
-		<a class="nav-con" href="#">  
-			<%=item.cat_name%>
+
+<% for (var i = 0; i < data.length; i++) { %>
+
+	<li>
+		<a>
+
+	<%=data[i].cat_name%>
 		</a>
-	</li>  
-<% } %>  
+
+	</li>
+
+<% }%>
 </script>
 
 
@@ -48,8 +52,15 @@ var url = "http://h6.duchengjiu.top/shop/api_cat.php";
 $.get(url, function(obj) {
 	// 返回的结果 是 对象
 
+	// 1. 取出模板字符串
 	var ttt = $("#tp1").html();
+
+	// 2. 编译
+	//             {variable: 'data'} 说明模板里面的变量是 data
+	//             (obj.data) 说明传递的是 obj.data 是数据
 	var h = _.template(ttt, {variable: 'data'})(obj.data)
+
+	// 3. 设置到 html中
 	$("#nav").html(h);
 })
 //*/
