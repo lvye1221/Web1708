@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>1708答辩顺序</title>
+</head>
+<body>
+  <div style="text-align: center; font-size: 30px;">
+
+	  <div style="height: 30px; margin-top: 50px;">
+	    <span> </span>
+	  </div>
+	  
+	  <input type="button" value="开始滚动">
+	  <input type="button" value="抽奖">
+  </div>
+
+
+  <script src="js/jquery-3.2.1.js" charset="utf-8"></script>
+  <script src="js/underscore-min.js" charset="utf-8"></script>
+
+  <script>
+    var arr = [
+		"肖配银", 
+		"张家衡", 
+		"王志玉", 
+		"杨赛舟", 
+		"邱帅", 
+		"王伟", 
+		"张朋涛", 
+		"郝泉宇", 
+		"杨永明", 
+		"黄祥和", 
+		"边江伟", 
+		"胡丽鸽", 
+		"王童童", 
+		"刘思义"
+    ];
+
+    $('input:first').click(start);
+    $('input:last').click(stop);
+
+	function stop() {
+
+		clearInterval(timer);
+
+		//随机一个人
+		var person = chooseOne();
+		arr = _.without(arr, person);
+
+    }
+
+	var timer = null;
+	start();
+	function start() {
+		clearInterval(timer);
+		timer = setInterval(chooseOne, 100);
+	}	
+
+
+	function chooseOne() {
+
+		//随机一个人
+		var person = _.sample(arr);//随机挑选一个样本
+
+		$('span').html(person);
+
+		return person;
+	}
+
+  </script>
+</body>
+</html>

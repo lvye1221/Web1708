@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+<script src="js/jquery-3.2.1.js"></script>
+<script src="js/jquery.cookie.js"></script>
+<script>
+	
+	// 地址
+	var url = "http://h6.duchengjiu.top/shop/api_user.php";
+	
+	// 数据
+	var data = {
+		status: "login",  // 登陆
+		username: "zhangsan1112", // 用户名
+		password: "123456"
+	}
+	
+	// ajax 请求
+	$.post(url, data, function(obj) {
+		console.log(obj);
+		
+		// 为了能让另外一个页面得到 token, 思路： 采用cookie保存
+		$.cookie("token", obj.data.token)
+		
+		// 跳转 3-购物车.html
+		window.location.href = "3-购物车.html"
+		
+	})
+	
+</script>
+
+</html>

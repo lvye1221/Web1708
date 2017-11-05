@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		购物车
+
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+<script src="js/jquery.cookie.js"></script>
+<script>
+	// 需要在购物车  得到   token， 因为你要发送token给服务器
+	var token = $.cookie("token");
+	
+//	console.log(token);
+	// 地址
+	var url = "http://h6.duchengjiu.top/shop/api_cart.php?token="+token;
+	
+	// 数据
+	var data = {
+		goods_id: 252206,  
+		number: 2
+	}
+	
+	$.ajax({
+		type: "post",
+		url: url,
+		data: data,
+		success: function( str) {
+			console.log(str);
+		},
+		async:true
+	});
+
+</script>
+		
+	</body>
+</html>

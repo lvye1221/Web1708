@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	
+	<script>
+// 详情页需要得到 goodId
+//  一般思路： 通过地址栏传递数据
+
+//    获取地址栏的数据
+	
+	console.log( location.search );
+	
+	// 保存数据  ?a=1&b=2
+	var str = location.search;
+	
+	// 1. 去掉?
+	str = str.slice(1);
+	
+	// 2. = 分隔
+	var arr = str.split("=")
+	
+	console.log(arr[1]);
+	
+	
+	</script>
+</html>
