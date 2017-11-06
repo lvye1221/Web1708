@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul {
+				list-style: none;
+			}
+			
+			li {
+				width: 60px;
+				height: 20px;
+				background: gray;
+				float: left;
+				margin: 5px;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		
+		<div class="audio">
+			<audio src="mp3/1.mp3"></audio>
+			<audio src="mp3/2.mp3"></audio>
+			<audio src="mp3/3.mp3"></audio>
+			<audio src="mp3/4.mp3"></audio>
+			<audio src="mp3/5.mp3"></audio>
+			<audio src="mp3/6.mp3"></audio>
+			<audio src="mp3/7.mp3"></audio>
+		</div>
+
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+<script>
+// 思路：
+//  1. 给整个页面绑定键盘按下事件
+//  2. 获取对应音乐下标
+//  3. 播放对应下标的音乐
+
+$(document).keydown(function(e) {
+	
+	// 得到对应下标
+	var i = e.keyCode - 49;
+	
+	// 【注意】 get 得到的是原生js对象
+	var a = $("audio").get(i)
+	
+	a.load();
+	a.play();
+	
+})
+
+	
+</script>
+		
+	</body>
+</html>

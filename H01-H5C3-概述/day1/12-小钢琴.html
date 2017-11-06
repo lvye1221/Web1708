@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul {
+				list-style: none;
+			}
+			
+			li {
+				width: 60px;
+				height: 20px;
+				background: gray;
+				float: left;
+				margin: 5px;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		
+		<div class="audio">
+			<audio src="mp3/1.mp3"></audio>
+			<audio src="mp3/2.mp3"></audio>
+			<audio src="mp3/3.mp3"></audio>
+			<audio src="mp3/4.mp3"></audio>
+			<audio src="mp3/5.mp3"></audio>
+			<audio src="mp3/6.mp3"></audio>
+			<audio src="mp3/7.mp3"></audio>
+		</div>
+
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+<script>
+// 思路：
+//  1. 给所有 li 绑定鼠标移入事件
+//  2. 获取移入的下标
+//  3. 播放对应下标的音乐
+$("li").mouseover(function() {
+	// 获取移入的下标
+	var i = $(this).index();
+	
+	// 下标为 i 的音频对象(jQuery对象) ==> 原生对象
+	//   $("audio").eq(i)  			下标为i的jQuery对象
+	//   $("audio").eq(i).get(0)    将 jQuery对象  转换成 js原生对象
+	//                                0 代表下标为0的元素
+	//    get 方式获取js元素对象， 参数就是对应的下标
+	var a = $("audio").get(i)
+	
+	// document.getElementsByTagName("audio")[i]
+	
+	// 重新载入音频
+	a.load();
+	
+	// 播放音乐
+	a.play();
+})
+	
+</script>
+		
+	</body>
+</html>

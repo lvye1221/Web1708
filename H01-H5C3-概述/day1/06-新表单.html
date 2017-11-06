@@ -7,8 +7,12 @@
   <title>Document</title>
 </head>
 <body>
-  <form action="" id="form"></form>
-  <input type="text" name="username" form="form">
+	
+	<!--action="" 将数据提交给服务器的-->
+  <form action="" type="GET" id="form"></form>
+  
+  <!-- form="form" 指定是哪个表单-->
+  <input type="text" name="u" form="form">
   <input type="submit" value="提交" form="form">
 
   <form action="">
@@ -16,20 +20,34 @@
     <!-- <number min="1" max="123" step="1"> -->
     邮箱：<input type="email" >
     主页：<input type="url">
+    
+    <!-- pattern 代表验证规则： 正则表达式 -->
     电话：<input type="tel" pattern="^\d{11}$">
     搜索：<input type="search" autofocus>
+    <!-- color 调色板-->
     颜色：<input type="color">
+    
     日期：<input type="date">
     范围：<input type="range" min="10" max="30"> <span id="range">0</span>
+    
+  <!-- list="school" 代表使用 id为school 数据-->  
     校区：<input type="text" list="school">
+    
+    <!-- 提供数据的 -->
     <datalist id="school">
       <option value="北京">北京</option>
       <option value="1">武汉</option>
       <option value="2">西安</option>
       <option value="3">长沙</option>
     </datalist>
+    
+    <!-- 移动端用得比较多 -->
     <a href="tel:18518368050">给Maxwell去电</a>
+    
+    <!-- 空链接 -->
     <a href="javascript:;"></a>
+    
+    <!-- 发邮件，弹出邮件发送框，默认地址 dcj3sjt@126.com-->
     <a href="mailto:dcj3sjt@126.com"></a>
     <input type="submit">
   </form>

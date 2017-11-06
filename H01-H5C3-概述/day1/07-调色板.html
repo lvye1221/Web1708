@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+
+
+
+颜色：<input type="color" value="#ff0000">
+
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+<script>
+/*
+ 思路： 
+ 1. change事件
+ 2. 获取颜色值
+ 3. 给body设置成对应的颜色值即可
+ */
+
+$("input:eq(1)").change(function() {
+	var str = $(this).val();
+	
+	$("body").css("background", str);
+})
+
+	
+</script>
+		
+		
+		
+		
+	</body>
+</html>

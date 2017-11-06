@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul {
+				list-style: none;
+			}
+			
+			li {
+				width: 60px;
+				height: 20px;
+				background: gray;
+				float: left;
+				margin: 5px;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+		
+		<div class="audio">
+			<audio src="mp3/1.mp3"></audio>
+			<audio src="mp3/2.mp3"></audio>
+			<audio src="mp3/3.mp3"></audio>
+			<audio src="mp3/4.mp3"></audio>
+			<audio src="mp3/5.mp3"></audio>
+			<audio src="mp3/6.mp3"></audio>
+			<audio src="mp3/7.mp3"></audio>
+		</div>
+		
+		<button id="btn3"> 播放录制的音乐 </button>
+
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+<script>
+
+$("#btn3").click(function() {
+	var str = localStorage.getItem("qp");
+	var arr = JSON.parse(str);
+	
+	console.log(str)
+	
+	var i = 0;
+	var t = setInterval(function() {
+		
+		if (i >= arr.length) {
+			clearInterval(t)
+			return ;
+		}
+		
+		// arr[i] 是保存的下标
+		var a = $("audio").get(arr[i])
+		
+		a.load();
+		a.play();
+		
+		i++;
+	}, 500)
+	
+	// 延时器，只执行一次
+//	setTimeout
+//underscore
+//_.now();
+})
+
+
+
+
+
+
+
+
+
+
+// 思路：
+//  1. 给整个页面绑定键盘按下事件
+//  2. 获取对应音乐下标
+//  3. 播放对应下标的音乐
+
+
+
+// 因为存在很多按键，所以用数组来保存
+var arr = [];
+
+
+$(document).keydown(function(e) {
+	
+	// 得到对应下标
+	var i = e.keyCode - 49;
+	
+	// 保存按键
+	arr.push(i);
+	
+	// 数组转字符串
+	var s = JSON.stringify(arr);
+	// 保存 localStorage
+	localStorage.setItem("qp", s)
+	
+	// 【注意】 get 得到的是原生js对象
+	var a = $("audio").get(i)
+	
+	a.load();
+	a.play();
+	
+})
+
+	
+</script>
+		
+	</body>
+</html>

@@ -36,3 +36,12 @@ str  --> json 对象
 ## JSON.parse
 ## eval()
 系统提供的函数，作用是 以js的方式执行字符串
+
+
+# 作业
+
+1. GitHub中新建 H5C3 项目
+2. 用 header、footer 标签来制作网页框架图
+3. 重写小钢琴案例
+
+明天检查github

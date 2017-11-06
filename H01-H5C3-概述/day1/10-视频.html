@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<!-- video H5才有的， H4不能这样用的
+			
+			autoplay 自动播放 , 系统认为有此属性就会自动播放
+			controls 是否出现控制条
+			width    设置视频的宽度
+			height    设置视频的高度
+		-->
+		<video src="video/trailer.mp4" 
+			autoplay
+			controls="true"
+			width="300px"
+			id="video"
+			></video>
+			
+		<button id="btn1">暂停</button>
+		<button id="btn2">播放</button>
+
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+<script>
+// 可以通过js来操作	
+
+// 休息20分钟，15:55 继续
+
+
+var oVideo = document.getElementById("video");
+// 重新加载
+//	oVideo.load();
+
+oVideo.muted = false;
+
+
+var oBtn1 = document.getElementById("btn1");
+
+oBtn1.onclick = function() {
+	// 暂停视频
+	$("#video").get(0).pause();
+}
+
+var oBtn2 = document.getElementById("btn2");
+oBtn2.onclick = function() {
+
+	// 播放视频
+	oVideo.play();
+}
+
+
+</script>
+
+
+	</body>
+</html>

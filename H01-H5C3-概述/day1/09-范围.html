@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<input type="range" min="0" max="10" >
+		<span id="text"></span>
+		
+		<!-- 放图片的 -->
+		<figure>
+			<img src="img/1.jpg" />
+		</figure>
+		
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+<script>
+
+	// input 有多个
+	//    input:eq(0) 下标为0的input
+	//    input:eq(1) 下标为1的input
+	// :eq(0)  代表下标为0的元素
+	$("input:eq(0)").change(function() {
+		var i = $(this).val();
+		$("#text").html(  i );
+		
+		$("img").css({
+			"width": i*100
+		})
+	})
+</script>
+
+	</body>
+</html>
