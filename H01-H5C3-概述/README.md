@@ -13,4 +13,26 @@ XMind
 
 【练习】 建1个脑图
 
-9:20 对对
+## 相对路径
+
+img/1.jpg
+
+<img src="img/1.jpg" />
+
+这个地址连接的是本地的图片
+
+## 绝对路径
+
+<img src="http://www.baidu.com/logo.png" />
+这个地址连接的是网络的图片
+
+本地有没有都没有关系
+
+
+# 字符串与 JSON的转换
+
+str  --> json 对象
+
+## JSON.parse
+## eval()
+系统提供的函数，作用是 以js的方式执行字符串

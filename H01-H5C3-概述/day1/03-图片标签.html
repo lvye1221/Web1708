@@ -7,13 +7,21 @@
 	</head>
 	<body>
 		
-		<!-- figure 整个图片-->
+		<!-- figure 整个图片
+			
+			
+		-->
 		<figure>
 			<img src="img/1.jpg"  />
 			<figcaption>机关枪</figcaption>		
 		</figure>
 
-<!-- ajax 加载图片 -->
+
+<!-- ajax 加载图片
+	
+休息20分钟，10:50 继续	
+	
+-->
 
 <script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
 
@@ -24,7 +32,13 @@ var url = "http://localhost:8080/ajax/pbl";
 $.get(url, function(str) {
 	
 	// 对象
-	var obj = JSON.parse(str);
+	// var obj = JSON.parse(str);     // 1. IE8及以上才可以用这个。 推荐！   安全性更高
+	var obj = eval("(" + str + ")");  // 2. 全部都支持，支持IE6\7  不推荐，因为存在漏洞
+	
+	// 字符串 ==> JS对象：  JSON.parse, eval
+	// JS对象 ==> 字符串
+	//      a + ""
+	//      JSON.stringify(obj)
 	
 	var arr = obj.data;
 	

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+
+<script>
+/*
+// 1+2+3 +..+ 100
+
+var str = "";
+
+for (var i = 1; i <= 100; i++) {
+	str += i;
+	if (i < 100) {
+		str += "+";
+	}
+}
+
+console.log( str );
+console.log( eval(str) );
+
+
+// eval:  将字符串按照js的方式来执行
+// console.log( eval(str) );
+*/
+
+
+//var str = "[200,2]"
+//
+//var arr = eval(str);
+//
+//console.log(arr[0]);
+
+//var str = "{a:1}"
+//
+//var obj = eval(str);
+//
+// 1. undefined
+// 2. 1   
+//console.log(obj.a);
+
+//var str = "([1,2,3])"
+////var str = "({a:1})"
+//
+//var obj = eval(str);
+//
+//console.log(obj[1]);
+
+
+//【结论】 为了统一所有情况，一般在 eval 解析的字符串两端都用 （） 包裹起来
+
+// s1 是 ajax 返回的字符串数据
+//var s1 = "1+1";
+//
+//var str = "("  +   s1 +    ")"
+//
+//var obj = eval(str);
+//
+//console.log(obj);
+
+
+var s1 = "1+1";
+
+var obj = eval("("  +   s1 +    ")");
+
+console.log(obj);
+
+
+</script>
+		
+	</body>
+</html>
