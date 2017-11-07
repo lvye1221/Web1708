@@ -8,24 +8,11 @@
 			
 			/* 舞台 */
 			.stage {
+				width: 258px;
+				height: 258px;
 				perspective: 600px;
 				margin: 200px;
 			}
-			
-			/* 旋转整个方块 */
-			.unit {
-				position: relative;
-				
-				/* 整体移动 */
-				transform-style: preserve-3d;
-								
-				transition: all 5s ease 0s;
-			}
-			
-			.stage:hover .unit {
-				transform: rotateX(-90deg);
-			}
-			
 			
 			.unit img {
 				position: absolute;
@@ -36,15 +23,26 @@
 			/* baby */
 			.unit img:nth-child(2) {
 				/* 旋转到方块顶部  */
-				/*transform-origin: left top;*/
-				transform: rotateX(90deg) translateY(129px);
+				transform: rotateX(90deg) translateZ(129px);
 			}
 			
 			/* xiaoming */
 			.unit img:nth-child(1) {
+				z-index: 2;
 				transform: translateZ(129px);
 			}
-		
+			
+			/* 旋转整个方块 */
+			.unit {
+				/* 整体移动 */
+				transform-style: preserve-3d;
+				transform: rotateX(0deg);
+				transition: all 5s ease 0s;
+			}
+			
+			.stage:hover .unit {
+				transform: rotateX(-90deg);
+			}
 			
 		</style>
 		
@@ -53,17 +51,12 @@
 		
 		<!-- 舞台-->
 		<div class="stage">
-			
 			<!-- 整体-->
 			<div class="unit">
-				
-				<img src="img/xiaoming.png" />
-				<img src="img/baby.png"  />
-				
+				<img src="img/xiaoming.png" class="xiaoming"/>
+				<img src="img/baby.png" class="baby"/>
 			</div>
-			
 		</div>
-		
 		
 	</body>
 </html>
