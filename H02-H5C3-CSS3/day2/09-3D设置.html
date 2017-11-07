@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			/* 舞台 */
+			div {
+				width: 258px;
+				height: 258px;
+				border: 1px solid black;
+				
+				/* 眼睛到盒子div之间的距离， 相当于是 z轴*/
+				perspective: 500px;
+			}
+			
+			div img {
+				transform: rotateY(45deg);
+				transition: all 2s ease 0s; 
+			}
+
+			div:hover img {
+				transform: none;
+			}
+			
+			/*
+			 【练习】 练习3D透视，14:48对对
+			 * */
+			
+		</style>
+		
+	</head>
+	<body>
+		
+		
+		<div>
+			<img src="img/baby.png" />
+		</div>
+		
+	</body>
+</html>

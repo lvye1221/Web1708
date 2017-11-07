@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			div {
+				width: 258px;
+				height: 258px;
+				border: 1px solid black;
+				
+				/* 眼睛到盒子div之间的距离， 相当于是 z周*/
+				perspective: 500px;
+			}
+			
+			div img {
+				position: absolute;
+				left: 0;
+				top: 0;
+				
+				/* 设置旋转的背面不显示*/
+				backface-visibility: hidden;
+				
+				transform: rotateY(0deg);
+				transition: all 5s ease 0s; 
+			}
+			
+			/* 第1张  0deg -> 180deg */
+			div:hover img:nth-child(1) {
+				transform: rotateY(180deg);
+			}
+			
+			
+			div img:nth-child(2) {
+				transform: rotateY(-180deg);
+			}
+			
+			/* 第2张  -180deg -> 0deg */
+			div:hover img:nth-child(2) {
+				transform: rotateY(0deg);
+			}
+		</style>
+		
+	</head>
+	<body>
+		
+		<div>
+			<img src="img/baby.png" />
+			<img src="img/xiaoming.png" />
+		</div>
+		
+	</body>
+</html>

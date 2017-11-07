@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			div {
+				width: 258px;
+				height: 258px;
+				border: 1px solid black;
+				
+				/* 眼睛到盒子div之间的距离， 相当于是 z周*/
+				perspective: 500px;
+			}
+			
+			div img {
+				position: absolute;
+				left: 0;
+				top: 0;
+				
+				/* 设置旋转的背面不显示*/
+				backface-visibility: hidden;
+				
+				transform: rotateY(0deg);
+				transition: all 2s ease 0s; 
+			}
+			
+			div:hover img {
+				transform: rotateY(180deg);
+			}
+		</style>
+		
+	</head>
+	<body>
+		
+		<div>
+			<img src="img/xiaoming.png" />
+		</div>
+		
+	</body>
+</html>

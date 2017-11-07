@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			
+			img {
+				/* skew 斜切 */
+				/*transform: skew(45deg, 30deg);*/
+				/*transform: skewX(45deg) skewY(30deg);*/
+				
+				/*图片变形：
+				 		放大缩小   scale
+				 		旋转		 rotate
+				 		斜切          skew
+				 * */
+				
+				transform: scale(0.1) rotate(180deg) skew(45deg,30deg);
+				
+				transition: all 5s ease 0s;
+			}
+			
+			img:hover {
+				/* 清空变形 */
+				transform: none;
+			}
+		</style>
+		
+	</head>
+	<body>
+		
+		<img src="img/erha.jpg" />
+	</body>
+</html>

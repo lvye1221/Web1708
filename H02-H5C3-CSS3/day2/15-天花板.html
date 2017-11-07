@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			
+			/* 舞台 */
+			.stage {
+				perspective: 600px;
+				margin: 200px;
+			}
+			
+			/* 旋转整个方块 */
+			.unit {
+				position: relative;
+				
+				/* 整体移动 */
+				transform-style: preserve-3d;
+								
+				transition: all 5s ease 0s;
+			}
+			
+			.stage:hover .unit {
+				transform: rotateX(-90deg);
+			}
+			
+			
+			.unit img {
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			/* baby */
+			.unit img:nth-child(2) {
+				/* 旋转到方块顶部  */
+				/*transform-origin: left top;*/
+				transform: rotateX(90deg) translateY(129px);
+			}
+			
+			/* xiaoming */
+			.unit img:nth-child(1) {
+				transform: translateZ(129px);
+			}
+		
+			
+		</style>
+		
+	</head>
+	<body>
+		
+		<!-- 舞台-->
+		<div class="stage">
+			
+			<!-- 整体-->
+			<div class="unit">
+				
+				<img src="img/xiaoming.png" />
+				<img src="img/baby.png"  />
+				
+			</div>
+			
+		</div>
+		
+		
+	</body>
+</html>

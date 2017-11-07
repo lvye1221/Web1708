@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	
+		<style>
+			
+			div {
+				width: 256px;
+				height: 256px;
+				border: 1px solid black;
+				perspective: 400px;
+				margin: 200px;
+			}
+			div img {
+				transition: all 5s ease 0s;
+			}
+			
+			div:hover img {
+				/* translateZ 代表在 z 轴方向移动*/
+				/*transform: translateZ(100px) rotateY(360deg);*/
+				
+				
+				transform: scale(1.2) rotateY(360deg);
+			}
+			
+			
+		</style>
+		
+		
+	</head>
+	<body>
+		
+		<div>		
+			<img src="img/xiaoming.png" />
+		</div>
+
+	</body>
+</html>
