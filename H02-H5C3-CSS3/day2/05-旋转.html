@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			
+			img {
+				/* rotate 旋转
+				   90deg  代表旋转90度， 顺时针旋转
+				   -90deg     逆时针旋转
+				 * */
+				/*transform: rotate(0deg);*/
+				transition: all 5s ease 0s;
+				
+				/* IE6 不认识 transition，写在这没关系，不认识的会忽略不计*/
+				
+				/* 不认识的属性名 会自动忽略*/
+				xxxxxx: 1;
+			}
+			
+			img:hover {
+				transform: rotate(720deg);
+			}
+		</style>
+		
+	</head>
+	<body>
+		
+		<img src="img/erha.jpg" />
+		
+	</body>
+</html>

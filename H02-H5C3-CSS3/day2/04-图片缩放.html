@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			
+			img[src] {
+				
+				/* transform  代表变形
+				 		scale    缩放
+				 				x轴缩放   y缩放  比例
+				 * */
+				/*transform: scale(0.3, 1);*/
+				
+				transform: scaleX(0.3) scaleY(0.5);
+				
+				/* 动画变化规则
+				 		要变化的属性  动画时间  动画变化规则  动画多久开始后执行
+				 * */
+				transition: all 1s ease 0.1s;
+			}
+			
+			img.cur {
+				transform: scale(1,1);
+			}
+			
+			img:hover {
+				transform: scale(1,1);
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		
+		<img src="img/baby.png" />
+		
+		<button id="btn"> 变大大~</button>
+		
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>	
+<script>
+
+$("#btn").click(function() {
+	//  问题： 点击的时候实现 hover 的效果
+	// 思路
+	//   1. 改变css属性值
+	//  思路2：
+	//    1. 给img添加样式
+	$("img").addClass("cur");
+})
+	
+</script>
+		
+	</body>
+</html>

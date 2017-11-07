@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width: 200px;
+				height: 200px;
+				border: 1px solid black;
+			}
+			
+			/* [] 是CSS3新增的功能
+			 div[title] 所有div中具有title属性的元素
+			 div[title=kaikai] 所有div中具有title为kaikai的元素
+			 
+			 * */
+			div[title^="zh"] {
+				background: red;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div title="haitao">haitao</div>
+		<div title="kaikai">kaikai</div>
+		<div title="zhxiaoshi ab">xiaoshi</div>
+		<div title="zh-angxue">zhangxue</div>
+		<div class="zhangxue">zhangxue</div>
+	</body>
+</html>

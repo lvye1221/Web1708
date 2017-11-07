@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>抽奖</title>
+		
+		<style>
+
+h3 {
+    text-align: center;
+    font-size: 30px;
+}
+
+/* 抽奖盘盒子 */
+.lottery-box { 
+	position: relative;
+	width: 500px;
+    margin: 0 auto;
+}
+
+/* 抽奖盘转盘 */
+.plate { 
+	width: 500px; 
+	height: 500px; 
+	background: url(img/plate.png) no-repeat;
+	
+	/*设置图片的旋转中心位置*/
+	/*transform-origin: 50% 50%;*/
+	/*默认的旋转角度*/
+	transform: rotate(0deg);
+	
+	transition: all 3s ease 0s;
+}
+
+/* 抽奖盘指针 */
+.hand { 
+	width: 500px; 
+	height: 500px; 
+	background:url(img/hand.png) no-repeat; 
+	
+	/*设置绝对定位，使得转盘和指针可以叠在一起*/
+	position:absolute; 
+	top: 0px; 
+	left: 0px;
+}
+		</style>
+		
+	</head>
+	<body>
+
+	    <h3> 幸运大抽奖！ Go, Go, Go! </h3>
+		
+		<div class="lottery-box">
+			<div class="plate" id="plate"></div>
+			<div class="hand" id="hand"></div>
+		</div>
+		
+	</body>
+	
+	
+<script type="text/javascript" src="js/jquery-3.2.1.js" ></script>
+
+<script>
+
+// 点击手的时候
+$("#hand").click(function() {
+	
+	// [1,8]
+	var a = parseInt(Math.random() * 8) + 1; // 奖项
+	
+	a--;
+	
+	var d = 360 - a*45; //角度
+	
+	var n = parseInt(Math.random() * 8)
+	
+	d += 360 * n;  // 多转几圈
+	
+	$("#plate").css({
+		"transform": "rotate(" + d +"deg)"
+	})
+})
+	
+</script>
+
+	
+</html>
