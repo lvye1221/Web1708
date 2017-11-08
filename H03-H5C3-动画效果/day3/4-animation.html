@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		
+		<style>
+			
+			div {
+				width: 100px;
+				height: 100px;
+				background: red;
+				
+				/* 圆球*/
+				border-radius: 50%;
+				
+				position: absolute;
+				left: 300px;
+				top: 200px;
+				
+				animation: run 1s ease 0s infinite alternate forwards;
+			}
+			
+			@-webkit-keyframes run{
+				from{
+					left: 300px;
+				}
+				to{
+					left: 800px;
+				}
+			}
+			
+		</style>
+		
+		<div id="box"></div>
+	
+	</body>
+</html>

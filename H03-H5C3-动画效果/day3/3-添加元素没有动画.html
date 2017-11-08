@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+				background: red;
+				
+				transition: all 5s;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		
+		<div></div>
+		
+<script src="js/jquery-3.2.1.js"></script>		
+
+<script>
+
+// 让更新位置 隔一段时间在执行
+setTimeout(function() {
+	$("div").css("width", "500px");
+}, 1)
+	
+</script>
+
+		
+	</body>
+</html>

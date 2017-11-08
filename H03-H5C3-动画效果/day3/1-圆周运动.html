@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+	</head>
+	<body>
+		
+		<style>
+			
+			div {
+				width: 100px;
+				height: 100px;
+				background: red;
+				
+				/* 圆球*/
+				border-radius: 50%;
+				
+				position: absolute;
+				left: 300px;
+				top: 200px;
+			}
+			
+		</style>
+		
+		<div id="box"></div>
+		
+
+<script>
+	
+	
+	// Math.sin 数学公式， 其实就是1个函数，要求传递 的数值，用 PI 表示
+	//                         180 ==》 PI   90 ==》 PI/2   360 ==》 2*PI
+	//                    Math.PI
+	
+// 写一个函数： 作用是将 角度 转换成 弧度
+function zh(a) {
+	return  Math.PI * a / 180;
+}
+
+// 圆弧运动
+//  1. 半径
+//  2. 定时器： 角度 0 --> 360 变化
+
+var r = 200;
+var d = 0;  // 角度
+
+
+// 获取物体
+var oBox = document.getElementById("box");
+var t = setInterval(function() {
+	
+	// 转完一圈终止
+	if (d >= 360) {
+		clearInterval(t);
+	}
+	
+	// 计算圆周的坐标
+//	var x = r * Math.cos(zh(d)) + 300;
+//	var y = r * Math.sin(zh(d)) + 200;
+	var x = r * Math.cos(zh(d));
+	var y = r * Math.sin(zh(d));
+	
+	// 减去物体的宽高
+	x -= 50;
+	y -= 50;
+	
+	oBox.style.left = x + "px";
+	oBox.style.top = y + "px";
+	
+	// 角度增加
+	d += 10;
+}, 100);
+
+// 【练习】 实现圆周运动 11:30 对对
+
+
+// 测3遍
+//console.log( zh(360) )
+//console.log( zh(180) )
+//console.log( zh(90) )
+
+
+//	180     Math.Pi
+//	a       Math.Pi * a / 180
+//	90      Math.Pi * 90 / 180  ===> Math.Pi / 2
+//	360     Math.Pi * 360 / 180 ===> Math.Pi * 2	
+	
+</script>
+		
+	</body>
+</html>
