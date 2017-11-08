@@ -13,6 +13,35 @@
 	text-align: center;
 }
 
+.first .text img {
+	margin: 0 15px;
+	opacity: 0;
+	
+	/* 动画变化的设置 */
+	transition: all 3s;
+	
+	/*animation: a1 3s forwards;*/
+}
+
+/* current 单独增加的动画样式 */
+.section.current .text img {
+	margin: 0;
+	opacity: 1;
+}
+
+
+@-webkit-keyframes a1{
+	from{
+		margin: 0 15px;
+		opacity: 0;
+	}
+	to{
+		margin: 0;
+		opacity: 1;
+	}
+}
+
+
 .first .info {
 	width: 772px;
 	height: 49px;

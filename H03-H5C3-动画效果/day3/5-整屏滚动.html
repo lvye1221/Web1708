@@ -54,7 +54,20 @@
 		
 		$('.fullpage').fullpage({
 			// 设置背景色
-			sectionsColor : ['#0da5d6', '#2AB561', '#DE8910', '#16BA9D', '#0DA5D6']
+			sectionsColor : ['#0da5d6', '#2AB561', '#DE8910', '#16BA9D', '#0DA5D6'],
+			afterLoad: function (anchorLink, index) {
+				// console.log("滚动了"  + index);
+				
+				// 1. 先把所有的 section 移除 current 样式
+				$(".section").removeClass("current");
+				
+				// 2. 给当前页面添加 current样式
+				//      由于index是从1开始编号的，所以这里减去1
+				setTimeout(function() {
+					$(".section").eq(index-1).addClass("current");
+				}, 100);
+				
+			}
 		});
 		
 	</script>
