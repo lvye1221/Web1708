@@ -4,39 +4,47 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<style type="text/css">
-			.stage{
-				width: 258px;
-				height: 258px;
-				margin: 100px;
-				perspective: 1500px;
-			}
-			.unit{
-				width: 258px;
-				height: 258px;
-				position: relative;
-			}
-			.unit img{
-				position: absolute;
-				top: 0;
-				left: 0;
-			}
-			.unit img.baby{
-				/*baby到天花板上去*/
-				transform: rotateX(90deg) translateZ(129px);
-			}
-			.unit img.xiaoming{
-				z-index: 2;
-				transform: translateZ(129px);
-			}
-			.unit{
-				/*当一个组合体自己要进行旋转的时候,一定要加上这个属性*/
-				transform-style: preserve-3d;
-				transform: rotateX(0deg);
-				transition: all 5s ease 0s;
-			}
-			.stage:hover .unit{
-				transform: rotateX(-90deg);
-			}
+		
+		/* 1. 定义3D 景深 */
+		.stage {
+			perspective: 1000px;
+			
+			margin: 200px;
+			
+			position: relative;
+		}
+		
+		/* 2. 让图片叠在一起 */
+		.unit img {
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+		
+		/*3. 让前面的图片 旋转 90度*/
+		.unit img.baby {
+			transform: rotateX(90deg) translateZ(129px);
+		}
+		
+		/* 往前挪动， 因为是靠近眼睛，所以平移z轴*/
+		.unit img.xiaoming {
+			transform: translateZ(129px);
+		}
+		
+		/* 4. 旋转整个方块 */
+		.unit {
+			
+			/* 将2张图片作为整体的设定 */
+			transform-style: preserve-3d;
+			
+			transition: all 5s;
+		}
+		
+		/* 旋转*/
+		.stage:hover .unit {
+			transform: rotateX(-90deg);
+		}
+		
 		</style>
 	</head>
 	<body>
